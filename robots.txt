@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://film-archive-3be.pages.dev/sitemap.xml
