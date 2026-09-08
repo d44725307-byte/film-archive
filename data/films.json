@@ -1,0 +1,1429 @@
+{
+  "version": "0.1.0",
+  "updated": "2026-09-05",
+  "category": "黑白胶卷",
+  "note": "参数为可公开核实的规格；特性/场景为初稿，需作者校订；价格为2026年国内(135/120单卷)参考区间，仅供参考、待作者核准。",
+  "films": [
+    {
+      "id": "kodak-tri-x-400",
+      "brand": "Kodak",
+      "brand_cn": "柯达",
+      "name_en": "Tri-X 400",
+      "name_cn": "崔 X 400",
+      "iso": 400,
+      "formats": [
+        "35mm",
+        "120",
+        "4x5"
+      ],
+      "category": "traditional",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "黑白界最经典的万能卷。宽容度极大、颗粒扎实、反差温暖，被称作‘黑泽明都爱用的稳卷’，街头/纪实/人像皆宜，也适合迫冲。",
+      "scenes": [
+        "street",
+        "portrait",
+        "documentary",
+        "low-light",
+        "push"
+      ],
+      "notes": "",
+      "character_en": "The most classic all-round black-and-white film. Huge latitude, solid grain, warm contrast - a dependable classic for street, documentary and portrait, and it pushes beautifully.",
+      "price_new": {
+        "120": "约¥100–135",
+        "135": "约¥85–105"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "kodak-tmax-100",
+      "brand": "Kodak",
+      "brand_cn": "柯达",
+      "name_en": "T-Max 100 (TMX)",
+      "name_cn": "T-Max 100",
+      "iso": 100,
+      "formats": [
+        "35mm",
+        "120",
+        "4x5"
+      ],
+      "category": "tabular",
+      "type": "panchromatic",
+      "grain": "fine",
+      "status": "in-production",
+      "character": "柯达 T 颗粒技术代表作，超细腻、高锐度、影调层次极佳，黑白中间调非常漂亮，适合风光/静物/大画幅。",
+      "scenes": [
+        "landscape",
+        "product",
+        "large-format",
+        "fine-art"
+      ],
+      "notes": "",
+      "character_en": "Kodak's T-Grain flagship. Ultra-fine grain, high acutance, superb tonal gradation, gorgeous mid-tones - ideal for landscape, still life and large format.",
+      "price_new": {
+        "120": "约¥105–145",
+        "135": "约¥90–110"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "kodak-tmax-400",
+      "brand": "Kodak",
+      "brand_cn": "柯达",
+      "name_en": "T-Max 400 (TMY)",
+      "name_cn": "T-Max 400",
+      "iso": 400,
+      "formats": [
+        "35mm",
+        "120",
+        "4x5"
+      ],
+      "category": "tabular",
+      "type": "panchromatic",
+      "grain": "fine",
+      "status": "in-production",
+      "character": "T 颗粒高速卷，颗粒细、反差大、可放心增感，夜拍/运动/现场都好用，追光党最爱。",
+      "scenes": [
+        "low-light",
+        "action",
+        "street",
+        "push"
+      ],
+      "notes": "",
+      "character_en": "Fast T-Grain film with fine grain and punchy contrast that takes pushing confidently. Great for night, action and events - a favorite among low-light shooters.",
+      "price_new": {
+        "120": "约¥105–145",
+        "135": "约¥90–110"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "kodak-tmax-p3200",
+      "brand": "Kodak",
+      "brand_cn": "柯达",
+      "name_en": "T-Max P3200 (TMZ)",
+      "name_cn": "T-Max P3200",
+      "iso": 3200,
+      "formats": [
+        "35mm",
+        "120"
+      ],
+      "category": "high-speed",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "超高速卷，标称 ISO 3200、实为‘可迫冲’设计，可 EI 1600–25600，暗光/室内/体育，颗粒感强但宽容度惊人。",
+      "scenes": [
+        "low-light",
+        "indoor",
+        "sports",
+        "push"
+      ],
+      "notes": "",
+      "character_en": "Ultra-high speed, nominally ISO 3200 but designed for pushing - use up to EI 25600. Grainy yet forgiving, for dim light, indoors and sports.",
+      "price_new": {
+        "120": "约¥110–150",
+        "135": "约¥95–115"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "kodak-double-x-5222",
+      "brand": "Kodak",
+      "brand_cn": "柯达",
+      "name_en": "Double-X 5222",
+      "name_cn": "Double-X 5222",
+      "iso": 250,
+      "formats": [
+        "35mm"
+      ],
+      "category": "cinema",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "经典电影黑白负片，灰阶充满‘老电影’质感、颗粒细腻、反差适中，街头人像都自带年代滤镜。",
+      "scenes": [
+        "cinematic",
+        "portrait",
+        "street"
+      ],
+      "notes": "",
+      "character_en": "A classic motion-picture negative. Cinematic grey scale, fine-ish grain, balanced contrast - street and portraits take on an instant vintage-film look.",
+      "price_new": {
+        "120": "约¥85–125",
+        "135": "约¥75–95"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "fuji-acros-2",
+      "brand": "Fujifilm",
+      "brand_cn": "富士",
+      "name_en": "Neopan 100 Acros II",
+      "name_cn": "Acros II",
+      "iso": 100,
+      "formats": [
+        "35mm",
+        "120"
+      ],
+      "category": "fine",
+      "type": "panchromatic",
+      "grain": "fine",
+      "status": "in-production",
+      "character": "富士最细腻的卷，几乎零颗粒、影调层次极柔、黑极纯，风光/静物/大画幅的梦中情卷（2020 年代复产）。",
+      "scenes": [
+        "landscape",
+        "product",
+        "fine-art",
+        "large-format"
+      ],
+      "notes": "",
+      "character_en": "Fujifilm's finest-grained film. Nearly grainless, silky tonal gradation, deep clean blacks - a dream for landscape, still life and large format.",
+      "price_new": {
+        "120": "约¥110–155",
+        "135": "约¥95–120"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "fuji-neopan-100",
+      "brand": "Fujifilm",
+      "brand_cn": "富士",
+      "name_en": "Neopan 100 (原版)",
+      "name_cn": "Neopan 100",
+      "iso": 100,
+      "formats": [
+        "35mm",
+        "120"
+      ],
+      "category": "traditional",
+      "type": "panchromatic",
+      "grain": "fine",
+      "status": "discontinued",
+      "character": "已停产经典，柔和细腻、过渡平滑，Acros 的前身。",
+      "scenes": [
+        "landscape",
+        "portrait"
+      ],
+      "notes": "",
+      "character_en": "Discontinued classic. Gentle and fine, with smooth transitions - the forerunner of Acros.",
+      "price_new": {
+        "120": "",
+        "135": ""
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "fuji-neopan-400",
+      "brand": "Fujifilm",
+      "brand_cn": "富士",
+      "name_en": "Neopan 400",
+      "name_cn": "Neopan 400",
+      "iso": 400,
+      "formats": [
+        "35mm",
+        "120"
+      ],
+      "category": "traditional",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "discontinued",
+      "character": "已停产，暖调、颗粒适中，街头人像口粮卷。",
+      "scenes": [
+        "street",
+        "portrait"
+      ],
+      "notes": "",
+      "character_en": "Discontinued. Warm tone, medium grain - a workhorse for street and portrait.",
+      "price_new": {
+        "120": "",
+        "135": ""
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "ilford-hp5-plus",
+      "brand": "Ilford",
+      "brand_cn": "伊尔福",
+      "name_en": "HP5 Plus",
+      "name_cn": "HP5 Plus",
+      "iso": 400,
+      "formats": [
+        "35mm",
+        "120",
+        "4x5"
+      ],
+      "category": "traditional",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "伊尔福旗舰全能卷，宽容度大、颗粒柔和、影调丰富，街头/纪实/人像万用，还能从容迫冲。",
+      "scenes": [
+        "street",
+        "portrait",
+        "documentary",
+        "push"
+      ],
+      "notes": "",
+      "character_en": "Ilford's flagship all-rounder. Wide latitude, soft grain, rich tonal range. Street, documentary and portrait, and it pushes with ease.",
+      "price_new": {
+        "120": "约¥80–115",
+        "135": "约¥70–90"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "ilford-fp4-plus",
+      "brand": "Ilford",
+      "brand_cn": "伊尔福",
+      "name_en": "FP4 Plus",
+      "name_cn": "FP4 Plus",
+      "iso": 125,
+      "formats": [
+        "35mm",
+        "120",
+        "4x5"
+      ],
+      "category": "traditional",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "经典中速卷，细腻温和、反差适中、灰阶含蓄，风光和人像都透着一股优雅。",
+      "scenes": [
+        "landscape",
+        "portrait",
+        "fine-art"
+      ],
+      "notes": "",
+      "character_en": "A classic mid-speed film. Fine, gentle, medium contrast with restrained greys - elegant for both landscape and portrait.",
+      "price_new": {
+        "120": "约¥80–115",
+        "135": "约¥70–90"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "ilford-delta-100",
+      "brand": "Ilford",
+      "brand_cn": "伊尔福",
+      "name_en": "Delta 100",
+      "name_cn": "Delta 100",
+      "iso": 100,
+      "formats": [
+        "35mm",
+        "120",
+        "4x5"
+      ],
+      "category": "tabular",
+      "type": "panchromatic",
+      "grain": "fine",
+      "status": "in-production",
+      "character": "伊尔福核壳技术，颗粒极细腻、影调纯净，专业得丝滑，风光/棚拍/翻拍皆宜。",
+      "scenes": [
+        "landscape",
+        "product",
+        "studio",
+        "fine-art"
+      ],
+      "notes": "",
+      "character_en": "Ilford's core-shell technology. Extremely fine grain, clean tones, silky professional gradation - for landscape, studio and copy work.",
+      "price_new": {
+        "120": "约¥90–130",
+        "135": "约¥80–100"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "ilford-delta-400",
+      "brand": "Ilford",
+      "brand_cn": "伊尔福",
+      "name_en": "Delta 400",
+      "name_cn": "Delta 400",
+      "iso": 400,
+      "formats": [
+        "35mm",
+        "120",
+        "4x5"
+      ],
+      "category": "tabular",
+      "type": "panchromatic",
+      "grain": "fine",
+      "status": "in-production",
+      "character": "高速细腻卷，暗部丰富、颗粒细、质感温和，夜拍/现场/活动好用。",
+      "scenes": [
+        "low-light",
+        "street",
+        "event"
+      ],
+      "notes": "",
+      "character_en": "Fast, fine-grained film. Rich shadows, fine grain, gentle texture - great for night, events and low light.",
+      "price_new": {
+        "120": "约¥90–130",
+        "135": "约¥80–100"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "ilford-delta-3200",
+      "brand": "Ilford",
+      "brand_cn": "伊尔福",
+      "name_en": "Delta 3200",
+      "name_cn": "Delta 3200",
+      "iso": 3200,
+      "formats": [
+        "35mm",
+        "120"
+      ],
+      "category": "high-speed",
+      "type": "panchromatic",
+      "grain": "coarse",
+      "status": "in-production",
+      "character": "超高速卷，EI 1600–3200 区间，暗光/室内/舞台，颗粒大但很有颗粒的氛围感。",
+      "scenes": [
+        "low-light",
+        "indoor",
+        "sports",
+        "push"
+      ],
+      "notes": "",
+      "character_en": "Ultra-high speed, around EI 1600-3200. For dark rooms and stages; coarse, atmospheric grain.",
+      "price_new": {
+        "120": "约¥110–155",
+        "135": "约¥95–120"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "ilford-pan-f-plus",
+      "brand": "Ilford",
+      "brand_cn": "伊尔福",
+      "name_en": "Pan F Plus",
+      "name_cn": "Pan F Plus",
+      "iso": 50,
+      "formats": [
+        "35mm",
+        "120"
+      ],
+      "category": "traditional",
+      "type": "panchromatic",
+      "grain": "fine",
+      "status": "in-production",
+      "character": "极细腻慢速卷，锐度高、影调硬朗有层次，适合顺光、风景、翻拍、慢拍的精致主题。",
+      "scenes": [
+        "landscape",
+        "product",
+        "copy",
+        "fine-art"
+      ],
+      "notes": "",
+      "character_en": "Extremely fine slow film. High acutance, crisp tonal scale - for controlled light, landscape, copy and deliberate fine work.",
+      "price_new": {
+        "120": "约¥100–135",
+        "135": "约¥85–105"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "ilford-xp2-super",
+      "brand": "Ilford",
+      "brand_cn": "伊尔福",
+      "name_en": "XP2 Super",
+      "name_cn": "XP2 Super",
+      "iso": 400,
+      "formats": [
+        "35mm",
+        "120"
+      ],
+      "category": "chromogenic",
+      "type": "chromogenic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "用 C41 彩色工艺冲洗的黑白卷，宽容度巨大、可大胆过/欠曝，扫描/冲印极方便，旅行口粮首选。",
+      "scenes": [
+        "all-purpose",
+        "portrait",
+        "travel",
+        "scan-friendly"
+      ],
+      "notes": "",
+      "character_en": "A black-and-white film processed in C41 color chemistry. Enormous latitude, forgiving over and underexposure, easy to scan or print - a travel favorite.",
+      "price_new": {
+        "120": "约¥85–125",
+        "135": "约¥75–95"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "ilford-sfx-200",
+      "brand": "Ilford",
+      "brand_cn": "伊尔福",
+      "name_en": "SFX 200",
+      "name_cn": "SFX 200",
+      "iso": 200,
+      "formats": [
+        "35mm",
+        "120"
+      ],
+      "category": "infrared",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "对红外/长波红敏感的特殊卷，红色物体发亮、绿色发暗，自带超现实感，创意风光和情绪片好玩。",
+      "scenes": [
+        "infrared",
+        "creative",
+        "landscape"
+      ],
+      "notes": "",
+      "character_en": "Extended red and infrared sensitivity. Red subjects glow, greens darken - a surreal touch for creative landscape and moody pictures.",
+      "price_new": {
+        "120": "约¥105–145",
+        "135": "约¥90–110"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "ilford-ortho-plus-80",
+      "brand": "Ilford",
+      "brand_cn": "伊尔福",
+      "name_en": "Ortho Plus 80",
+      "name_cn": "Ortho Plus 80",
+      "iso": 80,
+      "formats": [
+        "35mm",
+        "120"
+      ],
+      "category": "ortho",
+      "type": "orthochromatic",
+      "grain": "fine",
+      "status": "in-production",
+      "character": "正色性卷，黑白分明、高反差、影调硬朗，适合翻拍/线描/几何/建筑图形，线条感极强。",
+      "scenes": [
+        "copy",
+        "black-white",
+        "graphic",
+        "architecture"
+      ],
+      "notes": "",
+      "character_en": "An orthochromatic film. Bold black-and-white separation and high contrast - great for copy, line-work, geometry and architecture, with crisp linear detail.",
+      "price_new": {
+        "120": "约¥100–135",
+        "135": "约¥85–105"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "ilford-kentmere-100",
+      "brand": "Ilford",
+      "brand_cn": "伊尔福",
+      "name_en": "Kentmere 100",
+      "name_cn": "Kentmere 100",
+      "iso": 100,
+      "formats": [
+        "35mm",
+        "120"
+      ],
+      "category": "traditional",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "伊尔福旗下亲民系列，性价比高、颗粒中性、反差稳定，日常练手/粗用/大量拍摄的好选择。",
+      "scenes": [
+        "street",
+        "portrait",
+        "daily"
+      ],
+      "notes": "",
+      "character_en": "Ilford's budget-friendly line. High value, neutral grain, stable contrast - a sound choice for everyday practice and bulk shooting.",
+      "price_new": {
+        "120": "约¥50–80",
+        "135": "约¥45–60"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "ilford-kentmere-400",
+      "brand": "Ilford",
+      "brand_cn": "伊尔福",
+      "name_en": "Kentmere 400",
+      "name_cn": "Kentmere 400",
+      "iso": 400,
+      "formats": [
+        "35mm",
+        "120"
+      ],
+      "category": "traditional",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "亲民高速卷，颗粒适中、反差稳定，练手/街头/纪实的好口粮，性价比高。",
+      "scenes": [
+        "street",
+        "daily",
+        "documentary"
+      ],
+      "notes": "",
+      "character_en": "Affordable fast film. Medium grain, steady contrast - a value-packed workhorse for practice, street and documentary.",
+      "price_new": {
+        "120": "约¥50–80",
+        "135": "约¥45–60"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "foma-fomapan-100",
+      "brand": "Fomapan",
+      "brand_cn": "Foma",
+      "name_en": "Fomapan 100 Classic",
+      "name_cn": "Fomapan 100",
+      "iso": 100,
+      "formats": [
+        "35mm",
+        "120",
+        "4x5"
+      ],
+      "category": "traditional",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "捷克老牌，复古‘经典’调、颗粒略粗但很有味道，高性价比，怀旧派最爱。",
+      "scenes": [
+        "landscape",
+        "portrait",
+        "retro"
+      ],
+      "notes": "",
+      "character_en": "A Czech classic. Retro classic character, a little more grain but lots of soul. Great value - a nostalgia favorite.",
+      "price_new": {
+        "120": "约¥30–50",
+        "135": "约¥28–38"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      },
+      "samples": [
+        {
+          "src": "samples/photos/fomapan-100-1.jpg",
+          "credit": "© 千里 · Fomapan 100 Classic"
+        },
+        {
+          "src": "samples/photos/fomapan-100-2.jpg",
+          "credit": "© 千里 · Fomapan 100 Classic"
+        }
+      ]
+    },
+    {
+      "id": "foma-fomapan-200",
+      "brand": "Fomapan",
+      "brand_cn": "Foma",
+      "name_en": "Fomapan 200 Creative",
+      "name_cn": "Fomapan 200",
+      "iso": 200,
+      "formats": [
+        "35mm",
+        "120"
+      ],
+      "category": "traditional",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "介于 100/400 之间，宽容度好、可塑性强，万用练手、氛围感好。",
+      "scenes": [
+        "street",
+        "portrait",
+        "daily"
+      ],
+      "notes": "",
+      "character_en": "Sits between 100 and 400. Wide latitude, very adaptable - an all-round practice film with good mood.",
+      "price_new": {
+        "120": "约¥30–50",
+        "135": "约¥28–38"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "foma-fomapan-400",
+      "brand": "Fomapan",
+      "brand_cn": "Foma",
+      "name_en": "Fomapan 400 Action",
+      "name_cn": "Fomapan 400",
+      "iso": 400,
+      "formats": [
+        "35mm",
+        "120",
+        "4x5"
+      ],
+      "category": "traditional",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "高速经典调、颗粒大、反差十足，适合运动/街头/阴天/需要动感的题材。",
+      "scenes": [
+        "street",
+        "sports",
+        "documentary"
+      ],
+      "notes": "",
+      "character_en": "Fast classic character, chunky grain, full contrast - for motion, street, overcast days and anything that wants energy.",
+      "price_new": {
+        "120": "约¥35–50",
+        "135": "约¥30–40"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "adox-chm-100",
+      "brand": "Adox",
+      "brand_cn": "Adox",
+      "name_en": "CHM 100",
+      "name_cn": "CHM 100",
+      "iso": 100,
+      "formats": [
+        "35mm",
+        "120"
+      ],
+      "category": "traditional",
+      "type": "panchromatic",
+      "grain": "fine",
+      "status": "in-production",
+      "character": "采用 ORWO 工艺，细腻且反差优雅，德味古典，人像/风光/艺术创作皆宜。",
+      "scenes": [
+        "portrait",
+        "landscape",
+        "fine-art"
+      ],
+      "notes": "",
+      "character_en": "ORWO-processed film. Fine grain and elegant contrast - classic German character for portrait, landscape and fine art.",
+      "price_new": {
+        "120": "约¥55–90",
+        "135": "约¥50–70"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "adox-chm-400",
+      "brand": "Adox",
+      "brand_cn": "Adox",
+      "name_en": "CHM 400",
+      "name_cn": "CHM 400",
+      "iso": 400,
+      "formats": [
+        "35mm",
+        "120"
+      ],
+      "category": "traditional",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "ORWO 高速卷，颗粒适中、影调深邃，街头/人像/纪实有德味。",
+      "scenes": [
+        "street",
+        "portrait",
+        "documentary"
+      ],
+      "notes": "",
+      "character_en": "ORWO high-speed film. Medium grain, deep tones - street, portrait and documentary with a German accent.",
+      "price_new": {
+        "120": "约¥55–90",
+        "135": "约¥50–70"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "adox-silvermax-100",
+      "brand": "Adox",
+      "brand_cn": "Adox",
+      "name_en": "Silvermax 100",
+      "name_cn": "Silvermax 100",
+      "iso": 100,
+      "formats": [
+        "35mm"
+      ],
+      "category": "traditional",
+      "type": "panchromatic",
+      "grain": "fine",
+      "status": "in-production",
+      "character": "高银量、高锐度、极细腻，一档高反差，黑白影调霸道又干练，适合强调质感的人像/静物。",
+      "scenes": [
+        "portrait",
+        "fine-art",
+        "landscape"
+      ],
+      "notes": "",
+      "character_en": "High silver content, high acutance, ultra-fine grain with strong one-stop contrast. Punchy, clean black-and-white for portrait and still life.",
+      "price_new": {
+        "120": "约¥70–105",
+        "135": "约¥60–80"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "adox-cms-20-ii",
+      "brand": "Adox",
+      "brand_cn": "Adox",
+      "name_en": "CMS 20 II",
+      "name_cn": "CMS 20 II",
+      "iso": 20,
+      "formats": [
+        "35mm",
+        "120"
+      ],
+      "category": "fine",
+      "type": "panchromatic",
+      "grain": "ultra-fine",
+      "status": "in-production",
+      "character": "超微粒卷，几乎零颗粒、极高锐度，需专用显影液，适合追求极致细腻/大画幅翻拍的艺术创作。",
+      "scenes": [
+        "fine-art",
+        "product",
+        "laboratory"
+      ],
+      "notes": "",
+      "character_en": "An ultra-fine, near-grainless film with extreme sharpness. Needs a dedicated developer - for meticulous fine art and large-format copy.",
+      "price_new": {
+        "120": "约¥80–115",
+        "135": "约¥70–90"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "rollei-rpx-100",
+      "brand": "Rollei",
+      "brand_cn": "Rollei",
+      "name_en": "RPX 100",
+      "name_cn": "RPX 100",
+      "iso": 100,
+      "formats": [
+        "35mm",
+        "120"
+      ],
+      "category": "traditional",
+      "type": "panchromatic",
+      "grain": "fine",
+      "status": "in-production",
+      "character": "德系亲民卷，细腻干净、反差正常，日常/风光/人像都能安心用。",
+      "scenes": [
+        "landscape",
+        "portrait",
+        "daily"
+      ],
+      "notes": "普遍认为 Rollei RPX 100 是一款影调优美、宽容度极佳的胶卷。其最大的亮点在于丰富的灰阶过渡，亮部和暗部都保留了大量细节。颗粒方面存在不同看法，部分用户认为其颗粒细腻，但也有评测指出其颗粒比预期要粗，尤其在 135 格式上。反差属于中等偏大。在强烈阳光下表现尤其出色，能有效控制反差。此外，片基非常平整，干燥后可直接扫描。综合来看，这是一款价格合理、性能扎实的胶卷，虽然画质不及 T-Max 100 等高端卷，但宽容度优于多数同级别产品。",
+      "character_en": "An approachable German film. Fine, clean, normal contrast - a dependable choice for daily, landscape and portrait.",
+      "price_new": {
+        "120": "约¥50–80",
+        "135": "约¥45–60"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      },
+      "samples": [
+        {
+          "src": "samples/photos/rpx-100-1.jpg",
+          "credit": ""
+        },
+        {
+          "src": "samples/photos/rpx-100-2.jpg",
+          "credit": ""
+        },
+        {
+          "src": "samples/photos/rpx-100-3.jpg",
+          "credit": ""
+        }
+      ]
+    },
+    {
+      "id": "rollei-rpx-400",
+      "brand": "Rollei",
+      "brand_cn": "Rollei",
+      "name_en": "RPX 400",
+      "name_cn": "RPX 400",
+      "iso": 400,
+      "formats": [
+        "35mm",
+        "120"
+      ],
+      "category": "traditional",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "德系高速卷，颗粒适中、影调中性，街头/人像万用、好冲洗。",
+      "scenes": [
+        "street",
+        "portrait",
+        "daily"
+      ],
+      "notes": "大家认为 Rollei RPX 400 是一款影调柔和、反差中等偏低的胶卷。其影调过渡非常出色，能呈现从“ crisp whites to inky blacks ”的丰富层次，尤其在高反差环境（如强光下）表现优异，能有效避免高光过曝和阴影死黑。颗粒方面，多数评价认为其在 ISO 400 胶卷中算比较细腻的，但也有人认为颗粒感明显。其宽容度极佳，被形容为“很难拍烂”，很适合估光拍摄或后期调整。虽然不以锐度见长，但作为一款价格亲民、性能均衡的“万金油”型胶卷，它凭借独特的温润质感，收获了不少忠实用户。",
+      "character_en": "Fast German film. Medium grain, neutral tones - a versatile street and portrait film that processes easily.",
+      "price_new": {
+        "120": "约¥50–80",
+        "135": "约¥45–60"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      },
+      "samples": [
+        {
+          "src": "samples/photos/rpx-400-1.jpg",
+          "credit": "© Bruce Rollerson"
+        },
+        {
+          "src": "samples/photos/rpx-400-2.jpg",
+          "credit": "© Bruce Rollerson"
+        },
+        {
+          "src": "samples/photos/rpx-400-3.jpg",
+          "credit": "© Bruce Rollerson"
+        }
+      ]
+    },
+    {
+      "id": "rollei-retro-80s",
+      "brand": "Rollei",
+      "brand_cn": "Rollei",
+      "name_en": "Retro 80S",
+      "name_cn": "Retro 80S",
+      "iso": 80,
+      "formats": [
+        "35mm",
+        "120"
+      ],
+      "category": "traditional",
+      "type": "panchromatic",
+      "grain": "fine",
+      "status": "in-production",
+      "character": "仿经典片基、细腻、暗部透亮，适合风光/人像的复古干净质感。",
+      "scenes": [
+        "landscape",
+        "portrait",
+        "retro"
+      ],
+      "notes": "摄影师对 Rollei Retro 80S 的使用感受是“爱恨交织”。其优点备受赞誉：高反差、高锐度、颗粒极其平滑，配合扩展的红外感光能力，尤其适合建筑、城市景观及人像创作。但其宽容度较低，需像拍反转片一样精确控制高光。最大的争议点在于 120 格式的品控问题，多位用户反映底片上出现灰斑（mottled）或背纸印字，而 35mm 格式则口碑极佳。总的来说，它是一款个性鲜明但需要耐心对待的胶片。",
+      "character_en": "Classic-style base, fine grain, bright shadows - a clean vintage feel for landscape and portrait.",
+      "price_new": {
+        "120": "约¥65–100",
+        "135": "约¥55–75"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      },
+      "samples": [
+        {
+          "src": "samples/photos/retro-80s-1.jpg",
+          "credit": "© Dmitriy Ryabov"
+        },
+        {
+          "src": "samples/photos/retro-80s-2.jpg",
+          "credit": "© Dmitriy Ryabov"
+        },
+        {
+          "src": "samples/photos/retro-80s-3.jpg",
+          "credit": "© Samuel Santiago"
+        }
+      ]
+    },
+    {
+      "id": "rollei-retro-400s",
+      "brand": "Rollei",
+      "brand_cn": "Rollei",
+      "name_en": "Retro 400S",
+      "name_cn": "Retro 400S",
+      "iso": 400,
+      "formats": [
+        "35mm",
+        "120"
+      ],
+      "category": "traditional",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "高速复古调、颗粒明显、反差足，街头/阳光/动感场景氛围好。",
+      "scenes": [
+        "street",
+        "retro",
+        "sunlight"
+      ],
+      "notes": "Rollei Retro 400S 是一款优缺点都非常鲜明的“性格胶片”。它并非万能选手，而是为特定创作目的而生——适合追求高反差、强烈视觉冲击，或希望尝试红外摄影的摄影师。如果你喜欢平淡柔和的影调，它可能不适合你；但如果你想让照片充满戏剧性和力量感，它会是一个很有趣的选择。",
+      "character_en": "Fast retro character, visible grain, full contrast - great atmosphere for street, sunlight and dynamic scenes.",
+      "price_new": {
+        "120": "约¥65–100",
+        "135": "约¥55–75"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      },
+      "samples": [
+        {
+          "src": "samples/photos/retro-400s-1.jpg",
+          "credit": ""
+        },
+        {
+          "src": "samples/photos/retro-400s-2.jpg",
+          "credit": ""
+        },
+        {
+          "src": "samples/photos/retro-400s-3.jpg",
+          "credit": ""
+        }
+      ]
+    },
+    {
+      "id": "orwo-un54",
+      "brand": "ORWO",
+      "brand_cn": "ORWO",
+      "name_en": "UN54+",
+      "name_cn": "UN54+",
+      "iso": 100,
+      "formats": [
+        "35mm"
+      ],
+      "category": "cinema",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "东德经典电影底片，灰色阶电影感、颗粒细腻，老胶片味十足，人像/街头有味道。",
+      "scenes": [
+        "cinematic",
+        "portrait",
+        "street"
+      ],
+      "notes": "ORWO UN54+ 是一款特点非常鲜明的黑白负片。它的前身是诞生于东德电影工业的传奇卷轴电影胶片，继承了经典光学设备般的精确、严谨与独特影调。它也是一款能让你的摄影拥有经典电影般质感的黑白胶卷。它不仅是记录工具，更像是连接胶片黄金时代的一座桥梁。因其与经典电影胶片的渊源，成像风格备受复古摄影爱好者推崇。",
+      "character_en": "An East German classic motion-picture film. Cinematic greys, fine grain and a rich old-film feel for portrait and street.",
+      "price_new": {
+        "120": "约¥55–90",
+        "135": "约¥50–70"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      },
+      "samples": [
+        {
+          "src": "samples/photos/un54-1.jpg",
+          "credit": "© EMAK"
+        },
+        {
+          "src": "samples/photos/un54-2.jpg",
+          "credit": ""
+        }
+      ]
+    },
+    {
+      "id": "cinestill-bwxx",
+      "brand": "CineStill",
+      "brand_cn": "CineStill",
+      "name_en": "BWXX",
+      "name_cn": "BWXX",
+      "iso": 250,
+      "formats": [
+        "35mm",
+        "120"
+      ],
+      "category": "cinema",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "柯达 Double-X 的分装电影卷，电影灰阶+细腻颗粒，全画幅街头/人像都自带电影感。",
+      "scenes": [
+        "cinematic",
+        "portrait",
+        "street"
+      ],
+      "notes": "许多用户和评测者都称赞其美丽的经典外观，认为它是一款非常优秀的全能型胶卷，甚至称用它拍出了自己最喜欢的一些黑白照片。CineStill BWXX 是一款能让你的照片拥有经典电影般质感的黑白胶卷。它的高反差、优美中间调和独特颗粒感，使其成为追求复古、叙事性影像风格的摄影师的心头好。",
+      "character_en": "A re-spooled Kodak Double-X. Cinematic greys and fine grain - full-frame street and portraits look like the movies.",
+      "price_new": {
+        "120": "约¥110–155",
+        "135": "约¥95–120"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      },
+      "samples": [
+        {
+          "src": "samples/photos/bwxx-1.jpg",
+          "credit": "© Zeb Andrews · CineStill BWXX"
+        }
+      ]
+    },
+    {
+      "id": "jch-streetpan-400",
+      "brand": "JCH",
+      "brand_cn": "Japan Camera Hunter",
+      "name_en": "StreetPan 400",
+      "name_cn": "StreetPan 400",
+      "iso": 400,
+      "formats": [
+        "35mm"
+      ],
+      "category": "traditional",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "对红色敏感的特殊街拍卷，红色发亮、反差大，街拍党很爱，自带强烈戏剧感。",
+      "scenes": [
+        "street",
+        "high-contrast"
+      ],
+      "notes": "爱它的人称赞其独特的“极端”风格。JCH StreetPan 400 是一款为街拍而生的、风格化的工具。它的高反差、极细颗粒和独特的红光感光能力，使其成为追求强烈视觉风格摄影师的心头好。但它的停产也意味着，如果你被它的独特魅力吸引，现在可能是入手体验的最后机会了。",
+      "character_en": "A red-sensitive street special. Red goes bright, contrast runs high - strong drama for street shooters.",
+      "price_new": {
+        "120": "约¥125–180",
+        "135": "约¥110–140"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      },
+      "samples": [
+        {
+          "src": "samples/photos/streetpan-400-1.jpg",
+          "credit": ""
+        },
+        {
+          "src": "samples/photos/streetpan-400-2.jpg",
+          "credit": "© 安藤"
+        }
+      ]
+    },
+    {
+      "id": "lomo-earl-grey-100",
+      "brand": "Lomography",
+      "brand_cn": "Lomography",
+      "name_en": "Earl Grey 100",
+      "name_cn": "Earl Grey 100",
+      "iso": 100,
+      "formats": [
+        "35mm"
+      ],
+      "category": "traditional",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "复古黑白卷，影调柔和、颗粒细腻，适合慢拍人像/静物的温和质感。",
+      "scenes": [
+        "portrait",
+        "retro",
+        "landscape"
+      ],
+      "notes": "Lomography Earl Grey 100 是一款特点极其鲜明的黑白胶卷。它凭借 ISO 100 的细腻度和优雅的高反差，成为一款备受推崇的“阳光卷”，尤其适合在阳光充足的户外进行风光、建筑、人像等题材的创作，能为照片带来经典、复古的质感。",
+      "character_en": "A vintage black-and-white. Soft tones, fine grain - a gentle fit for slow portraits and still life.",
+      "price_new": {
+        "120": "约¥85–125",
+        "135": "约¥75–95"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      },
+      "samples": [
+        {
+          "src": "samples/photos/earl-grey-100-1.jpg",
+          "credit": "© Chris Gampat"
+        },
+        {
+          "src": "samples/photos/earl-grey-100-2.jpg",
+          "credit": "© wc_hsu_film"
+        }
+      ]
+    },
+    {
+      "id": "lomo-lady-grey-400",
+      "brand": "Lomography",
+      "brand_cn": "Lomography",
+      "name_en": "Lady Grey 400",
+      "name_cn": "Lady Grey 400",
+      "iso": 400,
+      "formats": [
+        "35mm"
+      ],
+      "category": "traditional",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "经典中性调、颗粒适中，日常万用、性价比高，街头/人像/纪实都能用。",
+      "scenes": [
+        "street",
+        "portrait",
+        "daily"
+      ],
+      "notes": "Lomography Lady Grey 400 是一款特点鲜明的黑白胶卷。它凭借优雅的影调、扎实的对比度和 ISO 400 的实用性，成为一款备受推崇的“万金油”型黑白卷，尤其适合在街拍、人像、建筑等题材中寻求经典黑白质感。",
+      "character_en": "Classic neutral character, medium grain. Versatile and affordable for daily, street, portrait and documentary.",
+      "price_new": {
+        "120": "约¥80–115",
+        "135": "约¥70–90"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      },
+      "samples": [
+        {
+          "src": "samples/photos/lady-grey-400-1.jpg",
+          "credit": "© antmark"
+        },
+        {
+          "src": "samples/photos/lady-grey-400-2.jpg",
+          "credit": "© Shha"
+        },
+        {
+          "src": "samples/photos/lady-grey-400-3.jpg",
+          "credit": "© eandreev"
+        }
+      ]
+    },
+    {
+      "id": "lomo-potsdam-kino-100",
+      "brand": "Lomography",
+      "brand_cn": "Lomography",
+      "name_en": "Potsdam Kino 100",
+      "name_cn": "Potsdam Kino 100",
+      "iso": 100,
+      "formats": [
+        "35mm"
+      ],
+      "category": "cinema",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "德国电影底片，灰阶丰富、反差优雅，老电影质感，人像/街头有味道。",
+      "scenes": [
+        "cinematic",
+        "portrait",
+        "street"
+      ],
+      "notes": "Lomography Potsdam Kino 100 是一款特点鲜明的 ISO 100 黑白胶卷。它凭借极细的颗粒、高对比度和独特的电影感，非常适合在阳光充足的户外进行风光、建筑、人像等题材的创作。不过，其可能出现的条纹问题是需要留意的特性。",
+      "character_en": "A German motion-picture film. Rich greys, elegant contrast, old-cinema texture for portrait and street.",
+      "price_new": {
+        "120": "约¥90–130",
+        "135": "约¥80–100"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      },
+      "samples": [
+        {
+          "src": "samples/photos/potsdam-kino-100-1.jpg",
+          "credit": "© Pablo Padira"
+        },
+        {
+          "src": "samples/photos/potsdam-kino-100-2.jpg",
+          "credit": "© Pablo Padira"
+        },
+        {
+          "src": "samples/photos/potsdam-kino-100-3.jpg",
+          "credit": "© Lauren Woods"
+        }
+      ]
+    },
+    {
+      "id": "lomo-berlin-kino-400",
+      "brand": "Lomography",
+      "brand_cn": "Lomography",
+      "name_en": "Berlin Kino 400",
+      "name_cn": "Berlin Kino 400",
+      "iso": 400,
+      "formats": [
+        "35mm"
+      ],
+      "category": "cinema",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "德国高速电影片，浓郁灰阶、颗粒有味道，街头戏剧感强，适合夜景/暗光。",
+      "scenes": [
+        "cinematic",
+        "street",
+        "low-light"
+      ],
+      "notes": "Lomography Berlin Kino 400 是一款特点鲜明的黑白胶卷，它的高宽容度和独特的电影感影调是其最大亮点，尤其适合喜欢在街拍、人像等题材中追求复古电影氛围。",
+      "character_en": "Fast German motion-picture film. Dense greys, characterful grain, strong street drama - suited to night and low light.",
+      "price_new": {
+        "120": "约¥100–135",
+        "135": "约¥85–105"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      },
+      "samples": [
+        {
+          "src": "samples/photos/berlin-kino-400-1.jpg",
+          "credit": "© 迈尔斯·凯瑟琳 · Berlin Kino 400"
+        },
+        {
+          "src": "samples/photos/berlin-kino-400-2.jpg",
+          "credit": "© 迈尔斯·凯瑟琳 · Berlin Kino 400"
+        },
+        {
+          "src": "samples/photos/berlin-kino-400-3.jpg",
+          "credit": "© 迈尔斯·凯瑟琳 · Berlin Kino 400"
+        }
+      ]
+    },
+    {
+      "id": "bergger-pancro-400",
+      "brand": "Bergger",
+      "brand_cn": "Bergger",
+      "name_en": "Pancro 400",
+      "name_cn": "Pancro 400",
+      "iso": 400,
+      "formats": [
+        "35mm",
+        "120",
+        "4x5"
+      ],
+      "category": "cinema",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "法国 Bergger 经典高速黑白，宽动态、细腻、灰阶油润、带电影感，人像/街头/纪实皆有迷人层次。",
+      "scenes": [
+        "cinematic",
+        "portrait",
+        "street"
+      ],
+      "notes": "",
+      "samples": [
+        {
+          "src": "samples/photos/pancro-400-1.jpg",
+          "credit": "© 作者 · Nikon FE"
+        },
+        {
+          "src": "samples/photos/pancro-400-2.jpg",
+          "credit": "© 作者 · Nikon FE"
+        }
+      ],
+      "character_en": "Bergger's classic fast black-and-white. Wide dynamic range, fine grain, oily cinematic greys - beautiful layers for portrait, street and documentary.",
+      "price_new": {
+        "120": "约¥125–180",
+        "135": "约¥110–140"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      }
+    },
+    {
+      "id": "horman-direct-positive",
+      "brand": "Harman",
+      "brand_cn": "Harman",
+      "name_en": "Direct Positive",
+      "name_cn": "Direct Positive",
+      "iso": 400,
+      "formats": [
+        "35mm",
+        "120",
+        "4x5",
+        "5x7"
+      ],
+      "category": "direct-positive",
+      "type": "panchromatic",
+      "grain": "medium",
+      "status": "in-production",
+      "character": "反转正片卷，拍完直接出正像（幻灯片式）、无需底扫，自带独特反差，适合创意/直接观看的艺术表达。",
+      "scenes": [
+        "creative",
+        "direct-positive",
+        "artistic"
+      ],
+      "notes": "使用 5×7 英寸的 Harman Direct Positive 相纸拍摄，拍摄地点在桥下，光线反差强烈的环境中。相机为林哈夫（Linhof）Color 型，搭配转接板，镜头是富士能（Fujinon）250mm f/6.3 W，光圈设为 F22，并使用了机身的摆动（swing）调整。",
+      "character_en": "A direct-positive film that yields a positive image straight away, no negative scanning. Unique contrast - ideal for creative, artful presentation.",
+      "price_new": {
+        "120": "约¥110–155",
+        "135": "约¥95–120"
+      },
+      "price_used": {
+        "120": "",
+        "135": ""
+      },
+      "samples": [
+        {
+          "src": "samples/photos/direct-positive-1.jpg",
+          "credit": "© Geir Bakken · Harman Direct Positive"
+        }
+      ]
+    }
+  ]
+}

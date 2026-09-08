@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>黑白胶卷 · 可搜索的黑白胶卷档案</title>
+  <meta name="description" content="一个面向胶片爱好者的可搜索黑白胶卷档案：品牌、型号、ISO、尺寸、类型、颗粒、特性、使用场景，帮你选对那卷黑白。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <div class="brand-text">
+          <h1 class="brand-cn"><span>黑白</span><span>胶卷</span></h1>
+          <span class="brand-en">Black &amp; White Film</span>
+        </div>
+      </div>
+      <nav class="site-nav">
+        <a class="active" href="index.html">胶卷库</a>
+        <a href="journal.html">资讯</a>
+        <a href="about.html">关于</a>
+        <a href="disclaimer.html">免责声明</a>
+        <a href="privacy.html">隐私政策</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="toolbar">
+      <div class="search-row">
+        <input id="search" type="search" placeholder="搜索品牌 / 型号 / 名称…" autocomplete="off" />
+      </div>
+    </section>
+
+    <section class="journal" id="journal">
+      <div class="journal-head">
+        <div>
+          <h2 class="journal-title">资讯</h2>
+          <p class="journal-sub">News</p>
+        </div>
+        <a class="journal-more" href="journal.html">更多 →</a>
+      </div>
+      <div class="journal-list" id="journalList"></div>
+    </section>
+
+    <section class="toolbar-filters">
+      <div class="filters" id="filters">
+        <!-- 品牌 / 类型 / 尺寸 / 在产状态 filter chips will be injected -->
+      </div>
+      <div class="stats" id="stats"></div>
+    </section>
+
+    <section id="grid" class="grid" aria-live="polite"></section>
+
+    <p id="empty" class="empty" hidden>没有匹配的胶卷。换个关键词或放宽筛选试试。</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>数据为公开规格整理，特性与场景由作者校订，价格待填。© 2026 黑白胶卷</p>
+    </div>
+  </footer>
+
+  <!-- 详情弹窗 -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <button class="modal-close" data-close aria-label="关闭">×</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- 样片放大查看 -->
+  <div id="lightbox" class="lightbox" hidden>
+    <div class="lightbox-backdrop" data-close></div>
+    <div class="lightbox-body">
+      <img id="lightbox-img" src="" alt="样片大图" />
+      <button class="lightbox-close" data-close aria-label="关闭">×</button>
+    </div>
+  </div>
+
+  <!-- 卡片长按保存 -->
+  <div id="cardSave" class="card-save" hidden>
+    <div class="card-save-backdrop" data-cardsave-close></div>
+    <div class="card-save-body">
+      <img id="cardSaveImg" src="" alt="卡片" />
+      <p class="card-save-hint">长按 / 按住图片，选择「保存图片」即可存入相册</p>
+      <button class="card-save-close" data-cardsave-close aria-label="关闭">×</button>
+    </div>
+  </div>
+
+  <!-- 轻提示 -->
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

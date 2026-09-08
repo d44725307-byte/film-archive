@@ -1,0 +1,43 @@
+{
+  "title": "资讯 · News",
+  "subtitle": "News",
+  "updated": "2026-09-06",
+  "items": [
+    {
+      "id": "j-1",
+      "type": "news",
+      "title": "2026 胶片行情观察：哪些黑白卷悄悄涨了价，哪些反而便宜了",
+      "excerpt": "PetaPixel 七月报告：Ilford 多款卷上调（FP4 涨约 9%），而 Tri-X 是少数降价的黑白卷。",
+      "date": "2026-09-04",
+      "link": "#",
+      "media": ""
+    },
+    {
+      "id": "j-2",
+      "type": "article",
+      "title": "我用 Ilford HP5 Plus 拍街头十年，几点心得",
+      "excerpt": "宽容度大、颗粒柔和、可从容迫冲——它为什么是我最常带出门的黑白卷。",
+      "date": "2026-08-30",
+      "link": "#",
+      "media": ""
+    },
+    {
+      "id": "j-3",
+      "type": "work",
+      "title": "一组用 Bergger Pancro 400 拍的人像",
+      "excerpt": "Nikon FE 拍摄 · 油润的电影灰阶。",
+      "date": "2026-08-21",
+      "link": "#",
+      "media": "samples/photos/pancro-400-1.jpg"
+    },
+    {
+      "id": "j-4",
+      "type": "news",
+      "title": "Fujifilm Neopan 100 Acros II：细腻到近乎无颗粒的复刻",
+      "excerpt": "停产后复刻，近乎零颗粒、影调极柔，风光/大画幅的梦中情卷。",
+      "date": "2026-08-15",
+      "link": "#",
+      "media": ""
+    }
+  ]
+}
