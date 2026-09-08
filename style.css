@@ -101,6 +101,7 @@ html, body {
   background: var(--card); border: 1px solid var(--line);
   border-radius: var(--radius); padding: 18px; cursor: pointer; transition: all .15s;
   display: flex; flex-direction: column; gap: 10px;
+  text-decoration: none; color: inherit;
 }
 .card:hover { background: var(--card-hover); border-color: var(--text-dim); transform: translateY(-2px); }
 .film-art { display: block; width: 100%; max-width: 168px; height: auto; margin: 0 auto; border-radius: 8px; background: var(--bg-soft); }
@@ -152,6 +153,18 @@ html, body {
 
 /* 正文页（关于/免责声明/隐私） */
 .page { padding: 26px 0 48px; max-width: 780px; }
+/* 独立胶卷页 */
+.crumb { font-size: 13px; color: var(--text-dim); padding: 20px 0 4px; }
+.crumb a { color: var(--text-dim); text-decoration: none; }
+.crumb a:hover { color: var(--accent); }
+.film-detail { max-width: 720px; }
+.film-head { margin-bottom: 6px; }
+.film-head .card-brand { font-size: 15px; }
+.film-head h1 { font-family: 'Noto Serif SC', 'Songti SC', serif; font-weight: 900; color: var(--film); font-size: 30px; margin: 8px 0 6px; }
+.film-meta { color: var(--text-dim); font-size: 14px; margin: 0; }
+.film-detail .spec-block h2 { font-family: 'Noto Serif SC', 'Songti SC', serif; font-size: 16px; color: var(--accent); margin: 0 0 8px; font-weight: 700; }
+.film-detail .spec-block { margin-top: 22px; }
+.film-detail .spec { margin: 18px 0; }
 .page h2 { font-family: 'Noto Serif SC', 'Songti SC', serif; font-weight: 900; color: var(--dark); margin: 6px 0 14px; letter-spacing: 1px; font-size: 26px; }
 .page h3 { font-family: 'Noto Serif SC', 'Songti SC', serif; font-weight: 600; color: var(--text); margin: 24px 0 8px; font-size: 18px; }
 .page p, .page li { color: var(--text-dim); font-size: 15px; line-height: 1.9; }

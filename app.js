@@ -214,7 +214,7 @@
     document.getElementById('empty').hidden = list.length !== 0;
 
     grid.innerHTML = list.map((f) => `
-      <article class="card" onclick="openDetail('${f.id}')" tabindex="0" role="button" aria-label="查看 ${f.name_en} 详情">
+      <a class="card" href="film/${f.id}.html" aria-label="查看 ${f.name_en} 胶卷详情">
         ${filmArt(f)}
         <div class="card-top">
           <span class="card-brand">${BRAND_CN[f.brand] || f.brand}</span>
@@ -231,7 +231,7 @@
           <span class="desc-en">${f.character_en || ''}</span>
         </div>
         <div class="card-scenes">${scenesChips(f)}</div>
-      </article>
+      </a>
     `).join('');
   }
 
