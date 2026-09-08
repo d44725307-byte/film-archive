@@ -402,20 +402,20 @@
     ctx.strokeStyle = '#A87A10'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(84, divY); ctx.lineTo(W - 84, divY); ctx.stroke();
     // 特性 CN + EN
     ctx.fillStyle = '#22402F'; ctx.font = '500 42px "Noto Serif SC","Songti SC",serif';
-    y = wrapText(ctx, f.character || '', 84, divY + 60, W - 168, 62, 6);
+    y = wrapText(ctx, f.character || '', 84, divY + 60, W - 168, 62, 40);
     ctx.fillStyle = '#3B3A33'; ctx.font = 'italic 400 33px "Noto Serif SC","Songti SC",serif';
-    y = wrapText(ctx, f.character_en || '', 84, y + 16, W - 168, 50, 3);
+    y = wrapText(ctx, f.character_en || '', 84, y + 16, W - 168, 50, 40);
     // 适用场景
     const scenes = (f.scenes || []).map((s) => SCENE_LABEL[s] || s).join(' · ');
     let contentBottom = y;
     ctx.fillStyle = '#6E6C5A'; ctx.font = '500 32px "Noto Serif SC","Songti SC",serif';
-    if (scenes) { contentBottom = wrapText(ctx, '适用场景：' + scenes, 84, y + 40, W - 168, 46, 2); }
-    // 使用感受
+    if (scenes) { contentBottom = wrapText(ctx, '适用场景：' + scenes, 84, y + 40, W - 168, 46, 40); }
+    // 使用感受（完整显示，不截断）
     if (f.notes) {
       ctx.fillStyle = '#A87A10'; ctx.font = '700 30px "Noto Serif SC","Songti SC",serif';
       ctx.fillText('使用感受', 84, contentBottom + 48);
       ctx.fillStyle = '#22402F'; ctx.font = '500 33px "Noto Serif SC","Songti SC",serif';
-      contentBottom = wrapText(ctx, f.notes, 84, contentBottom + 100, W - 168, 50, 4);
+      contentBottom = wrapText(ctx, f.notes, 84, contentBottom + 100, W - 168, 50, 40);
     }
     // 实拍样片缩略图
     let ty = contentBottom + 40;
