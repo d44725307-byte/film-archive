@@ -49,6 +49,7 @@ function page(f) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>${name} · 黑白胶卷</title>
 <meta name="description" content="${desc}" />
+<meta name="google-site-verification" content="B3CefDZUQ6M7A8T5eNONFLpR874ZQ-oy1hY-Q7M8lkc" />
 <link rel="canonical" href="${url}" />
 <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
 <meta property="og:type" content="product" />
