@@ -39,7 +39,7 @@ function page(f) {
     ['感光度', 'ISO ' + f.iso], ['类型', typeLabel(f.type)], ['颗粒', grainLabel(f.grain)], ['尺寸', (f.formats || []).join(' · ')], ['分类', catLabel(f.category)], ['状态', f.status === 'discontinued' ? '已停产' : '在产']
   ].map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('');
 
-  const samples = (f.samples || []).map((s) => `<figure class="sample"><img src="${esc(s.src)}" alt="${name} 实拍样片" loading="lazy"></figure>`).join('');
+  const samples = (f.samples || []).map((s) => `<figure class="sample"><img src="${esc('../' + s.src)}" alt="${name} 实拍样片" loading="lazy"></figure>`).join('');
   const credit = (f.samples || []).some((s) => s.credit) ? `<p class="sample-credit">© ${esc((f.samples || []).filter((s) => s.credit).map((s) => s.credit.replace(/^©\s*/, '').split(' · ')[0]).filter((v, i, a) => a.indexOf(v) === i).join(' · '))}</p>` : '';
 
   return `<!DOCTYPE html>

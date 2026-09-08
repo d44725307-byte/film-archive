@@ -44,7 +44,7 @@
     if (film.notes) { ctx.fillStyle = '#A87A10'; ctx.font = '700 30px "Noto Serif SC","Songti SC",serif'; ctx.fillText('使用感受', 84, contentBottom + 48); ctx.fillStyle = '#22402F'; ctx.font = '500 33px "Noto Serif SC","Songti SC",serif'; contentBottom = wrapText(ctx, film.notes, 84, contentBottom + 100, W - 168, 50, 40); }
     let ty = contentBottom + 40;
     if (film.samples && film.samples.length) {
-      const imgs = await Promise.all(film.samples.slice(0, 3).map((s) => loadImage(s.src)));
+      const imgs = await Promise.all(film.samples.slice(0, 3).map((s) => loadImage('../' + s.src)));
       const maxB = 200, gap = 20; let x = 84, maxTh = 0;
       imgs.forEach((im) => { if (!im) return; const ar = im.width / im.height; const thw = ar >= 1 ? maxB : maxB * ar; const th = ar >= 1 ? maxB / ar : maxB; ctx.drawImage(im, x, ty, thw, th); x += thw + gap; maxTh = Math.max(maxTh, th); });
       const th = maxTh || 200; contentBottom = ty + th + 30;
