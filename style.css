@@ -173,6 +173,10 @@ html, body {
 /* footer */
 .site-footer { border-top: 1px solid var(--line); color: var(--text-dim); font-size: 13px; padding: 24px 0; }
 .site-footer p { margin: 0; }
+.site-footer .footer-copy { margin-bottom: 6px; }
+.site-footer .footer-links a { color: var(--text-dim); text-decoration: none; }
+.site-footer .footer-links a:hover { color: var(--accent); }
+.site-footer .footer-links .dot { margin: 0 8px; color: var(--line); }
 
 /* modal */
 .modal { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 50; }

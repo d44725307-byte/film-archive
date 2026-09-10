@@ -69,7 +69,7 @@ function page(f) {
 <header class="site-header">
   <div class="container">
     <div class="brand"><div class="brand-text"><div class="brand-lockup"><div class="brand-cn">黑白胶卷</div><span class="brand-en">Black &amp; White Film</span></div></div></div>
-    <nav class="site-nav"><a href="../index.html">胶卷库</a><a href="../journal.html">资讯</a><a href="../about.html">关于</a><a href="../disclaimer.html">免责声明</a><a href="../privacy.html">隐私政策</a></nav>
+    <nav class="site-nav"><a href="../index.html">胶卷库</a><a href="../journal.html">资讯</a><a href="../about.html">关于</a></nav>
   </div>
 </header>
 <main class="container">
@@ -93,7 +93,7 @@ function page(f) {
     <div class="spec-block"><h2>分享 / 下载</h2><div class="share-actions"><button class="share-btn" onclick="filmShare('copy')">复制链接</button><button class="share-btn" onclick="filmShare('native')">分享好友</button><button class="share-btn share-btn-primary" onclick="filmShare('poster')">下载卡片</button></div></div>
   </article>
 </main>
-<footer class="site-footer"><div class="container"><p>© 2026 黑白胶卷</p></div></footer>
+<footer class="site-footer"><div class="container"><p class="footer-copy">© 2026 黑白胶卷</p><p class="footer-links"><a href="../disclaimer.html">免责声明</a><span class="dot">·</span><a href="../privacy.html">隐私政策</a></p></div></footer>
 
 <div id="lightbox" class="lightbox" hidden><div class="lightbox-backdrop" data-close></div><div class="lightbox-body"><img id="lightbox-img" src="" alt="样片大图" /><button class="lightbox-close" data-close aria-label="关闭">×</button></div></div>
 <div id="cardSave" class="card-save" hidden><div class="card-save-backdrop" data-cardsave-close></div><div class="card-save-body"><img id="cardSaveImg" src="" alt="卡片" /><p class="card-save-hint">长按 / 按住图片，选择「保存图片」即可存入相册</p><button class="card-save-close" data-cardsave-close aria-label="关闭">×</button></div></div>
