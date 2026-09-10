@@ -51,9 +51,13 @@
 
   <main class="container">
     <section class="toolbar">
-      <div class="search-row">
-        <input id="search" type="search" placeholder="搜索品牌 / 型号 / 名称…" autocomplete="off" />
+      <div class="search-wrap">
+        <div class="search-row">
+          <input id="search" type="search" placeholder="搜索品牌 / 型号 / 名称…" autocomplete="off" />
+        </div>
+        <div id="suggest" class="suggest" hidden></div>
       </div>
+      <p class="search-hint">输入即筛选 · ↑ ↓ 选择 · 回车打开</p>
     </section>
 
     <section class="journal" id="journal">

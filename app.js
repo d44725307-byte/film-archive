@@ -211,7 +211,13 @@
     const list = filtered();
     const grid = document.getElementById('grid');
     document.getElementById('stats').textContent = `共 ${list.length} 款`;
-    document.getElementById('empty').hidden = list.length !== 0;
+    const emptyEl = document.getElementById('empty');
+    emptyEl.hidden = list.length !== 0;
+    if (list.length === 0) {
+      emptyEl.innerHTML = state.q
+        ? `未找到「<b>${escapeXml(state.q)}</b>」相关的胶卷。<br><span class="empty-sub">可能是还没收录 —— 欢迎到 <a href="about.html">关于</a> 页告诉我们补充。</span>`
+        : `没有匹配的胶卷。换个关键词或放宽筛选试试。`;
+    }
 
     grid.innerHTML = list.map((f) => `
       <a class="card" href="film/${f.id}.html" aria-label="查看 ${f.name_en} 胶卷详情">
@@ -487,11 +493,32 @@
     } catch (e) { flash('操作失败'); }
   };
 
-  // ---- 事件绑定 ----
-  document.getElementById('search').addEventListener('input', (e) => {
-    state.q = e.target.value;
-    render();
+  // ---- 搜索联想 + 键盘选择 ----
+  const searchEl = document.getElementById('search');
+  const suggestEl = document.getElementById('suggest');
+  let sugItems = [], sugIdx = -1;
+  function closeSuggest() { suggestEl.hidden = true; suggestEl.innerHTML = ''; sugItems = []; sugIdx = -1; }
+  function highlightSuggest() {
+    [...suggestEl.querySelectorAll('.suggest-item')].forEach((el, i) => el.classList.toggle('active', i === sugIdx));
+  }
+  function renderSuggest(q) {
+    const query = q.trim().toLowerCase();
+    if (!query) { closeSuggest(); return; }
+    const matches = FILMS.filter((f) => (f.name_en + ' ' + (f.name_cn || '') + ' ' + f.brand + ' ' + (f.brand_cn || '')).toLowerCase().includes(query)).slice(0, 8);
+    if (!matches.length) { closeSuggest(); return; }
+    sugItems = matches; sugIdx = -1;
+    suggestEl.innerHTML = matches.map((f, i) => `<a class="suggest-item" href="film/${f.id}.html"><span class="s-name">${escapeXml(f.name_en)}</span><span class="s-meta">${escapeXml((f.brand_cn || f.brand))} · ISO ${f.iso}</span></a>`).join('');
+    suggestEl.hidden = false;
+  }
+  searchEl.addEventListener('input', (e) => { state.q = e.target.value; render(); renderSuggest(e.target.value); });
+  searchEl.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown') { if (!sugItems.length) return; e.preventDefault(); sugIdx = Math.min(sugIdx + 1, sugItems.length - 1); highlightSuggest(); }
+    else if (e.key === 'ArrowUp') { if (!sugItems.length) return; e.preventDefault(); sugIdx = Math.max(sugIdx - 1, 0); highlightSuggest(); }
+    else if (e.key === 'Enter') { const f = sugItems[sugIdx >= 0 ? sugIdx : 0]; e.preventDefault(); if (f) location.href = 'film/' + f.id + '.html'; }
+    else if (e.key === 'Escape') { closeSuggest(); }
   });
+  document.addEventListener('click', (e) => { if (!e.target.closest('.search-wrap')) closeSuggest(); });
+  searchEl.addEventListener('focus', () => { if (state.q.trim()) renderSuggest(state.q); });
   // filter chips 事件委托
   document.getElementById('filters').addEventListener('click', (e) => {
     const btn = e.target.closest('.chip[data-onclick]');
