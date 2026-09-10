@@ -852,7 +852,7 @@
         "product",
         "laboratory"
       ],
-      "notes": "",
+      "notes": "摄影师们对 Adox CMS 20 II 的评价呈现鲜明的两面性。其无与伦比的解析力备受推崇，有用户实测其 135 画幅细节可超越 4x5 画幅的 Fomapan 100，且颗粒几乎不可见。然而，其极高的反差和极窄的宽容度是普遍痛点，有摄影师直言在阴影中“仍难以避免反差显得过于生硬”，且难以获得均匀的显影效果并保留天空细节。因此，它被普遍视为一款极具挑战性的专家级胶片，不适合日常摄影。",
       "character_en": "An ultra-fine, near-grainless film with extreme sharpness. Needs a dedicated developer - for meticulous fine art and large-format copy.",
       "price_new": {
         "120": "约¥80–115",
@@ -861,7 +861,21 @@
       "price_used": {
         "120": "",
         "135": ""
-      }
+      },
+      "samples": [
+        {
+          "src": "samples/photos/cms-20-ii-1.jpg",
+          "credit": "© Leo Velimir Brancovich · CMS 20 II"
+        },
+        {
+          "src": "samples/photos/cms-20-ii-2.jpg",
+          "credit": "© Leo Velimir Brancovich · CMS 20 II"
+        },
+        {
+          "src": "samples/photos/cms-20-ii-3.jpg",
+          "credit": "© christopher 000 · CMS 20 II"
+        }
+      ]
     },
     {
       "id": "rollei-rpx-100",
