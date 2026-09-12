@@ -1,6 +1,8 @@
-// 资讯文章生成器（版式 v1 · 定版）
+// 资讯文章生成器（版式 v1 · 定版 · SEO 增强）
 // 用法：node tools/gen-article.js data/articles/<slug>.json
-// 作用：① 生成 journal/<slug>.html（固定版式）② upsert 到 data/journal.json ③ 更新 sitemap.xml
+// 作用：① 生成 journal/<slug>.html（固定版式 + SEO）② upsert 到 data/journal.json ③ 更新 sitemap.xml
+// SEO 要素：title / description / canonical / OG(含 article:published_time) / twitter:card /
+//           JSON-LD（Article + BreadcrumbList）/ h1 唯一 / 图片 alt / 内链 / 相关阅读 / sitemap
 const fs = require('fs');
 const path = require('path');
 const BASE = 'https://film-archive-3be.pages.dev';
@@ -12,10 +14,35 @@ const file = process.argv[2];
 if (!file) { console.error('用法: node tools/gen-article.js data/articles/<slug>.json'); process.exit(1); }
 const a = JSON.parse(fs.readFileSync(file, 'utf8'));
 const slug = a.slug;
+const esc = (s) => String(s || '').replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+
+// ① 先 upsert 资讯（相关阅读需要完整列表）
+const jp = 'data/journal.json';
+const j = JSON.parse(fs.readFileSync(jp, 'utf8'));
+j.items = j.items.filter((x) => x.id !== 'j-' + slug);
+j.items.unshift({ id: 'j-' + slug, type: a.type || 'article', title: a.title, excerpt: a.excerpt, date: a.date, link: 'journal/' + slug + '.html', media: a.hero || 'samples/photos/berlin-kino-400-1.jpg' });
+fs.writeFileSync(jp, JSON.stringify(j, null, 2) + '\n');
+console.log('✅ 资讯已收录，共', j.items.length, '条（首页显示前 2 条）');
 
 // 图片路径：文章页在 journal/ 下，需加 ../
 const img = (src) => (src.startsWith('http') ? src : '../' + src);
 const heroAbs = a.hero ? (a.hero.startsWith('http') ? a.hero : BASE + '/' + a.hero) : BASE + '/samples/photos/berlin-kino-400-1.jpg';
+
+// 结构化数据：Article + BreadcrumbList
+const ldArticle = { '@context': 'https://schema.org', '@type': 'Article', headline: a.title, description: a.excerpt, image: heroAbs, datePublished: a.date, dateModified: a.date, inLanguage: 'zh-CN', author: { '@type': 'Organization', name: SITE }, publisher: { '@type': 'Organization', name: SITE }, mainEntityOfPage: { '@type': 'WebPage', '@id': BASE + '/journal/' + slug } };
+const ldBreadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+  { '@type': 'ListItem', position: 1, name: '首页', item: BASE + '/' },
+  { '@type': 'ListItem', position: 2, name: '资讯', item: BASE + '/journal' },
+  { '@type': 'ListItem', position: 3, name: a.title, item: BASE + '/journal/' + slug }
+] };
+
+// 相关阅读（同站其它文章）
+function relatedBlock() {
+  const others = j.items.filter((it) => it.link && it.link.startsWith('journal/') && it.id !== 'j-' + slug).slice(0, 3);
+  if (!others.length) return '';
+  const items = others.map((it) => `<li><a href="../${it.link}">${esc(it.title)}</a><span class="rel-date">${esc(it.date || '')}</span></li>`).join('\n        ');
+  return `    <h2>相关阅读</h2>\n    <ul class="article-related">\n        ${items}\n    </ul>`;
+}
 
 function block(b) {
   if (b.t === 'lead') return `    <p class="lead">${b.html}</p>`;
@@ -43,16 +70,19 @@ const html = `<!DOCTYPE html>
 <meta name="google-site-verification" content="${VERIFY}" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="${SITE}" />
-<meta property="og:title" content="${a.title}" />
-<meta property="og:description" content="${a.excerpt}" />
+<meta property="og:title" content="${esc(a.title)}" />
+<meta property="og:description" content="${esc(a.excerpt)}" />
 <meta property="og:url" content="${BASE}/journal/${slug}" />
 <meta property="og:image" content="${heroAbs}" />
+<meta property="article:published_time" content="${a.date}" />
+<meta property="article:author" content="${SITE}" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="../style.css" />
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"${a.title}","description":"${a.excerpt}","image":"${heroAbs}","datePublished":"${a.date}","inLanguage":"zh-CN","author":{"@type":"Organization","name":"${SITE}"},"publisher":{"@type":"Organization","name":"${SITE}"},"mainEntityOfPage":{"@type":"WebPage","@id":"${BASE}/journal/${slug}"}}</script>
+<script type="application/ld+json">${JSON.stringify(ldArticle)}</script>
+<script type="application/ld+json">${JSON.stringify(ldBreadcrumb)}</script>
 </head>
 <body>
 <header class="site-header">
@@ -74,6 +104,7 @@ const html = `<!DOCTYPE html>
 ${a.blocks.map(block).filter(Boolean).join('\n\n')}
 
 ${linksBlock()}
+${relatedBlock()}
     <p><a class="article-back" href="../index.html">← 回到胶卷库，搜你想查的那卷</a></p>
   </article>
 </main>
@@ -91,14 +122,6 @@ ${linksBlock()}
 
 fs.writeFileSync('journal/' + slug + '.html', html);
 console.log('✅ 生成 journal/' + slug + '.html');
-
-// upsert journal.json
-const jp = 'data/journal.json';
-const j = JSON.parse(fs.readFileSync(jp, 'utf8'));
-j.items = j.items.filter((x) => x.id !== 'j-' + slug);
-j.items.unshift({ id: 'j-' + slug, type: a.type || 'article', title: a.title, excerpt: a.excerpt, date: a.date, link: 'journal/' + slug + '.html', media: a.hero || 'samples/photos/berlin-kino-400-1.jpg' });
-fs.writeFileSync(jp, JSON.stringify(j, null, 2) + '\n');
-console.log('✅ 资讯已收录，共', j.items.length, '条（首页显示前 2 条）');
 
 // 更新 sitemap
 const films = JSON.parse(fs.readFileSync('data/films.json', 'utf8')).films;

@@ -34,6 +34,13 @@ function page(f) {
     description: f.character || '', image: ogimg,
     offers: priceVal ? { '@type': 'Offer', priceCurrency: 'CNY', price: (priceVal.match(/\d+/g) || [0])[0], availability: 'https://schema.org/InStock' } : undefined
   };
+  const ldBreadcrumb = {
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: BASE + '/' },
+      { '@type': 'ListItem', position: 2, name: '胶卷库', item: BASE + '/' },
+      { '@type': 'ListItem', position: 3, name: f.name_en + ' 胶卷', item: url }
+    ]
+  };
 
   const specs = [
     ['感光度', 'ISO ' + f.iso], ['类型', typeLabel(f.type)], ['颗粒', grainLabel(f.grain)], ['尺寸', (f.formats || []).join(' · ')], ['分类', catLabel(f.category)], ['状态', f.status === 'discontinued' ? '已停产' : '在产']
@@ -64,6 +71,7 @@ function page(f) {
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="../style.css" />
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
+<script type="application/ld+json">${JSON.stringify(ldBreadcrumb)}</script>
 </head>
 <body>
 <header class="site-header">
