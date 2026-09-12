@@ -4,6 +4,15 @@
   "updated": "2026-09-06",
   "items": [
     {
+      "id": "j-hangqing-2026",
+      "type": "news",
+      "title": "2026 胶片行情观察：哪些黑白卷悄悄涨了价，哪些反而便宜了",
+      "excerpt": "彩色负片一路猛涨，黑白却相对平静——但平静里也有人在偷偷加价。用 PetaPixel、Pellica 等公开报告，把 2026 年黑白胶卷的涨跌算清楚：谁涨了、谁反而便宜了、你该买哪卷。",
+      "date": "2026-09-13",
+      "link": "journal/hangqing-2026.html",
+      "media": "samples/photos/berlin-kino-400-1.jpg"
+    },
+    {
       "id": "j-bl-sl",
       "type": "article",
       "title": "黑白胶卷鄙视链：原厂党、平替党、参数党，你站哪队？",
@@ -11,15 +20,6 @@
       "date": "2026-09-12",
       "link": "journal/bishilian.html",
       "media": "samples/photos/berlin-kino-400-1.jpg"
-    },
-    {
-      "id": "j-1",
-      "type": "news",
-      "title": "2026 胶片行情观察：哪些黑白卷悄悄涨了价，哪些反而便宜了",
-      "excerpt": "PetaPixel 七月报告：Ilford 多款卷上调（FP4 涨约 9%），而 Tri-X 是少数降价的黑白卷。",
-      "date": "2026-09-04",
-      "link": "#",
-      "media": ""
     },
     {
       "id": "j-2",
