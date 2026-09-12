@@ -5,11 +5,11 @@
   "date": "2026-09-13",
   "type": "news",
   "excerpt": "彩色负片一路猛涨，黑白却相对平静——但平静里也有人在偷偷加价。用 PetaPixel、Pellica 等公开报告，把 2026 年黑白胶卷的涨跌算清楚：谁涨了、谁反而便宜了、你该买哪卷。",
-  "hero": "samples/photos/berlin-kino-400-1.jpg",
+  "hero": "samples/photos/streetpan-400-1.jpg",
   "blocks": [
     { "t": "lead", "html": "先说结论：<strong>今年真正让胶片党肉疼的是彩色负片，不是黑白。</strong>但「黑白没涨」也不完全对——有几款确实在悄悄加价，同时也有卷在反向降价。" },
     { "t": "p", "html": "所以这篇不聊情怀，只算账：谁涨了、谁便宜了、你的钱该往哪花。所有数字都来自公开报告，来源列在文末。" },
-    { "t": "fig", "src": "samples/photos/berlin-kino-400-1.jpg", "caption": "黑白街拍 · Berlin Kino 400 · 摄影 © 迈尔斯·凯瑟琳", "alt": "黑白胶卷街头实拍样片" },
+    { "t": "fig", "src": "samples/photos/lady-grey-400-1.jpg", "caption": "街头黑白 · Lady Grey 400 · 摄影 © antmark", "alt": "黑白胶卷街头实拍样片" },
 
     { "t": "h2", "html": "一、先说坏消息：这几款确实涨了" },
     { "t": "p", "html": "<strong>Ilford 系（部分型号）。</strong>PetaPixel 在 2026 年 7 月的报告（引用 Analog Cafe 的统计）里点名了几款涨得靠前的：Ilford XP2 Super 400 涨了 10.4%，<strong>FP4 Plus 125 涨了 9.2%</strong>——都明显高于年初。" },
@@ -20,13 +20,14 @@
     { "t": "h2", "html": "二、好消息：它反而是降下来的那条线" },
     { "t": "p", "html": "反转来了——<strong>柯达 Tri-X 400</strong>。Kodak Alaris 早在 2024 年初就把它降价最多 30%（PetaPixel 当时报道，一卷 36 张从约 $10 降到约 $7 的量级）。到了 2026 年 7 月的公开报价（Pellica 的价格表），HP5 与 Tri-X 都落在 <strong>$9–12</strong> 区间——而 <strong>Tri-X 被点名是少数变便宜的胶卷</strong>。" },
     { "t": "p", "html": "对黑白党来说这是好消息：<strong>你最想买的那卷经典，正好是没跟着涨的那个。</strong>" },
-    { "t": "fig", "src": "samples/photos/rpx-400-1.jpg", "caption": "Rollei RPX 400（亲民价）· 摄影 © Bruce Rollerson", "alt": "Rollei RPX 400 实拍样片" },
+    { "t": "fig", "src": "samples/photos/retro-80s-1.jpg", "caption": "Rollei Retro 80S（平价正色卷）· 摄影 © Dmitriy Ryabov", "alt": "Rollei Retro 80S 实拍样片" },
 
     { "t": "h2", "html": "三、想省钱？这三条线最划算" },
     { "t": "p", "html": "<strong>① 东欧 / 捷克系。</strong>Pellica 的 2026 价格表里，Fomapan 400 落在约 <strong>$6–9</strong>，属于能买到的最便宜那一档。" },
+    { "t": "fig", "src": "samples/photos/fomapan-100-1.jpg", "caption": "Fomapan 100 Classic（最便宜一档）· 摄影 © 千里", "alt": "Fomapan 100 Classic 实拍样片" },
     { "t": "p", "html": "<strong>② 大厂平价线。</strong>Kentmere 400（Ilford 旗下的平价系列）同样约 <strong>$6–9</strong>——想要大厂血统加低单价，这是最短路径。" },
     { "t": "p", "html": "<strong>③ 平替思路。</strong>比如 Adox CHM 400，被玩家称作「平民版 HP5+」，针对 HP5+ 的冲洗时间基本能直接套用，价格却更低。" },
-    { "t": "fig", "src": "samples/photos/chm-400-1.jpg", "caption": "Adox CHM 400（平民版 HP5+）· 摄影 © Christian Meermann", "alt": "Adox CHM 400 实拍样片" },
+    { "t": "fig", "src": "samples/photos/chm-400-2.jpg", "caption": "Adox CHM 400（平民版 HP5+）· 摄影 © Lilian", "alt": "Adox CHM 400 实拍样片" },
 
     { "t": "h2", "html": "说句大实话" },
     { "t": "p", "html": "今年这波涨价，主角是彩色负片——国内有玩家统计，柯达 6 月起提价约 15%，ColorPlus 200 从 ¥64.88 涨到 ¥74.61，加上冲扫，一卷 36 张轻松破百。相比之下，<strong>黑白是整个胶片市场里最稳、也最便宜的一档</strong>（PetaPixel 那份报告的标题干脆就是价格趋稳）。" },
