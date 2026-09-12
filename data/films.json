@@ -789,7 +789,7 @@
         "portrait",
         "documentary"
       ],
-      "notes": "",
+      "notes": "用户普遍把它称为“平民版 HP5+”：与 HP5+ 高度一致，所有针对 HP5+ 的冲洗时间都能直接套用。性价比极高——价格远低于原厂 HP5+ 或 Tri-X，性能却“同样全能”，是理想的旅行用卷。也有少数用户指出细微差异：片基颜色与 HP5+ 不同（CHM 400 呈灰紫色），影调可能有极细微差别，但仍是一款优秀胶片。另有反馈称用 Rodinal 1+25 显影时反差非常低，放大时可能需要更高号数的相纸滤镜。",
       "character_en": "ORWO high-speed film. Medium grain, deep tones - street, portrait and documentary with a German accent.",
       "price_new": {
         "120": "约¥55–90",
@@ -798,7 +798,17 @@
       "price_used": {
         "120": "",
         "135": ""
-      }
+      },
+      "samples": [
+        {
+          "src": "samples/photos/chm-400-1.jpg",
+          "credit": "© Christian Meermann · CHM 400"
+        },
+        {
+          "src": "samples/photos/chm-400-2.jpg",
+          "credit": "© Lilian · CHM 400"
+        }
+      ]
     },
     {
       "id": "adox-silvermax-100",
@@ -820,7 +830,7 @@
         "fine-art",
         "landscape"
       ],
-      "notes": "",
+      "notes": "许多用户称它为“六边形战士”：综合实力极强，有摄影师甚至拿它与 Kodak Tri-X 400 相提并论，认为是最好的黑白胶卷之一。影调迷人——灰阶过渡平滑，从阴影的浓郁黑到高光的纯白层次丰富，动态范围令人印象深刻。迫冲性能出色，有用户从 ISO 100 迫冲到 400 仍能获得清晰影像。也有争议：高光环境下若曝光控制不当，高光容易过曝，建议适当降感（如按 ISO 200 曝光）以保护高光细节。",
       "character_en": "High silver content, high acutance, ultra-fine grain with strong one-stop contrast. Punchy, clean black-and-white for portrait and still life.",
       "price_new": {
         "120": "约¥70–105",
@@ -829,7 +839,21 @@
       "price_used": {
         "120": "",
         "135": ""
-      }
+      },
+      "samples": [
+        {
+          "src": "samples/photos/silvermax-100-1.jpg",
+          "credit": "© fishyfisharcade · Silvermax 100"
+        },
+        {
+          "src": "samples/photos/silvermax-100-2.jpg",
+          "credit": "© fishyfisharcade · Silvermax 100"
+        },
+        {
+          "src": "samples/photos/silvermax-100-3.jpg",
+          "credit": "© fishyfisharcade · Silvermax 100"
+        }
+      ]
     },
     {
       "id": "adox-cms-20-ii",
