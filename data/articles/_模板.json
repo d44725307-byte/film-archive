@@ -1,0 +1,30 @@
+{
+  "_说明": "资讯文章内容模板（版式 v1 · 定版）。复制本文件为 <slug>.json 后填写，然后运行：node tools/gen-article.js data/articles/<slug>.json",
+  "_block类型": {
+    "lead": "导语（放大的首段，通常只有一段）",
+    "p": "普通段落",
+    "h2": "小节标题（金色 + 左侧竖线）",
+    "fig": "图片（居中，图注居中在图下）；字段 src / caption / alt",
+    "quote": "金句卡片（居中大字，可截图）"
+  },
+  "slug": "example-slug",
+  "title": "文章标题（会作为页面 h1 与浏览器标题）",
+  "meta": "2026-09-20 · 观点 · 约 1000 字",
+  "date": "2026-09-20",
+  "type": "article",
+  "excerpt": "一段用于 SEO 描述 / 资讯列表摘要的文字（80 字内最佳）。",
+  "hero": "samples/photos/berlin-kino-400-1.jpg",
+  "blocks": [
+    { "t": "lead", "html": "导语：一句话钉住读者。" },
+    { "t": "p", "html": "正文段落。<strong>加粗</strong>用 strong 标签。" },
+    { "t": "fig", "src": "samples/photos/xxx.jpg", "caption": "胶卷名 · 摄影 © 作者", "alt": "实拍样片" },
+    { "t": "h2", "html": "一、小节标题" },
+    { "t": "p", "html": "小节正文。" },
+    { "t": "quote", "html": "可截图的金句。" }
+  ],
+  "linksTitle": "相关胶卷",
+  "links": [
+    { "label": "HP5 Plus", "href": "film/ilford-hp5-plus.html" },
+    { "label": "Tri-X 400", "href": "film/kodak-tri-x-400.html" }
+  ]
+}
