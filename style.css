@@ -184,6 +184,51 @@ html, body {
 .page p, .page li { color: var(--text-dim); font-size: 15px; line-height: 1.9; }
 .page a { color: var(--accent); }
 
+/* ---- 文章页（杂志感排版） ---- */
+.article { max-width: 700px; padding-top: 8px; }
+.article-head { margin: 6px 0 30px; }
+.article-meta { font-size: 12px; color: var(--text-dim); letter-spacing: 2.5px; margin: 0 0 14px; }
+.article-head h1 {
+  font-family: 'Noto Serif SC', 'Songti SC', serif; font-weight: 900;
+  font-size: 34px; line-height: 1.38; color: var(--film); margin: 0;
+  letter-spacing: .5px;
+}
+.article-head::after { content: ''; display: block; width: 60px; height: 3px; background: var(--accent); margin-top: 22px; }
+.article .lead { font-size: 17.5px; line-height: 2; color: var(--text); font-weight: 600; }
+.article p { font-size: 16.5px; line-height: 2.05; margin: 0 0 20px; color: var(--text); }
+.article strong { color: var(--film); font-weight: 700; }
+.article h2 {
+  font-family: 'Noto Serif SC', 'Songti SC', serif; font-weight: 700;
+  font-size: 21px; line-height: 1.55; color: var(--accent-strong);
+  margin: 44px 0 16px; padding-left: 14px; border-left: 4px solid var(--accent);
+}
+.article-fig { margin: 28px 0 32px; }
+.article-fig img { width: auto; height: auto; max-width: 100%; max-height: 540px; display: block; margin: 0 auto; border-radius: 10px; border: 1px solid var(--line); }
+.article-fig figcaption { font-size: 12.5px; color: var(--text-dim); margin-top: 10px; text-align: right; letter-spacing: .5px; }
+.article-quote {
+  margin: 40px 0; padding: 30px 26px; text-align: center;
+  font-family: 'Noto Serif SC', 'Songti SC', serif; font-weight: 900;
+  font-size: 25px; line-height: 1.75; color: var(--film);
+  background: var(--card); border-radius: 12px; border: 1px solid var(--line);
+  border-top: 3px solid var(--accent); border-bottom: 3px solid var(--accent);
+}
+.article-links { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; }
+.article-links a {
+  display: inline-block; padding: 7px 15px; border: 1px solid var(--line); border-radius: 999px;
+  font-size: 13.5px; color: var(--text); text-decoration: none; background: var(--card); transition: all .15s;
+}
+.article-links a:hover { border-color: var(--accent); color: var(--accent-soft); background: var(--card-hover); }
+.article-back { display: inline-block; margin-top: 8px; font-size: 14px; color: var(--accent); text-decoration: none; }
+.article-back:hover { color: var(--accent-strong); }
+
+@media (max-width: 720px) {
+  .article-head h1 { font-size: 25px; }
+  .article .lead { font-size: 16px; }
+  .article p { font-size: 16px; line-height: 1.95; }
+  .article h2 { font-size: 18px; margin-top: 34px; }
+  .article-quote { font-size: 20px; padding: 24px 18px; }
+}
+
 /* footer */
 .site-footer { border-top: 1px solid var(--line); color: var(--text-dim); font-size: 13px; padding: 24px 0; }
 .site-footer p { margin: 0; }
