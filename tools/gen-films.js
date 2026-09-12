@@ -101,6 +101,7 @@ function page(f) {
 
 <script>window.__film=${JSON.stringify(f).replace(/</g, '\\u003c')};</script>
 <script src="../film-page.js"></script>
+<!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "8333552724924db0aa955ba91846bc4b"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>`;
 }

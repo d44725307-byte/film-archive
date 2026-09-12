@@ -4,6 +4,15 @@
   "updated": "2026-09-06",
   "items": [
     {
+      "id": "j-bl-sl",
+      "type": "article",
+      "title": "黑白胶卷鄙视链：原厂党、平替党、参数党，你站哪队？",
+      "excerpt": "用真实规格与价格拆开黑白胶卷的鄙视链——原厂 vs 平替（HP5+ 与 CHM 400）、柯达 vs 伊尔福、参数党 vs 玄学党。",
+      "date": "2026-09-12",
+      "link": "journal/bishilian.html",
+      "media": "samples/photos/berlin-kino-400-1.jpg"
+    },
+    {
       "id": "j-1",
       "type": "news",
       "title": "2026 胶片行情观察：哪些黑白卷悄悄涨了价，哪些反而便宜了",
