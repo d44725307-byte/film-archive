@@ -17,7 +17,7 @@
   "blocks": [
     { "t": "lead", "html": "导语：一句话钉住读者。" },
     { "t": "p", "html": "正文段落。<strong>加粗</strong>用 strong 标签。" },
-    { "t": "fig", "src": "samples/photos/xxx.jpg", "caption": "胶卷名 · 摄影 © 作者", "alt": "实拍样片" },
+    { "t": "fig", "src": "samples/photos/xxx.jpg", "caption": "胶卷名 · 摄影 © 摄影作者名（填真实署名）", "alt": "实拍样片" },
     { "t": "h2", "html": "一、小节标题" },
     { "t": "p", "html": "小节正文。" },
     { "t": "quote", "html": "可截图的金句。" }
