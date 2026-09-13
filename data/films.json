@@ -28,7 +28,7 @@
         "low-light",
         "push"
       ],
-      "notes": "",
+      "notes": "社区对它的态度几乎是「又爱又恨」：爱它标志性的颗粒质感和影调平衡，宽容度极大、非常容错（曝光差一点也救得回来），从 EI 800 一路迫冲到 12800 都有人玩。不少人形容它的颗粒「几乎能摸到」，正是这种质感让照片自带年代感。争议集中在两点：价格在黑白卷里偏高；颗粒明显——想要干净画面的人会转投 T-Max。",
       "character_en": "The most classic all-round black-and-white film. Huge latitude, solid grain, warm contrast - a dependable classic for street, documentary and portrait, and it pushes beautifully.",
       "price_new": {
         "120": "约¥100–135",
@@ -62,7 +62,7 @@
         "large-format",
         "fine-art"
       ],
-      "notes": "",
+      "notes": "柯达 T 颗粒（平面晶体）的代表：ISO 100，颗粒极细、锐度与解析力出色，影调干净、反差略高。用户普遍把它当作「追求画质」的选择，风光、建筑、翻拍、棚拍评价最好。争议：画面偏「现代、干净」，传统颗粒党嫌它缺味道；宽容度也不像 Tri-X 那样宽容，曝光需要更准，冲显过头容易显硬。",
       "character_en": "Kodak's T-Grain flagship. Ultra-fine grain, high acutance, superb tonal gradation, gorgeous mid-tones - ideal for landscape, still life and large format.",
       "price_new": {
         "120": "约¥105–145",
@@ -96,7 +96,7 @@
         "street",
         "push"
       ],
-      "notes": "",
+      "notes": "常年被拿来和 Tri-X 对比：同为 ISO 400，它采用 T 颗粒，颗粒更细、反差更高，锐度也更好，因此不少用户反而更偏爱它。适合需要干净画面的纪实、人像与弱光。争议：一是「太干净、太现代」，传统颗粒爱好者不买账；二是价格偏高，且 T 颗粒对显影更敏感，冲不好容易发硬。",
       "character_en": "Fast T-Grain film with fine grain and punchy contrast that takes pushing confidently. Great for night, action and events - a favorite among low-light shooters.",
       "price_new": {
         "120": "约¥105–145",
@@ -193,7 +193,7 @@
         "fine-art",
         "large-format"
       ],
-      "notes": "",
+      "notes": "前代 Acros 100 在圈里近乎「传说」：细颗粒、层次丰富，尤其是近乎零的倒易率失效，让它成为长曝用户的心头好。Acros II 延续了这些特点——颗粒度（RMS）约 7、颗粒极细、影调干净、长曝表现依然优秀，夜景、风光、建筑评价最好。争议：有用户对比后认为，Acros II 比原版中灰反差略高、层次略少，部分老用户因此觉得「不如一代」。",
       "character_en": "Fujifilm's finest-grained film. Nearly grainless, silky tonal gradation, deep clean blacks - a dream for landscape, still life and large format.",
       "price_new": {
         "120": "约¥110–155",
@@ -289,7 +289,7 @@
         "documentary",
         "push"
       ],
-      "notes": "",
+      "notes": "被广泛认为是「最不容易出错的全能卷」：颗粒细而平滑（不是 Tri-X 那种粗犷），中反差，宽容度极大，官方给到 EI 3200 的迫冲指引。新闻、纪实、旅行、弱光、运动都有人拿它拍。用户普遍反映它「迫冲之后依然稳」，EI 800 时画面会偏灰，但暗部仍能压出黑。争议较少，偶尔被嫌「太乖、缺个性」——而这恰恰是它成为多数人主力卷的原因。",
       "character_en": "Ilford's flagship all-rounder. Wide latitude, soft grain, rich tonal range. Street, documentary and portrait, and it pushes with ease.",
       "price_new": {
         "120": "约¥80–115",
@@ -322,7 +322,7 @@
         "portrait",
         "fine-art"
       ],
-      "notes": "",
+      "notes": "常被称作 HP5+ 的「细颗粒版本」：ISO 125，颗粒细、中等反差、影调过渡平滑，宽容度极佳，用户形容它「buttery（奶油般顺滑）」。风光、人像、日光拍摄的评价最好，暗部与高光都能留住细节，社区里甚至有个 #FP4Party 的长期活动专门用它。争议：有人觉得它的颗粒偏「经典复古」而非极致细腻，也有人拿它和柯达 Plus-X 比较中灰层次。",
       "character_en": "A classic mid-speed film. Fine, gentle, medium contrast with restrained greys - elegant for both landscape and portrait.",
       "price_new": {
         "120": "约¥80–115",
@@ -356,7 +356,7 @@
         "studio",
         "fine-art"
       ],
-      "notes": "",
+      "notes": "Delta 系列的细颗粒担当：ISO 100，采用 Ilford 的 Core-Shell 晶体技术，颗粒极细、锐度高、清晰度出色，用户普遍认为「要细节就选它」。风光、建筑、静物和需要放大的题材评价最好。争议：画面偏「干净利落」，有人觉得味道不如传统颗粒卷；对曝光准确度要求也更高，欠曝时暗部容易发闷。",
       "character_en": "Ilford's core-shell technology. Extremely fine grain, clean tones, silky professional gradation - for landscape, studio and copy work.",
       "price_new": {
         "120": "约¥90–130",
@@ -389,7 +389,7 @@
         "street",
         "event"
       ],
-      "notes": "",
+      "notes": "Delta 系列里最全能的一卷：ISO 400，颗粒细、影调细腻、反差适中，用户普遍认为它「各种光线条件下都好用」。相比 Tri-X、HP5+ 这类传统颗粒卷，它的颗粒更细、画面更现代。争议：有用户觉得它「太干净」，少了传统胶片的味道；另外它与 Delta 3200 的曲线差别很大，把 400 迫冲到 3200 与直接用 3200，出来的暗部反差并不一样。",
       "character_en": "Fast, fine-grained film. Rich shadows, fine grain, gentle texture - great for night, events and low light.",
       "price_new": {
         "120": "约¥90–130",
@@ -422,7 +422,7 @@
         "sports",
         "push"
       ],
-      "notes": "",
+      "notes": "暗光场景的常用选择：标称 ISO 3200，颗粒明显，但被普遍认为「有氛围」，适合夜晚、室内、舞台与运动。用户常说它在极暗环境下「能拍到别人拍不到的」。争议不小：一是颗粒和反差都偏高，白天用往往得靠 ND 或收光圈；二是不少人宁愿把 Delta 400 迫冲到 3200——两者曲线不同，3200 的设计更强调暗部反差、并控制高光。",
       "character_en": "Ultra-high speed, around EI 1600-3200. For dark rooms and stages; coarse, atmospheric grain.",
       "price_new": {
         "120": "约¥110–155",
@@ -725,7 +725,7 @@
         "sports",
         "documentary"
       ],
-      "notes": "",
+      "notes": "性价比路线的代表：价格便宜，颗粒对 ISO 400 传统乳剂来说算细，但实际观感偏明显。用户普遍反映它「按标称 ISO 拍时反差偏高、高光容易外溢、暗部细节一般」，所以不少人干脆按 ISO 200–320 拍来压反差；迫冲到 800 也有人用。争议：喜欢的人说「这个价位有这种味道很值」，不喜欢的人说它「粗、脏」。",
       "character_en": "Fast classic character, chunky grain, full contrast - for motion, street, overcast days and anything that wants energy.",
       "price_new": {
         "120": "约¥35–50",
