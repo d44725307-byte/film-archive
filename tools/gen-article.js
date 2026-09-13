@@ -29,9 +29,13 @@ console.log('✅ 资讯已收录，共', j.items.length, '条（首页显示前 
 // 图片路径：文章页在 journal/ 下，需加 ../
 const img = (src) => (src.startsWith('http') ? src : '../' + src);
 const heroAbs = a.hero ? (a.hero.startsWith('http') ? a.hero : BASE + '/' + a.hero) : BASE + '/samples/photos/berlin-kino-400-1.jpg';
+// 微信/社交预览用小图（微信要求 <300KB，全尺寸图会抓取失败）
+const heroThumb = heroAbs.replace('/samples/photos/', '/samples/photos/thumbs/');
+const THUMB_DIMS = JSON.parse(fs.readFileSync('data/photo-thumbs.json', 'utf8'));
+const hd = THUMB_DIMS[heroThumb.split('/').pop()] || [480, 320];
 
 // 结构化数据：Article + BreadcrumbList
-const ldArticle = { '@context': 'https://schema.org', '@type': 'Article', headline: a.title, description: a.excerpt, image: heroAbs, datePublished: a.date, dateModified: a.date, inLanguage: 'zh-CN', author: { '@type': 'Organization', name: SITE }, publisher: { '@type': 'Organization', name: SITE }, mainEntityOfPage: { '@type': 'WebPage', '@id': BASE + '/journal/' + slug } };
+const ldArticle = { '@context': 'https://schema.org', '@type': 'Article', headline: a.title, description: a.excerpt, image: heroThumb, datePublished: a.date, dateModified: a.date, inLanguage: 'zh-CN', author: { '@type': 'Organization', name: SITE }, publisher: { '@type': 'Organization', name: SITE }, mainEntityOfPage: { '@type': 'WebPage', '@id': BASE + '/journal/' + slug } };
 const ldBreadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
   { '@type': 'ListItem', position: 1, name: '首页', item: BASE + '/' },
   { '@type': 'ListItem', position: 2, name: '资讯', item: BASE + '/journal' },
@@ -85,7 +89,11 @@ const html = `<!DOCTYPE html>
 <meta property="og:title" content="${esc(a.title)}" />
 <meta property="og:description" content="${esc(a.excerpt)}" />
 <meta property="og:url" content="${BASE}/journal/${slug}" />
-<meta property="og:image" content="${heroAbs}" />
+<meta property="og:image" content="${heroThumb}" />
+<meta property="og:image:secure_url" content="${heroThumb}" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="${hd[0]}" />
+<meta property="og:image:height" content="${hd[1]}" />
 <meta property="article:published_time" content="${a.date}" />
 <meta property="article:author" content="${SITE}" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -97,6 +105,8 @@ const html = `<!DOCTYPE html>
 <script type="application/ld+json">${JSON.stringify(ldBreadcrumb)}</script>
 </head>
 <body>
+<!-- 微信分享缩略图兜底：微信会优先抓取 body 顶部 ≥300x300 的图（不能用 display:none） -->
+<img class="wx-thumb" src="${heroThumb.replace(BASE + '/', '../')}" alt="" width="300" height="300" style="position:absolute;left:-9999px;top:0;width:300px;height:300px">
 <header class="site-header">
   <div class="container">
     <div class="brand"><div class="brand-text"><div class="brand-lockup"><div class="brand-cn">${SITE}</div><span class="brand-en">Film Stock Hub</span></div></div></div>

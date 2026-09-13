@@ -30,7 +30,10 @@ function page(f) {
   const brand = esc(f.brand_cn || f.brand);
   const desc = esc((f.character || '') + (f.brand_cn || f.brand) + ' ' + f.name_en + ' 胶卷档案');
   const meta = `ISO ${f.iso} · ${typeLabel(f.type)} · ${grainLabel(f.grain)} · ${(f.formats || []).join(' · ')} · ${catLabel(f.category)}`;
-  const ogimg = f.samples && f.samples[0] ? BASE + '/' + f.samples[0].src : BASE + '/samples/photos/berlin-kino-400-1.jpg';
+  const ogFull = f.samples && f.samples[0] ? BASE + '/' + f.samples[0].src : BASE + '/samples/photos/berlin-kino-400-1.jpg';
+  // 微信预览需要 <300KB，改用缩略图
+  const ogimg = ogFull.replace('/samples/photos/', '/samples/photos/thumbs/');
+  const ogd = THUMB_DIMS[ogimg.split('/').pop()] || [480, 320];
   const priceVal = (f.price_new && f.price_new['135']) || (f.price_new && f.price_new['120']) || '';
   const ld = {
     '@context': 'https://schema.org', '@type': 'Product',
@@ -75,6 +78,10 @@ function page(f) {
 <meta property="og:description" content="${desc}" />
 <meta property="og:url" content="${url}" />
 <meta property="og:image" content="${esc(ogimg)}" />
+<meta property="og:image:secure_url" content="${esc(ogimg)}" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="${ogd[0]}" />
+<meta property="og:image:height" content="${ogd[1]}" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
