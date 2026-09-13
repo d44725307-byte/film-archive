@@ -125,8 +125,6 @@ ${relatedBlock()}
     <p class="footer-links"><a href="../disclaimer.html">免责声明</a><span class="dot">·</span><a href="../privacy.html">隐私政策</a></p>
   </div>
 </footer>
-
-<!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "${BEACON_TOKEN}"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>`;
 
