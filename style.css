@@ -260,7 +260,8 @@ html, body {
 .spec-block { margin-top: 18px; }
 .spec-block h4 { margin: 0 0 6px; font-size: 14px; color: var(--accent); }
 .spec-block p { margin: 0; font-size: 15px; color: var(--text); line-height: 1.7; }
-.spec-block .usage-note { font-size: 13px; text-align: left; line-height: 1.8; color: var(--text-dim); }
+.spec-block .usage-note { font-size: 13px; text-align: left; line-height: 1.85; color: var(--text-dim); white-space: pre-line; }
+.film-detail .usage-note { font-size: 14.5px; color: var(--text); line-height: 1.95; }
 .spec-block .desc-cn { font-size: 16px; color: var(--text); }
 .spec-block .desc-en { font-style: italic; color: var(--text-dim); font-size: 13px; margin-top: 8px; }
 .price-config { display: flex; align-items: stretch; border: 1px solid var(--line); border-radius: 12px; background: var(--card); margin-top: 10px; overflow: hidden; }

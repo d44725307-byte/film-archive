@@ -421,7 +421,7 @@
       ctx.fillStyle = '#A87A10'; ctx.font = '700 30px "Noto Serif SC","Songti SC",serif';
       ctx.fillText('使用感受', 84, contentBottom + 48);
       ctx.fillStyle = '#22402F'; ctx.font = '500 33px "Noto Serif SC","Songti SC",serif';
-      contentBottom = wrapText(ctx, f.notes, 84, contentBottom + 100, W - 168, 50, 40);
+      contentBottom = wrapText(ctx, String(f.notes).replace(/\n+/g, ' '), 84, contentBottom + 100, W - 168, 50, 40);
     }
     // 实拍样片缩略图
     let ty = contentBottom + 40;
