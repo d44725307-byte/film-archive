@@ -44,12 +44,22 @@ function relatedBlock() {
   return `    <h2>相关阅读</h2>\n    <ul class="article-related">\n        ${items}\n    </ul>`;
 }
 
+// 图片尺寸表（补 width/height，避免 CLS）
+const DIMS = JSON.parse(fs.readFileSync('data/photo-dims.json', 'utf8'));
+let figNo = 0;
 function block(b) {
   if (b.t === 'lead') return `    <p class="lead">${b.html}</p>`;
   if (b.t === 'p') return `    <p>${b.html}</p>`;
   if (b.t === 'h2') return `    <h2>${b.html}</h2>`;
   if (b.t === 'quote') return `    <blockquote class="article-quote">${b.html}</blockquote>`;
-  if (b.t === 'fig') return `    <figure class="article-fig">\n      <img src="${img(b.src)}" alt="${b.alt || a.title}" loading="lazy" />\n      ${b.caption ? `<figcaption>${b.caption}</figcaption>` : ''}\n    </figure>`;
+  if (b.t === 'fig') {
+    figNo++;
+    const d = DIMS[b.src.replace(/^.*\//, '')] || [];
+    const size = d.length ? ` width="${d[0]}" height="${d[1]}"` : '';
+    // 第一张图不懒加载（常是 LCP 元素）并给高优先级
+    const load = figNo === 1 ? 'loading="eager" fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"';
+    return `    <figure class="article-fig">\n      <img src="${img(b.src)}" alt="${b.alt || a.title}"${size} ${load} />\n      ${b.caption ? `<figcaption>${b.caption}</figcaption>` : ''}\n    </figure>`;
+  }
   return '';
 }
 function linksBlock() {

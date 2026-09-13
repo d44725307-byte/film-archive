@@ -9,6 +9,7 @@ const TYPE_LABEL = { panchromatic: '全色性', orthochromatic: '正色性', chr
 const SCENE_LABEL = { street: '街头', portrait: '人像', documentary: '纪实', 'low-light': '暗光/夜景', push: '迫冲', landscape: '风光', product: '静物/产品', 'large-format': '大画幅', 'fine-art': '艺术创作', action: '运动/动态', indoor: '室内', sports: '体育', cinematic: '电影感', event: '活动', travel: '旅行', 'scan-friendly': '扫描友好', copy: '翻拍', studio: '棚拍', infrared: '红外', creative: '创意', 'black-white': '黑白图形', architecture: '建筑', graphic: '图形/线条', retro: '复古', daily: '日常', sunlight: '阳光', 'high-contrast': '高反差', 'direct-positive': '直接正像', artistic: '艺术', laboratory: '实验室/翻拍', 'all-purpose': '通用' };
 
 const esc = (s) => String(s || '').replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+const DIMS = JSON.parse(fs.readFileSync('data/photo-dims.json', 'utf8'));
 const catLabel = (c) => CATEGORY_LABEL[c] || c;
 const grainLabel = (g) => GRAIN_LABEL[g] || g;
 const typeLabel = (t) => TYPE_LABEL[t] || t;
@@ -46,7 +47,11 @@ function page(f) {
     ['感光度', 'ISO ' + f.iso], ['类型', typeLabel(f.type)], ['颗粒', grainLabel(f.grain)], ['尺寸', (f.formats || []).join(' · ')], ['分类', catLabel(f.category)], ['状态', f.status === 'discontinued' ? '已停产' : '在产']
   ].map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('');
 
-  const samples = (f.samples || []).map((s) => `<figure class="sample"><img src="${esc('../' + s.src)}" alt="${name} 实拍样片" loading="lazy"></figure>`).join('');
+  const samples = (f.samples || []).map((s) => {
+    const d = DIMS[s.src.replace(/^.*\//, '')] || [];
+    const size = d.length ? ` width="${d[0]}" height="${d[1]}"` : '';
+    return `<figure class="sample"><img src="${esc('../' + s.src)}" alt="${name} 实拍样片"${size} loading="lazy" decoding="async"></figure>`;
+  }).join('');
   const credit = (f.samples || []).some((s) => s.credit) ? `<p class="sample-credit">© ${esc((f.samples || []).filter((s) => s.credit).map((s) => s.credit.replace(/^©\s*/, '').split(' · ')[0]).filter((v, i, a) => a.indexOf(v) === i).join(' · '))}</p>` : '';
 
   return `<!DOCTYPE html>
