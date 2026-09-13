@@ -546,6 +546,7 @@
   async function loadJournal() {
     const list = document.getElementById('journalList');
     if (!list) return;
+    if (list.children.length) return; // 首页已静态渲染（消除 CLS）
     try {
       const [res, dimsRes] = await Promise.all([fetch('data/journal.json'), fetch('data/photo-thumbs.json')]);
       const jd = await res.json();

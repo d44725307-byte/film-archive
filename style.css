@@ -148,8 +148,8 @@ html, body {
 .journal-sub { margin: 4px 0 0; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 12px; letter-spacing: 2px; color: var(--accent); text-transform: uppercase; }
 .journal-more { color: var(--accent); font-size: 13px; text-decoration: none; letter-spacing: 1px; white-space: nowrap; }
 .journal-more:hover { color: var(--accent-strong); }
-.toolbar-filters { margin-top: 10px; }
-.journal-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 18px; }
+.toolbar-filters { min-height: 250px; margin-top: 10px; }
+.journal-list { min-height: 360px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 18px; }
 @media (max-width: 720px) { .journal-list { grid-template-columns: 1fr; } }
 .j-item { display: flex; flex-direction: column; gap: 10px; padding: 16px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; color: inherit; transition: all .15s; }
 .j-item:hover { border-color: var(--accent); transform: translateY(-2px); }

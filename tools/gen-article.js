@@ -166,6 +166,9 @@ ${BEACON}
 fs.writeFileSync('journal/' + slug + '.html', html);
 console.log('✅ 生成 journal/' + slug + '.html');
 
+// 同步首页「资讯」静态区块（消除 CLS + SEO）
+try { require('child_process').execSync('node tools/gen-home-journal.js', { stdio: 'inherit' }); } catch (e) { console.log('  ⚠️ 首页资讯同步失败'); }
+
 // 更新 sitemap
 const films = JSON.parse(fs.readFileSync('data/films.json', 'utf8')).films;
 const arts = j.items.filter((it) => it.link && it.link.startsWith('journal/')).map((it) => it.link.replace('.html', ''));
