@@ -82,7 +82,7 @@
     } catch (e) { flash('操作失败'); }
   };
 
-  document.addEventListener('click', (e) => { const img = e.target.closest('.sample img'); if (img) openLightbox(img.getAttribute('src')); });
+  document.addEventListener('click', (e) => { const img = e.target.closest('.sample img'); if (img) openLightbox(img.getAttribute('data-full') || img.getAttribute('src')); });
   document.querySelectorAll('#lightbox [data-close]').forEach((el) => el.addEventListener('click', closeLightbox));
   document.querySelectorAll('#cardSave [data-cardsave-close]').forEach((el) => el.addEventListener('click', closeCardSave));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { if (cardSave && !cardSave.hidden) closeCardSave(); else if (lightbox && !lightbox.hidden) closeLightbox(); } });

@@ -12,6 +12,7 @@ const SCENE_LABEL = { street: '街头', portrait: '人像', documentary: '纪实
 
 const esc = (s) => String(s || '').replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
 const DIMS = JSON.parse(fs.readFileSync('data/photo-dims.json', 'utf8'));
+const THUMB_DIMS = JSON.parse(fs.readFileSync('data/photo-thumbs.json', 'utf8'));
 const catLabel = (c) => CATEGORY_LABEL[c] || c;
 const grainLabel = (g) => GRAIN_LABEL[g] || g;
 const typeLabel = (t) => TYPE_LABEL[t] || t;
@@ -50,9 +51,11 @@ function page(f) {
   ].map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('');
 
   const samples = (f.samples || []).map((s) => {
-    const d = DIMS[s.src.replace(/^.*\//, '')] || [];
+    const base = s.src.replace(/^.*\//, '');
+    const d = THUMB_DIMS[base] || DIMS[base] || [];
     const size = d.length ? ` width="${d[0]}" height="${d[1]}"` : '';
-    return `<figure class="sample"><img src="${esc('../' + s.src)}" alt="${name} 实拍样片"${size} loading="lazy" decoding="async"></figure>`;
+    // 样片条显示高度仅 250px，用缩略图；点开放大时换回原图
+    return `<figure class="sample"><img src="${esc('../' + s.src.replace('samples/photos/', 'samples/photos/thumbs/'))}" data-full="${esc('../' + s.src)}" alt="${name} 实拍样片"${size} loading="lazy" decoding="async"></figure>`;
   }).join('');
   const credit = (f.samples || []).some((s) => s.credit) ? `<p class="sample-credit">© ${esc((f.samples || []).filter((s) => s.credit).map((s) => s.credit.replace(/^©\s*/, '').split(' · ')[0]).filter((v, i, a) => a.indexOf(v) === i).join(' · '))}</p>` : '';
 

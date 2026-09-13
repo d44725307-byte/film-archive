@@ -547,14 +547,21 @@
     const list = document.getElementById('journalList');
     if (!list) return;
     try {
-      const res = await fetch('data/journal.json');
+      const [res, dimsRes] = await Promise.all([fetch('data/journal.json'), fetch('data/photo-thumbs.json')]);
       const jd = await res.json();
+      const THUMB_DIMS = await dimsRes.json().catch(() => ({}));
       const items = (jd.items || []).slice(0, 2); // 首页只显示近期 2 条，更多进「更多」页
-      list.innerHTML = items.map((it) => {
+      list.innerHTML = items.map((it, idx) => {
         const t = J_TYPE[it.type] || J_TYPE.news;
+        // 卡片封面用缩略图（原图太大）；第一张是首屏 LCP 元素，必须 eager + 高优先级
+        const media = it.media || '';
+        const thumb = media ? media.replace('samples/photos/', 'samples/photos/thumbs/') : '';
+        const d = thumb && THUMB_DIMS[thumb.split('/').pop()];
+        const size = d ? ` width="${d[0]}" height="${d[1]}"` : '';
+        const load = idx === 0 ? 'loading="eager" fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"';
         return `
           <a class="j-item" href="${escapeXml(it.link || '#')}">
-            ${it.media ? `<img class="j-media" src="${escapeXml(it.media)}" alt="" loading="lazy">` : ''}
+            ${thumb ? `<img class="j-media" src="${escapeXml(thumb)}" alt="${escapeXml(it.title)}"${size} ${load}>` : ''}
             <div class="j-meta">
               <span class="j-type ${t.cls}">${t.cn}</span>
               <span class="j-date">${escapeXml(it.date || '')}</span>

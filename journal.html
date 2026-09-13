@@ -60,13 +60,18 @@
       const esc = (s) => String(s).replace(/[&<>"']/g, (m) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]));
       const list = document.getElementById('jAll');
       try {
-        const res = await fetch('data/journal.json');
+        const [res, dimsRes] = await Promise.all([fetch('data/journal.json'), fetch('data/photo-thumbs.json')]);
         const jd = await res.json();
+        const DIMS = await dimsRes.json().catch(() => ({}));
         const items = jd.items || [];
-        list.innerHTML = items.map((it) => {
+        list.innerHTML = items.map((it, idx) => {
           const t = J_TYPE[it.type] || J_TYPE.news;
+          const thumb = it.media ? String(it.media).replace('samples/photos/', 'samples/photos/thumbs/') : '';
+          const d = thumb ? DIMS[thumb.split('/').pop()] : null;
+          const size = d ? ' width="' + d[0] + '" height="' + d[1] + '"' : '';
+          const load = idx < 2 ? 'loading="eager" decoding="async"' : 'loading="lazy" decoding="async"';
           return '<a class="j-item" href="' + esc(it.link || '#') + '">'
-            + (it.media ? '<img class="j-media" src="' + esc(it.media) + '" alt="" loading="lazy">' : '')
+            + (thumb ? '<img class="j-media" src="' + esc(thumb) + '" alt="' + esc(it.title || '') + '"' + size + ' ' + load + '>' : '')
             + '<div class="j-meta"><span class="j-type ' + t.cls + '">' + t.cn + '</span><span class="j-date">' + esc(it.date || '') + '</span></div>'
             + '<div class="j-body"><div class="j-title">' + esc(it.title) + '</div>'
             + (it.excerpt ? '<div class="j-excerpt">' + esc(it.excerpt) + '</div>' : '') + '</div>'
