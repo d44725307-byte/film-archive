@@ -5,7 +5,7 @@
 //           JSON-LD（Article + BreadcrumbList）/ h1 唯一 / 图片 alt / 内链 / 相关阅读 / sitemap
 const fs = require('fs');
 const path = require('path');
-const BASE = 'https://film-archive-3be.pages.dev';
+const BASE = 'https://filmstockhub.com';
 const SITE = '胶卷档案';
 const VERIFY = 'B3CefDZUQ6M7A8T5eNONFLpR874ZQ-oy1hY-Q7M8lkc';
 const BEACON_TOKEN = '8333552724924db0aa955ba91846bc4b';

@@ -1,7 +1,7 @@
 // 从 data/films.json 生成独立胶卷页 film/<id>.html（SEO 友好）
 const fs = require('fs');
 const path = require('path');
-const BASE = 'https://film-archive-3be.pages.dev';
+const BASE = 'https://filmstockhub.com';
 const data = JSON.parse(fs.readFileSync('data/films.json', 'utf8'));
 const CATEGORY_LABEL = { traditional: '传统颗粒', tabular: 'T颗粒/平面颗粒', fine: '细腻/超微粒', 'high-speed': '高速', cinema: '电影卷', chromogenic: '彩色工艺黑白', ortho: '正色卷', infrared: '红外卷', 'direct-positive': '直接正片' };
 const GRAIN_LABEL = { 'ultra-fine': '超微粒', fine: '细颗粒', medium: '中等颗粒', coarse: '粗颗粒' };
