@@ -184,3 +184,6 @@ const body = [
 fs.writeFileSync('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + body + '\n</urlset>\n');
 console.log('✅ sitemap 已更新，共', ((body.match(/<loc>/g) || []).length), '条');
 console.log('\n下一步：git add -A && git commit -m "新文章：' + a.title + '" && git push origin master');
+
+// 生成后给 JS/CSS 引用打内容版本号
+try { require('child_process').execSync('node tools/bust-assets.js', { stdio: 'ignore' }); } catch (e) {}
