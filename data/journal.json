@@ -4,6 +4,15 @@
   "updated": "2026-09-06",
   "items": [
     {
+      "id": "j-2026-dashijian",
+      "type": "news",
+      "title": "2026 胶片圈三件大事：乐凯回来了、柯达改名了、还多了一卷彩色",
+      "excerpt": "今年胶片圈出了三件跟你钱包有关的事：停产 13 年的乐凯彩色胶卷复产（每卷 52 元）、柯达把 Portra 和 T-Max 换了名字（小心买错）、Ilford 母公司又出了一卷彩色。一篇说清。",
+      "date": "2026-09-14",
+      "link": "journal/2026-dashijian.html",
+      "media": "samples/photos/retro-400s-1.jpg"
+    },
+    {
       "id": "j-hangqing-2026",
       "type": "news",
       "title": "2026 胶片行情观察：哪些黑白卷悄悄涨了价，哪些反而便宜了",

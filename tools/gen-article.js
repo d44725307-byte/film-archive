@@ -63,7 +63,13 @@ function relatedBlock() {
 // 图片尺寸表（补 width/height，避免 CLS）
 const DIMS = JSON.parse(fs.readFileSync('data/photo-dims.json', 'utf8'));
 let figNo = 0;
+// Markdown 链接 → HTML（方便写作时用 [文字](网址)）
+// Markdown 加粗 **文字** → <strong>
+const mdBold = (s) => String(s == null ? '' : s).replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+const mdLinks = (s) => String(s == null ? '' : s).replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+
 function block(b) {
+  b = Object.assign({}, b, { html: mdBold(mdLinks(b.html)) });
   if (b.t === 'lead') return `    <p class="lead">${b.html}</p>`;
   if (b.t === 'p') return `    <p>${b.html}</p>`;
   if (b.t === 'h2') return `    <h2>${b.html}</h2>`;

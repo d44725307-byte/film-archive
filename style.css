@@ -196,6 +196,8 @@ html, body {
 .article-head::after { content: ''; display: block; width: 60px; height: 3px; background: var(--accent); margin-top: 22px; }
 .article .lead { font-size: 17.5px; line-height: 2; color: var(--text); font-weight: 600; }
 .article p { font-size: 16.5px; line-height: 2.05; margin: 0 0 20px; color: var(--text); }
+.article p a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent-soft); text-underline-offset: 3px; }
+.article p a:hover { color: var(--accent-strong); }
 .article strong { color: var(--film); font-weight: 700; }
 .article h2 {
   font-family: 'Noto Serif SC', 'Songti SC', serif; font-weight: 700;
