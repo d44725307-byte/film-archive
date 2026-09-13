@@ -105,7 +105,7 @@ function page(f) {
     <div class="spec-block"><h2>特性 / 手感 · Character</h2><p class="desc-cn">${esc(f.character)}</p><p class="desc-en">${esc(f.character_en)}</p></div>
     <div class="spec-block"><h2>适用场景 · Best for</h2><div class="card-scenes">${scenesChips(f)}</div></div>
     ${f.notes ? `<div class="spec-block"><h2>使用感受</h2><p class="usage-note">${esc(f.notes)}</p></div>` : ''}
-    <div class="spec-block"><h2>参考价格 · Price</h2><p class="price-hint">停产卷通常只有二手价 · 价格随市场波动，仅供参考</p><div class="price-config"><div class="price-cell"><span class="price-label">全新 New</span><div class="price-fmtlist">${priceLines(f.price_new)}</div></div><div class="price-cell"><span class="price-label">二手 Used</span><div class="price-fmtlist">${priceLines(f.price_used)}</div></div></div></div>
+    <div class="spec-block"><h2>参考价格 · Price</h2><p class="price-hint">二手多为未开封 / 临期或分装卷，行情与全新接近（约全新价 85%–100%）；停产卷稀缺，常高于原价 · 均随市场波动，仅供参考</p><div class="price-config"><div class="price-cell"><span class="price-label">全新 New</span><div class="price-fmtlist">${priceLines(f.price_new)}</div></div><div class="price-cell"><span class="price-label">二手 Used</span><div class="price-fmtlist">${priceLines(f.price_used)}</div></div></div></div>
     ${f.samples && f.samples.length ? `<div class="spec-block"><h2>实拍样片</h2><div class="sample-grid">${samples}</div>${credit}</div>` : ''}
 
     <div class="spec-block"><h2>分享 / 下载</h2><div class="share-actions"><button class="share-btn" onclick="filmShare('copy')">复制链接</button><button class="share-btn" onclick="filmShare('native')">分享好友</button><button class="share-btn share-btn-primary" onclick="filmShare('poster')">下载卡片</button></div></div>
