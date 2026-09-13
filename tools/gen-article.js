@@ -4,6 +4,7 @@
 // SEO 要素：title / description / canonical / OG(含 article:published_time) / twitter:card /
 //           JSON-LD（Article + BreadcrumbList）/ h1 唯一 / 图片 alt / 内链 / 相关阅读 / sitemap
 const fs = require('fs');
+const { spawnSync } = require('child_process');
 const path = require('path');
 const BASE = 'https://filmstockhub.com';
 // Cloudflare Web Analytics（属性用单引号包 JSON，否则转义引号会导致解析失败）
@@ -33,6 +34,15 @@ const heroAbs = a.hero ? (a.hero.startsWith('http') ? a.hero : BASE + '/' + a.he
 const heroThumb = heroAbs.replace('/samples/photos/', '/samples/photos/thumbs/');
 const THUMB_DIMS = JSON.parse(fs.readFileSync('data/photo-thumbs.json', 'utf8'));
 const hd = THUMB_DIMS[heroThumb.split('/').pop()] || [480, 320];
+
+// 生成二维码（构建时，本地 segno 库；失败则跳过，不影响出图）
+let qrRel = '';
+try {
+  fs.mkdirSync('samples/qr', { recursive: true });
+  const r = spawnSync('python3', ['tools/gen-qr.py', BASE + '/journal/' + slug, 'samples/qr/' + slug + '.png'], { encoding: 'utf8' });
+  if (r.status === 0) qrRel = '../samples/qr/' + slug + '.png';
+  else console.log('  ⚠️ 二维码生成失败（跳过）:', (r.stderr || '').trim().slice(0, 80));
+} catch (e) { console.log('  ⚠️ 二维码生成异常（跳过）'); }
 
 // 结构化数据：Article + BreadcrumbList
 const ldArticle = { '@context': 'https://schema.org', '@type': 'Article', headline: a.title, description: a.excerpt, image: heroThumb, datePublished: a.date, dateModified: a.date, inLanguage: 'zh-CN', author: { '@type': 'Organization', name: SITE }, publisher: { '@type': 'Organization', name: SITE }, mainEntityOfPage: { '@type': 'WebPage', '@id': BASE + '/journal/' + slug } };
@@ -147,7 +157,7 @@ ${relatedBlock()}
 
 <div id="cardSave" class="card-save" hidden><div class="card-save-backdrop" data-cardsave-close></div><div class="card-save-body"><img id="cardSaveImg" src="" alt="分享图" /><p class="card-save-hint">长按 / 按住图片，选择「保存图片」即可存入相册</p><button class="card-save-close" data-cardsave-close aria-label="关闭">×</button></div></div>
 <div id="toast" class="toast" aria-live="polite"></div>
-<script>window.__article={title:${JSON.stringify(a.title)},excerpt:${JSON.stringify(a.excerpt)},slug:${JSON.stringify(a.slug)},hero:${JSON.stringify(heroThumb.replace(BASE + '/', '../'))},url:${JSON.stringify(BASE + '/journal/' + a.slug)}};</script>
+<script>window.__article={title:${JSON.stringify(a.title)},excerpt:${JSON.stringify(a.excerpt)},slug:${JSON.stringify(a.slug)},hero:${JSON.stringify(heroThumb.replace(BASE + '/', '../'))},url:${JSON.stringify(BASE + '/journal/' + a.slug)},qr:${JSON.stringify(qrRel)}};</script>
 <script src="../article.js"></script>
 ${BEACON}
 </body>

@@ -29,9 +29,9 @@
     return y + lineH;
   }
 
-  // 生成文章分享卡片图（1080 宽，适合发朋友圈）
+  // 生成文章分享卡片图（1080 宽，适合发朋友圈；右下角带二维码）
   async function makeCard() {
-    const W = 1080, H = 1350;
+    const W = 1080, H = 1560;
     const c = document.createElement('canvas'); c.width = W; c.height = H;
     const ctx = c.getContext('2d');
     ctx.fillStyle = '#F3EDE0'; ctx.fillRect(0, 0, W, H);
@@ -45,11 +45,11 @@
     ctx.fillText(SITE_CN, 80, 78);
     ctx.fillStyle = '#6E6C5A'; ctx.font = 'italic 400 26px "Playfair Display",Georgia,serif';
     ctx.fillText(SITE_EN.toUpperCase(), 80, 130);
-    // 封面图（居中裁切成 1080x600）
+    // 封面图（居中裁切）
     let y = 210;
     const im = A.hero ? await loadImage(A.hero) : null;
     if (im) {
-      const boxW = W - 160, boxH = 600;
+      const boxW = W - 160, boxH = 560;
       const scale = Math.max(boxW / im.width, boxH / im.height);
       const dw = im.width * scale, dh = im.height * scale;
       ctx.save();
@@ -68,15 +68,33 @@
       ctx.fillStyle = '#6E6C5A'; ctx.font = '400 30px "Noto Serif SC","Songti SC",serif';
       y = wrap(ctx, A.excerpt, 80, y + 24, W - 160, 46, 3);
     }
-    // 底部：分隔线 + 网址
+    // ---- 底部区：分隔线 + 网址 + 二维码 ----
+    const bandTop = H - 250;
     ctx.strokeStyle = '#A87A10'; ctx.lineWidth = 3;
-    ctx.beginPath(); ctx.moveTo(80, H - 150); ctx.lineTo(W - 80, H - 150); ctx.stroke();
-    ctx.fillStyle = '#22402F'; ctx.font = '500 28px "Noto Serif SC","Songti SC",serif';
-    const host = String(A.url || '').replace(/^https?:\/\//, '').replace(/\/$/, '');
-    ctx.fillText(host, 80, H - 112);
-    ctx.fillStyle = '#A87A10'; ctx.font = '600 26px "Noto Serif SC","Songti SC",serif';
-    const tip = '长按保存，可发朋友圈';
-    ctx.fillText(tip, W - 80 - ctx.measureText(tip).width, H - 110);
+    ctx.beginPath(); ctx.moveTo(80, bandTop); ctx.lineTo(W - 80, bandTop); ctx.stroke();
+
+    // 二维码（右侧，白底方框）
+    const qrSize = 190, qrPad = 10;
+    const qrBoxX = W - 80 - qrSize - qrPad * 2, qrBoxY = bandTop + 26;
+    const qrImg = A.qr ? await loadImage(A.qr) : null;
+    if (qrImg) {
+      ctx.fillStyle = '#FFFFFF';
+      ctx.beginPath();
+      const bx = qrBoxX, by = qrBoxY, bw = qrSize + qrPad * 2, bh = qrSize + qrPad * 2, r = 10;
+      ctx.moveTo(bx + r, by); ctx.arcTo(bx + bw, by, bx + bw, by + bh, r); ctx.arcTo(bx + bw, by + bh, bx, by + bh, r); ctx.arcTo(bx, by + bh, bx, by, r); ctx.arcTo(bx, by, bx + bw, by, r); ctx.closePath(); ctx.fill();
+      ctx.drawImage(qrImg, qrBoxX + qrPad, qrBoxY + qrPad, qrSize, qrSize);
+    }
+    // 左侧文字
+    const leftX = 80;
+    ctx.fillStyle = '#A87A10'; ctx.font = '700 30px "Noto Serif SC","Songti SC",serif';
+    ctx.fillText(SITE_CN, leftX, bandTop + 34);
+    ctx.fillStyle = '#22402F'; ctx.font = '500 26px "Noto Serif SC","Songti SC",serif';
+    const host = String(A.url || '').replace(/^https?:\/\//, '');
+    ctx.fillText(host, leftX, bandTop + 86);
+    ctx.fillStyle = '#6E6C5A'; ctx.font = '400 24px "Noto Serif SC","Songti SC",serif';
+    ctx.fillText('扫码看全文 · 或复制链接打开', leftX, bandTop + 132);
+    ctx.fillStyle = '#6E6C5A'; ctx.font = 'italic 400 24px "Playfair Display",Georgia,serif';
+    ctx.fillText('长按保存可发朋友圈', leftX, bandTop + 172);
     return c.toDataURL('image/png');
   }
 
