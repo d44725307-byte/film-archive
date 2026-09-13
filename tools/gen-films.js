@@ -2,6 +2,8 @@
 const fs = require('fs');
 const path = require('path');
 const BASE = 'https://filmstockhub.com';
+// Cloudflare Web Analytics（注意：属性用单引号包 JSON，否则引号转义会导致解析失败）
+const BEACON = `<!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9ffcedc6e13b4bdb85422d7100bda9c0"}'></script><!-- End Cloudflare Web Analytics -->`;
 const data = JSON.parse(fs.readFileSync('data/films.json', 'utf8'));
 const CATEGORY_LABEL = { traditional: '传统颗粒', tabular: 'T颗粒/平面颗粒', fine: '细腻/超微粒', 'high-speed': '高速', cinema: '电影卷', chromogenic: '彩色工艺黑白', ortho: '正色卷', infrared: '红外卷', 'direct-positive': '直接正片' };
 const GRAIN_LABEL = { 'ultra-fine': '超微粒', fine: '细颗粒', medium: '中等颗粒', coarse: '粗颗粒' };
@@ -114,6 +116,7 @@ function page(f) {
 
 <script>window.__film=${JSON.stringify(f).replace(/</g, '\\u003c')};</script>
 <script src="../film-page.js"></script>
+${BEACON}
 </body>
 </html>`;
 }

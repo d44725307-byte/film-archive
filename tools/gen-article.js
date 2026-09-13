@@ -6,6 +6,8 @@
 const fs = require('fs');
 const path = require('path');
 const BASE = 'https://filmstockhub.com';
+// Cloudflare Web Analytics（属性用单引号包 JSON，否则转义引号会导致解析失败）
+const BEACON = `<!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9ffcedc6e13b4bdb85422d7100bda9c0"}'></script><!-- End Cloudflare Web Analytics -->`;
 const SITE = '胶卷档案';
 const VERIFY = 'B3CefDZUQ6M7A8T5eNONFLpR874ZQ-oy1hY-Q7M8lkc';
 const BEACON_TOKEN = '8333552724924db0aa955ba91846bc4b';
@@ -125,6 +127,8 @@ ${relatedBlock()}
     <p class="footer-links"><a href="../disclaimer.html">免责声明</a><span class="dot">·</span><a href="../privacy.html">隐私政策</a></p>
   </div>
 </footer>
+
+${BEACON}
 </body>
 </html>`;
 
