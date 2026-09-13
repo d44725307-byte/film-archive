@@ -25,7 +25,7 @@ function page(f) {
   const url = BASE + '/film/' + f.id;
   const name = esc(f.name_en) + ' 胶卷';
   const brand = esc(f.brand_cn || f.brand);
-  const desc = esc((f.character || '') + (f.brand_cn || f.brand) + ' ' + f.name_en + ' 黑白胶卷档案');
+  const desc = esc((f.character || '') + (f.brand_cn || f.brand) + ' ' + f.name_en + ' 胶卷档案');
   const meta = `ISO ${f.iso} · ${typeLabel(f.type)} · ${grainLabel(f.grain)} · ${(f.formats || []).join(' · ')} · ${catLabel(f.category)}`;
   const ogimg = f.samples && f.samples[0] ? BASE + '/' + f.samples[0].src : BASE + '/samples/photos/berlin-kino-400-1.jpg';
   const priceVal = (f.price_new && f.price_new['135']) || (f.price_new && f.price_new['120']) || '';
@@ -59,13 +59,13 @@ function page(f) {
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>${name} · 黑白胶卷</title>
+<title>${name} · 胶卷档案</title>
 <meta name="description" content="${desc}" />
 <meta name="google-site-verification" content="B3CefDZUQ6M7A8T5eNONFLpR874ZQ-oy1hY-Q7M8lkc" />
 <link rel="canonical" href="${url}" />
 <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
 <meta property="og:type" content="product" />
-<meta property="og:site_name" content="黑白胶卷" />
+<meta property="og:site_name" content="胶卷档案" />
 <meta property="og:title" content="${name}" />
 <meta property="og:description" content="${desc}" />
 <meta property="og:url" content="${url}" />
@@ -81,7 +81,7 @@ function page(f) {
 <body>
 <header class="site-header">
   <div class="container">
-    <div class="brand"><div class="brand-text"><div class="brand-lockup"><div class="brand-cn">黑白胶卷</div><span class="brand-en">Black &amp; White Film</span></div></div></div>
+    <div class="brand"><div class="brand-text"><div class="brand-lockup"><div class="brand-cn">胶卷档案</div><span class="brand-en">Film Stock Hub</span></div></div></div>
     <nav class="site-nav"><a href="../index.html">胶卷库</a><a href="../journal.html">资讯</a><a href="../about.html">关于</a></nav>
   </div>
 </header>
@@ -106,7 +106,7 @@ function page(f) {
     <div class="spec-block"><h2>分享 / 下载</h2><div class="share-actions"><button class="share-btn" onclick="filmShare('copy')">复制链接</button><button class="share-btn" onclick="filmShare('native')">分享好友</button><button class="share-btn share-btn-primary" onclick="filmShare('poster')">下载卡片</button></div></div>
   </article>
 </main>
-<footer class="site-footer"><div class="container"><p class="footer-copy">© 2026 黑白胶卷</p><p class="footer-links"><a href="../disclaimer.html">免责声明</a><span class="dot">·</span><a href="../privacy.html">隐私政策</a></p></div></footer>
+<footer class="site-footer"><div class="container"><p class="footer-copy">© 2026 胶卷档案</p><p class="footer-links"><a href="../disclaimer.html">免责声明</a><span class="dot">·</span><a href="../privacy.html">隐私政策</a></p></div></footer>
 
 <div id="lightbox" class="lightbox" hidden><div class="lightbox-backdrop" data-close></div><div class="lightbox-body"><img id="lightbox-img" src="" alt="样片大图" /><button class="lightbox-close" data-close aria-label="关闭">×</button></div></div>
 <div id="cardSave" class="card-save" hidden><div class="card-save-backdrop" data-cardsave-close></div><div class="card-save-body"><img id="cardSaveImg" src="" alt="卡片" /><p class="card-save-hint">长按 / 按住图片，选择「保存图片」即可存入相册</p><button class="card-save-close" data-cardsave-close aria-label="关闭">×</button></div></div>

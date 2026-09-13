@@ -6,7 +6,7 @@
 const fs = require('fs');
 const path = require('path');
 const BASE = 'https://film-archive-3be.pages.dev';
-const SITE = '黑白胶卷';
+const SITE = '胶卷档案';
 const VERIFY = 'B3CefDZUQ6M7A8T5eNONFLpR874ZQ-oy1hY-Q7M8lkc';
 const BEACON_TOKEN = '8333552724924db0aa955ba91846bc4b';
 
@@ -97,7 +97,7 @@ const html = `<!DOCTYPE html>
 <body>
 <header class="site-header">
   <div class="container">
-    <div class="brand"><div class="brand-text"><div class="brand-lockup"><div class="brand-cn">${SITE}</div><span class="brand-en">Black &amp; White Film</span></div></div></div>
+    <div class="brand"><div class="brand-text"><div class="brand-lockup"><div class="brand-cn">${SITE}</div><span class="brand-en">Film Stock Hub</span></div></div></div>
     <nav class="site-nav"><a href="../index.html">胶卷库</a><a class="active" href="../journal.html">资讯</a><a href="../about.html">关于</a></nav>
   </div>
 </header>
