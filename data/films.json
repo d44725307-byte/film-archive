@@ -129,7 +129,7 @@
         "sports",
         "push"
       ],
-      "notes": "",
+      "notes": "暗光利器，设计上就是「让你迫冲」的（P 就是 Push）。\n【适合拍】夜晚街头、演出、体育馆、室内弱光——标称 ISO 3200，实际速度约 EI 800–1000，可一路到 25600；暗光下反差高、色调浓烈。\n【特点】颗粒粗但被评价「为速度付的代价很值」，肤色和舞台光表现尤其讨喜。\n【争议】白天强光下反差反而偏低、颗粒也被放大，得靠 ND 或收光圈；它不是「白天的卷」。",
       "character_en": "Ultra-high speed, nominally ISO 3200 but designed for pushing - use up to EI 25600. Grainy yet forgiving, for dim light, indoors and sports.",
       "price_new": {
         "120": "约¥110–150",
@@ -160,7 +160,7 @@
         "portrait",
         "street"
       ],
-      "notes": "",
+      "notes": "1959 年推出的电影黑白负片，如今被当静态卷用。\n【适合拍】街头、人像、任何想要「老电影质感」的题材——EI 250 左右，灰阶厚重、颗粒细腻、反差适中。\n【谁在用它】它是电影工业的老底子：《辛德勒的名单》《愤怒的公牛》《曼哈顿》、007《皇家赌场》部分镜头、《杀死比尔》《记忆碎片》《奥本海默》《灯塔》都用过它。\n【争议】作为电影卷分装，批次与盘片来源不一，实际 EI 需要自己试；国内价格也偏高。",
       "character_en": "A classic motion-picture negative. Cinematic grey scale, fine-ish grain, balanced contrast - street and portraits take on an instant vintage-film look.",
       "price_new": {
         "120": "约¥85–125",
@@ -224,7 +224,7 @@
         "landscape",
         "portrait"
       ],
-      "notes": "",
+      "notes": "已停产的经典，Acros 的前身。\n【适合拍】风光、人像、需要细腻过渡的题材——柔和、层次平滑、颗粒细。\n【来历】它是后来 Acros / Acros II 那一脉的源头，停产后被 Acros II 接替，如今只能在二手或库存里找。\n【争议】停产意味着价格与保存状况不可控；也有人认为它和后来的 Acros II 相比，中灰更柔、更有「老富士味」。",
       "character_en": "Discontinued classic. Gentle and fine, with smooth transitions - the forerunner of Acros.",
       "price_new": {
         "120": "",
@@ -255,7 +255,7 @@
         "street",
         "portrait"
       ],
-      "notes": "",
+      "notes": "已停产的日系口粮卷。\n【适合拍】街头、人像、日常纪实——暖调、颗粒适中，据说是不少人当年的随身卷。\n【来历】与 Neopan 100 同属富士 Neopan 系列，随着富士逐步收缩黑白产品线而停产。\n【争议】停产多年，市面上的多是二手/冷库货，药膜老化风险随存放时间上升。",
       "character_en": "Discontinued. Warm tone, medium grain - a workhorse for street and portrait.",
       "price_new": {
         "120": "",
@@ -455,7 +455,7 @@
         "copy",
         "fine-art"
       ],
-      "notes": "",
+      "notes": "被称作「细颗粒专家」的慢速卷。\n【适合拍】风光、静物、翻拍，以及任何可以慢慢拍的精致题材——ISO 50，颗粒极细、锐度极高、影调硬朗。\n【特点】正因为慢，白天反而能放心开大光圈；上三脚架慢门拍流水/云也有优势。\n【争议】速度太慢，弱光基本没法手持；宽容度较窄，曝光要准，冲显过头容易过硬。",
       "character_en": "Extremely fine slow film. High acutance, crisp tonal scale - for controlled light, landscape, copy and deliberate fine work.",
       "price_new": {
         "120": "约¥100–135",
@@ -488,7 +488,7 @@
         "travel",
         "scan-friendly"
       ],
-      "notes": "",
+      "notes": "唯一能用彩色工艺（C-41）冲洗的黑白卷。\n【适合拍】旅行、婚礼、日常、纪实——ISO 400，宽容度像彩色负片一样大，大胆过曝/欠曝都不容易翻车。\n【来历】1981 年以 XP 之名问世，至今是市面上极少数（多数时期是唯一）C-41 冲洗的黑白胶片。\n【争议】颗粒偏平滑、风格「干净现代」，传统颗粒党嫌它不够有味；由于是染料型，冲扫店操作方便、扫描也友好，但自己冲黑白的人用不上它的优势。",
       "character_en": "A black-and-white film processed in C41 color chemistry. Enormous latitude, forgiving over and underexposure, easy to scan or print - a travel favorite.",
       "price_new": {
         "120": "约¥85–125",
@@ -520,7 +520,7 @@
         "creative",
         "landscape"
       ],
-      "notes": "",
+      "notes": "能拍红外的特殊卷。\n【适合拍】创意风光、情绪片——不加滤镜时它就是普通黑白卷；加红 25 滤镜开始出现红外味，加 R72 深红/红外滤镜则树叶发白、天空压成深黑，超现实感拉满。\n【来历】它在 2004 年 Ilford 破产重组时曾停产，2007 年又被宣布重新推出，是少见的「复活」过的胶卷。\n【争议】加滤镜后进光量骤减，需要大幅补偿、基本离不开三脚架；效果也很依赖滤镜型号，不是「插上就出片」。",
       "character_en": "Extended red and infrared sensitivity. Red subjects glow, greens darken - a surreal touch for creative landscape and moody pictures.",
       "price_new": {
         "120": "约¥105–145",
@@ -553,7 +553,7 @@
         "graphic",
         "architecture"
       ],
-      "notes": "",
+      "notes": "正色性卷，对红光不敏感——这是它全部魅力的来源。\n【适合拍】人像（肤色戏剧化）、建筑、图案/线条、翻拍——红色（血色、红砖、红唇）会被压成深黑，蓝绿则明亮，天然带出强烈分离感。\n【来历】它原本是页片，后来才推出 35mm 与 120，价格一直相对亲民；因为不含红光敏感层，理论上还能在红色安全灯下看着显影。\n【争议】肤色「不正常」是双刃剑，拍人要有心理准备；整体反差并不算极端，真正猛的是颜色分离带来的画面效果。",
       "character_en": "An orthochromatic film. Bold black-and-white separation and high contrast - great for copy, line-work, geometry and architecture, with crisp linear detail.",
       "price_new": {
         "120": "约¥100–135",
@@ -585,7 +585,7 @@
         "portrait",
         "daily"
       ],
-      "notes": "",
+      "notes": "Harman（Ilford 母公司）旗下最亲民的平价线。\n【适合拍】日常扫街、人像、大量练手——ISO 100，颗粒细、锐度出乎意料，反差稳定。\n【争议】药膜与宽容度不如 Ilford 自家的 FP4+ 精致，卷曲和品控偶有抱怨；但以价格论，多数人认为「超值」。",
       "character_en": "Ilford's budget-friendly line. High value, neutral grain, stable contrast - a sound choice for everyday practice and bulk shooting.",
       "price_new": {
         "120": "约¥50–80",
@@ -617,7 +617,7 @@
         "daily",
         "documentary"
       ],
-      "notes": "",
+      "notes": "平价 400，常被当作 HP5+ 的省钱替代。\n【适合拍】街头、日常、纪实——颗粒适中、反差稳定，随便拍不心疼。\n【争议】相比 HP5+ 更「素」，影调层次和宽容度略逊，迫冲表现也没那么从容；适合大量拍摄，不适合追求极致质感。",
       "character_en": "Affordable fast film. Medium grain, steady contrast - a value-packed workhorse for practice, street and documentary.",
       "price_new": {
         "120": "约¥50–80",
@@ -650,7 +650,7 @@
         "portrait",
         "retro"
       ],
-      "notes": "",
+      "notes": "捷克 Foma 的招牌入门卷，性价比之王。\n【适合拍】风光、人像、怀旧题材——颗粒细、细节多，反差偏「硬脆」、很有老照片味。\n【来历】Foma 是 1921 年就在捷克 Hradec Králové 建厂的老牌厂商，Fomapan 系列延续了东欧胶片的传统质感。\n【争议】用户普遍反映它比高端卷略粗一点、自然反差比 Ilford 更强；品控与卷曲偶有吐槽，但价格摆在那儿。",
       "character_en": "A Czech classic. Retro classic character, a little more grain but lots of soul. Great value - a nostalgia favorite.",
       "price_new": {
         "120": "约¥30–50",
@@ -692,7 +692,7 @@
         "portrait",
         "daily"
       ],
-      "notes": "",
+      "notes": "Fomapan 里最「柔」的一卷，也有人叫它夹在 100 与 400 之间的万用卷。\n【适合拍】街头、人像、日常氛围——反差柔和均匀、影调过渡漂亮。\n【特点】它采用混合型（tabular）颗粒结构，与 100/400 的乳剂并不相同。\n【争议】宽容度较小、不太容错，曝光偏差容易直接看出；喜欢的人爱它柔和，不喜欢的人嫌它「灰」。",
       "character_en": "Sits between 100 and 400. Wide latitude, very adaptable - an all-round practice film with good mood.",
       "price_new": {
         "120": "约¥30–50",
@@ -757,7 +757,7 @@
         "landscape",
         "fine-art"
       ],
-      "notes": "",
+      "notes": "德系 ORWO 工艺的细颗粒卷，CHM 400 的慢速兄弟。\n【适合拍】人像、风光、艺术创作——ISO 100，颗粒细腻、反差优雅，走的是「古典德味」路线。\n【来历】与本库的 CHM 400 同源：用户普遍把它视作「便宜一点的欧洲细颗粒选择」，CHM 400 更是被称作「平民版 HP5+」，冲洗数据与 HP5+ 通用。\n【争议】品牌小众、渠道少，国内不易买；品控与批次差异也常被讨论。",
       "character_en": "ORWO-processed film. Fine grain and elegant contrast - classic German character for portrait, landscape and fine art.",
       "price_new": {
         "120": "约¥55–90",
@@ -1402,7 +1402,7 @@
         "portrait",
         "street"
       ],
-      "notes": "",
+      "notes": "法国 Bergger 的代表作，2017 年推出，最大的特点是双层乳剂。\n【适合拍】风光、纪实、高反差场景——中低反差、动态范围广，高光细节保留得特别好，黑白层次拉得很开。\n【特点】它把两种不同粒径的乳剂叠在一起，因此颗粒质感独特：整体颗粒不算细，但结构耐看，且对推拉（push/pull）都相当宽容。\n【争议】高光区的颗粒偏明显，有人很喜欢这种「沙感」，也有人觉得粗糙；品牌小众、价格不便宜、国内渠道有限。",
       "samples": [
         {
           "src": "samples/photos/pancro-400-1.jpg",
