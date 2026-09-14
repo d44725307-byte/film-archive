@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" media="print" onload="this.media='all'" />
-  <link rel="stylesheet" href="style.css?v=c101fe4f" />
+  <link rel="stylesheet" href="style.css?v=a635a228" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -101,7 +101,11 @@
 
     <section class="toolbar-filters">
       <div class="filters" id="filters">
-        <!-- 品牌 / 类型 / 尺寸 / 在产状态 filter chips will be injected -->
+        <div class="filter-group"><span class="filter-label">品牌</span><div class="filter-chips"><button type="button" class="chip chip-active" data-filter="brand" data-value="">全部</button><button type="button" class="chip" data-filter="brand" data-value="Kodak">柯达</button><button type="button" class="chip" data-filter="brand" data-value="Fujifilm">富士</button><button type="button" class="chip" data-filter="brand" data-value="Ilford">伊尔福</button><button type="button" class="chip" data-filter="brand" data-value="Fomapan">Foma</button><button type="button" class="chip" data-filter="brand" data-value="Adox">Adox</button><button type="button" class="chip" data-filter="brand" data-value="Rollei">Rollei</button><button type="button" class="chip" data-filter="brand" data-value="ORWO">ORWO</button><button type="button" class="chip" data-filter="brand" data-value="CineStill">CineStill</button><button type="button" class="chip" data-filter="brand" data-value="JCH">Japan Camera Hunter</button><button type="button" class="chip" data-filter="brand" data-value="Lomography">Lomography</button><button type="button" class="chip" data-filter="brand" data-value="Bergger">Bergger</button><button type="button" class="chip" data-filter="brand" data-value="Harman">Harman</button></div></div>
+        <div class="filter-group"><span class="filter-label">类型</span><div class="filter-chips"><button type="button" class="chip chip-active" data-filter="category" data-value="">全部</button><button type="button" class="chip" data-filter="category" data-value="traditional">传统颗粒</button><button type="button" class="chip" data-filter="category" data-value="tabular">T颗粒/平面颗粒</button><button type="button" class="chip" data-filter="category" data-value="high-speed">高速</button><button type="button" class="chip" data-filter="category" data-value="cinema">电影卷</button><button type="button" class="chip" data-filter="category" data-value="fine">细腻/超微粒</button><button type="button" class="chip" data-filter="category" data-value="chromogenic">彩色工艺黑白</button><button type="button" class="chip" data-filter="category" data-value="infrared">红外卷</button><button type="button" class="chip" data-filter="category" data-value="ortho">正色卷</button><button type="button" class="chip" data-filter="category" data-value="direct-positive">直接正片</button></div></div>
+        <div class="filter-group"><span class="filter-label">尺寸</span><div class="filter-chips"><button type="button" class="chip chip-active" data-filter="format" data-value="">全部</button><button type="button" class="chip" data-filter="format" data-value="35mm">35mm</button><button type="button" class="chip" data-filter="format" data-value="120">120</button><button type="button" class="chip" data-filter="format" data-value="4x5">4x5</button><button type="button" class="chip" data-filter="format" data-value="5x7">5x7</button></div></div>
+        <div class="filter-group"><span class="filter-label">ISO</span><div class="filter-chips"><button type="button" class="chip chip-active" data-filter="iso" data-value="">全部</button><button type="button" class="chip" data-filter="iso" data-value="50">≤50</button><button type="button" class="chip" data-filter="iso" data-value="100">51–125</button><button type="button" class="chip" data-filter="iso" data-value="200">126–250</button><button type="button" class="chip" data-filter="iso" data-value="400">251–800</button><button type="button" class="chip" data-filter="iso" data-value="1600">&gt;800</button></div></div>
+        <div class="filter-group"><span class="filter-label">在产</span><div class="filter-chips"><button type="button" class="chip chip-active" data-filter="status" data-value="">全部</button><button type="button" class="chip" data-filter="status" data-value="in">在产</button><button type="button" class="chip" data-filter="status" data-value="out">停产</button></div></div>
       </div>
       <div class="stats" id="stats">共 39 款</div>
     </section>
@@ -852,8 +856,9 @@
   <!-- 轻提示 -->
   <div id="toast" class="toast" aria-live="polite"></div>
 
+  <script src="filter-template.js?v=ab3a7844"></script>
   <script src="card-template.js?v=ceddde26"></script>
-  <script src="app.js?v=6611756f"></script>
+  <script src="app.js?v=2e3f8005"></script>
 <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9ffcedc6e13b4bdb85422d7100bda9c0"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

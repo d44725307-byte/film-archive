@@ -149,4 +149,5 @@ console.log('已生成', i, '个独立胶卷页到 film/');
 
 // 生成后给 JS/CSS 引用打内容版本号（避免缓存导致改动发不出去）
 try { require('child_process').execSync('node tools/gen-home-grid.js', { stdio: 'inherit' }); } catch (e) {}
+try { require('child_process').execSync('node tools/gen-home-filters.js', { stdio: 'inherit' }); } catch (e) {}
 try { require('child_process').execSync('node tools/bust-assets.js', { stdio: 'ignore' }); } catch (e) {}

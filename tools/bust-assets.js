@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
-const ASSETS = ['style.css', 'app.js', 'film-page.js', 'article.js', 'card-template.js'];
+const ASSETS = ['style.css', 'app.js', 'film-page.js', 'article.js', 'card-template.js', 'filter-template.js'];
 const hash = {};
 ASSETS.forEach((f) => {
   if (fs.existsSync(f)) hash[f] = crypto.createHash('md5').update(fs.readFileSync(f)).digest('hex').slice(0, 8);
@@ -28,8 +28,8 @@ walk('.').forEach((f) => {
   const before = s;
   ASSETS.forEach((a) => {
     if (!hash[a]) return;
-    // 匹配 "样式.css" / "../样式.css"，可能已带 ?v=...
-    const re = new RegExp('(["\'])((?:\\.\\./)?' + a.replace('.', '\\.') + ')(\\?v=[a-f0-9]+)?(["\'])', 'g');
+    // 匹配 "样式.css" / "../样式.css"，可能已带 ?v=...，也可能完全没带（本次要补上）
+    const re = new RegExp('(["\'])((?:\\.\\./)?' + a.replace('.', '\\.') + ')(\\?v=[a-z0-9]+)?(["\'])', 'gi');
     s = s.replace(re, (m, q1, p, _old, q2) => q1 + p + '?v=' + hash[a] + q2);
   });
   if (s !== before) { fs.writeFileSync(f, s); files++; hits++; }

@@ -139,37 +139,52 @@
   // ---- 筛选状态 ----
   const state = { q: '', brand: null, category: null, format: null, status: null, iso: null };
 
-  // ---- 渲染筛选 chips ----
-  function chip(label, active, onClick) {
-    return `<button class="chip ${active ? 'chip-active' : ''}" data-onclick="${onClick}">${label}</button>`;
+  // ---- 筛选 chips ----
+  // 首屏的筛选栏已由 tools/gen-home-filters.js 静态渲染进 index.html（消除 CLS 0.567）。
+  // 这里只做两件事：①把点击绑到 chip 上 ②切换 chip-active 类 —— 不再重建 DOM（重建会顶动下方 39 张卡）。
+  // 若 HTML 里没有静态筛选栏（异常兜底），则退回用同一份共享模板渲染一次。
+  const FILTER_SETTERS = {
+    brand: (v) => { state.brand = v; },
+    category: (v) => { state.category = v; },
+    format: (v) => { state.format = v; },
+    iso: (v) => { state.iso = v; },
+    status: (v) => { state.status = v; },
+  };
+
+  function syncFilterActive() {
+    document.querySelectorAll('#filters .chip').forEach((btn) => {
+      const group = btn.getAttribute('data-filter');
+      if (!(group in FILTER_SETTERS)) return;
+      const val = btn.getAttribute('data-value') || '';
+      const on = (state[group] || '') === val;
+      btn.classList.toggle('chip-active', on);
+    });
+  }
+
+  function bindFilters() {
+    document.querySelectorAll('#filters .chip').forEach((btn) => {
+      if (btn.dataset.bound) return;
+      btn.dataset.bound = '1';
+      btn.addEventListener('click', () => {
+        const group = btn.getAttribute('data-filter');
+        const set = FILTER_SETTERS[group];
+        if (!set) return;
+        set(btn.getAttribute('data-value') || null);
+        syncFilterActive();
+        render();
+      });
+    });
   }
 
   function renderFilters() {
-    const brands = [...new Set(FILMS.map((f) => f.brand))];
-    const categories = [...new Set(FILMS.map((f) => f.category))];
-    const formats = [...new Set(FILMS.flatMap((f) => f.formats))];
-
-    const isoBuckets = [
-      { key: '50', label: '≤50', test: (i) => i <= 50 },
-      { key: '100', label: '51–125', test: (i) => i >= 51 && i <= 125 },
-      { key: '200', label: '126–250', test: (i) => i >= 126 && i <= 250 },
-      { key: '400', label: '251–800', test: (i) => i >= 251 && i <= 800 },
-      { key: '1600', label: '>800', test: (i) => i > 800 },
-    ];
-
     const el = document.getElementById('filters');
-    const h = [];
-    h.push(`<div class="filter-group"><span class="filter-label">品牌</span><div class="filter-chips">${chip('全部', !state.brand, 'setBrand(null)')}${brands.map((b) => chip(BRAND_CN[b] || b, state.brand === b, `setBrand('${b}')`)).join('')}</div></div>`);
-
-    h.push(`<div class="filter-group"><span class="filter-label">类型</span><div class="filter-chips">${chip('全部', !state.category, 'setCategory(null)')}${categories.map((c) => chip(CATEGORY_LABEL[c] || c, state.category === c, `setCategory('${c}')`)).join('')}</div></div>`);
-
-    h.push(`<div class="filter-group"><span class="filter-label">尺寸</span><div class="filter-chips">${chip('全部', !state.format, 'setFormat(null)')}${formats.map((fm) => chip(fm, state.format === fm, `setFormat('${fm}')`)).join('')}</div></div>`);
-
-    h.push(`<div class="filter-group"><span class="filter-label">ISO</span><div class="filter-chips">${chip('全部', !state.iso, 'setIso(null)')}${isoBuckets.map((b) => chip(b.label, state.iso === b.key, `setIso('${b.key}')`)).join('')}</div></div>`);
-
-    h.push(`<div class="filter-group"><span class="filter-label">在产</span><div class="filter-chips">${chip('全部', !state.status, 'setStatus(null)')}${chip('在产', state.status === 'in', `setStatus('in')`)}${chip('停产', state.status === 'out', `setStatus('out')`)}</div></div>`);
-
-    el.innerHTML = h.join('');
+    if (!el) return;
+    // 兜底：HTML 里没有静态筛选栏时才用共享模板生成一次
+    if (!el.querySelector('.chip') && window.FilterTemplate) {
+      el.innerHTML = window.FilterTemplate.filtersHTML(window.FilterTemplate.optionsFromFilms(FILMS));
+    }
+    bindFilters();
+    syncFilterActive();
   }
 
   // ---- 过滤 + 计算 ----
@@ -283,12 +298,12 @@
     document.getElementById('modal').hidden = true;
   }
 
-  // ---- 全局筛选 setter ----
-  window.setBrand = (v) => { state.brand = v; renderFilters(); render(); };
-  window.setCategory = (v) => { state.category = v; renderFilters(); render(); };
-  window.setFormat = (v) => { state.format = v; renderFilters(); render(); };
-  window.setIso = (v) => { state.iso = v; renderFilters(); render(); };
-  window.setStatus = (v) => { state.status = v; renderFilters(); render(); };
+  // ---- 全局筛选 setter（供 deep-link / 外部调用；内部点击走 bindFilters）----
+  window.setBrand = (v) => { state.brand = v; syncFilterActive(); render(); };
+  window.setCategory = (v) => { state.category = v; syncFilterActive(); render(); };
+  window.setFormat = (v) => { state.format = v; syncFilterActive(); render(); };
+  window.setIso = (v) => { state.iso = v; syncFilterActive(); render(); };
+  window.setStatus = (v) => { state.status = v; syncFilterActive(); render(); };
 
   // ---- 样片放大（lightbox）----
   const lightbox = document.getElementById('lightbox');

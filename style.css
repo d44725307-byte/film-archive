@@ -148,7 +148,10 @@ html, body {
 .journal-sub { margin: 4px 0 0; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 12px; letter-spacing: 2px; color: var(--accent); text-transform: uppercase; }
 .journal-more { color: var(--accent); font-size: 13px; text-decoration: none; letter-spacing: 1px; white-space: nowrap; }
 .journal-more:hover { color: var(--accent-strong); }
-.toolbar-filters { min-height: 250px; margin-top: 10px; }
+/* 筛选栏已改为构建期静态渲染（tools/gen-home-filters.js），无需再预留高度。
+   原来的 min-height:250px 不但没消掉 CLS(0.567)，5 行 chips 实际高度还超过 250 → 仍会顶动下方内容。 */
+.toolbar-filters { margin-top: 10px; }
+/* 资讯区首屏静态渲染，但 journal.html 是 JS 渲染，这里保留预留避免该页跳动 */
 .journal-list { min-height: 360px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 18px; }
 @media (max-width: 720px) { .journal-list { grid-template-columns: 1fr; } }
 .j-item { display: flex; flex-direction: column; gap: 10px; padding: 16px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; color: inherit; transition: all .15s; }
