@@ -125,10 +125,22 @@ function page(f) {
 <div id="toast" class="toast" aria-live="polite"></div>
 
 <script>window.__film=${JSON.stringify(f).replace(/</g, '\\u003c')};</script>
-<script src="../film-page.js"></script>
+<script>window.__qr=${JSON.stringify(qrFor(f))};</script>\n<script src="../film-page.js"></script>
 ${BEACON}
 </body>
 </html>`;
+}
+
+// 每卷生成二维码（构建时；已存在则跳过，因为 URL 不变）
+fs.mkdirSync('samples/qr', { recursive: true });
+const { spawnSync } = require('child_process');
+function qrFor(f) {
+  const out = 'samples/qr/film-' + f.id + '.png';
+  if (!fs.existsSync(out)) {
+    const r = spawnSync('python3', ['tools/gen-qr.py', BASE + '/film/' + f.id, out], { encoding: 'utf8' });
+    if (r.status !== 0) console.log('  ⚠️ 二维码失败:', f.id);
+  }
+  return fs.existsSync(out) ? '../' + out : '';
 }
 
 fs.mkdirSync('film', { recursive: true });

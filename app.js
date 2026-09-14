@@ -430,9 +430,9 @@
     const octx = out.getContext('2d');
     octx.drawImage(full, 0, 0);
     octx.fillStyle = '#6E6C5A'; octx.font = 'italic 400 34px "Playfair Display",Georgia,serif';
-    octx.fillText('Black & White Film', 84, outH - 132);
+    octx.fillText('Film Stock Hub', 84, outH - 132);
     octx.fillStyle = '#3B3A33'; octx.font = '700 34px "Noto Serif SC","Songti SC",serif';
-    octx.fillText('黑白胶卷', 84, outH - 74);
+    octx.fillText('胶卷档案', 84, outH - 74);
     return out.toDataURL('image/png');
   }
 

@@ -53,8 +53,27 @@
     const outH = Math.max(contentBottom + 260, 1000);
     const out = document.createElement('canvas'); out.width = W; out.height = outH; const octx = out.getContext('2d');
     octx.drawImage(full, 0, 0);
-    octx.fillStyle = '#6E6C5A'; octx.font = 'italic 400 34px "Playfair Display",Georgia,serif'; octx.fillText('Black & White Film', 84, outH - 132);
-    octx.fillStyle = '#3B3A33'; octx.font = '700 34px "Noto Serif SC","Songti SC",serif'; octx.fillText('黑白胶卷', 84, outH - 74);
+    octx.fillStyle = '#6E6C5A'; octx.font = 'italic 400 34px "Playfair Display",Georgia,serif'; octx.fillText('Film Stock Hub', 84, outH - 132);
+    octx.fillStyle = '#3B3A33'; octx.font = '700 34px "Noto Serif SC","Songti SC",serif'; octx.fillText('胶卷档案', 84, outH - 74);
+
+    // 右下角本站二维码（扫码直达这一卷）
+    const qrImg = window.__qr ? await loadImage(window.__qr) : null;
+    if (qrImg) {
+      const box = 180, pad = 12, bx = W - 84 - box, by = outH - 40 - box;
+      octx.fillStyle = '#FFFFFF';
+      const rr = 10;
+      octx.beginPath();
+      octx.moveTo(bx + rr, by);
+      octx.arcTo(bx + box, by, bx + box, by + box, rr);
+      octx.arcTo(bx + box, by + box, bx, by + box, rr);
+      octx.arcTo(bx, by + box, bx, by, rr);
+      octx.arcTo(bx, by, bx + box, by, rr);
+      octx.closePath(); octx.fill();
+      octx.drawImage(qrImg, bx + pad, by + pad, box - pad * 2, box - pad * 2);
+      octx.fillStyle = '#6E6C5A'; octx.font = '500 27px "Noto Serif SC","Songti SC",serif';
+      const tip = '扫码看这卷';
+      octx.fillText(tip, bx - 24 - octx.measureText(tip).width, by + box / 2 - 15);
+    }
     return out.toDataURL('image/png');
   }
 
