@@ -37,7 +37,25 @@
       "price_used": {
         "120": "约¥85–135",
         "135": "约¥72–105"
-      }
+      },
+      "samples": [
+        {
+          "src": "samples/photos/trix-400-1.jpg",
+          "credit": "© HiroAranoJPN · Tri-X 400"
+        },
+        {
+          "src": "samples/photos/trix-400-2.jpg",
+          "credit": "© Janne Karvinen · Tri-X 400"
+        },
+        {
+          "src": "samples/photos/trix-400-3.jpg",
+          "credit": "© gf55555 l · Tri-X 400"
+        },
+        {
+          "src": "samples/photos/trix-400-4.jpg",
+          "credit": ""
+        }
+      ]
     },
     {
       "id": "kodak-tmax-100",
@@ -71,7 +89,21 @@
       "price_used": {
         "120": "约¥89–145",
         "135": "约¥77–110"
-      }
+      },
+      "samples": [
+        {
+          "src": "samples/photos/tmax-100-1.jpg",
+          "credit": "© Film Friday · T-Max 100"
+        },
+        {
+          "src": "samples/photos/tmax-100-2.jpg",
+          "credit": "© Ramiro Posada · T-Max 100"
+        },
+        {
+          "src": "samples/photos/tmax-100-3.jpg",
+          "credit": "© Ramiro Posada · T-Max 100"
+        }
+      ]
     },
     {
       "id": "kodak-tmax-400",
