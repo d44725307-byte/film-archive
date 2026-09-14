@@ -4,6 +4,15 @@
   "updated": "2026-09-06",
   "items": [
     {
+      "id": "j-chongsao-zhinan",
+      "type": "article",
+      "title": "胶片拍完怎么冲？多少钱、怎么选店、别被坑",
+      "excerpt": "拍完只是走了一半。冲扫是另一半，也是最容易花冤枉钱的一半：同一卷底片，快扫和精扫能差 3 倍价，送错工艺甚至会毁片。这篇把「冲、扫、印」三笔钱和下单前必问的 5 个问题一次讲清。",
+      "date": "2026-09-14",
+      "link": "journal/chongsao-zhinan.html",
+      "media": "samples/photos/potsdam-kino-100-2.jpg"
+    },
+    {
       "id": "j-2026-dashijian",
       "type": "news",
       "title": "2026 胶片圈三件大事：乐凯回来了、柯达改名了、还多了一卷彩色",
