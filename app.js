@@ -219,26 +219,7 @@
         : `没有匹配的胶卷。换个关键词或放宽筛选试试。`;
     }
 
-    grid.innerHTML = list.map((f) => `
-      <a class="card" href="film/${f.id}.html" aria-label="查看 ${f.name_en} 胶卷详情">
-        ${filmArt(f)}
-        <div class="card-top">
-          <span class="card-brand">${BRAND_CN[f.brand] || f.brand}</span>
-          ${statusBadge(f)}
-        </div>
-        <h3 class="card-title">${f.name_en} <span class="title-suffix">胶卷</span></h3>
-        <div class="card-meta">
-          <span class="meta-item"><b>ISO ${f.iso}</b></span>
-          <span class="meta-item">${catLabel(f.category)}</span>
-          <span class="meta-item">${(f.formats || []).join(' · ')}</span>
-        </div>
-        <div class="card-desc">
-          <span class="desc-cn">${f.character || ''}</span>
-          <span class="desc-en">${f.character_en || ''}</span>
-        </div>
-        <div class="card-scenes">${scenesChips(f)}</div>
-      </a>
-    `).join('');
+    grid.innerHTML = list.map((f) => window.CardTemplate.cardHTML(f)).join('\n');
   }
 
   // ---- 详情弹窗 ----
@@ -581,7 +562,8 @@
 
   // 启动
   renderFilters();
-  render();
+  // #grid 已在 HTML 里静态渲染（消除 CLS + 利于 SEO）→ 首屏不再重渲染；筛选/搜索时才重渲染
+  if (!document.getElementById('grid').children.length) render();
   // 深链直达：#film-xxx 打开对应卷
   const m = location.hash.match(/^#film-(.+)$/);
   if (m) { const f = FILMS.find((x) => x.id === m[1]); if (f) window.openDetail(f.id); }

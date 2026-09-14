@@ -85,7 +85,7 @@ function page(f) {
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" media="print" onload="this.media='all'" />
 <link rel="stylesheet" href="../style.css" />
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 <script type="application/ld+json">${JSON.stringify(ldBreadcrumb)}</script>
@@ -136,4 +136,5 @@ data.films.forEach((f) => { fs.writeFileSync('film/' + f.id + '.html', page(f));
 console.log('已生成', i, '个独立胶卷页到 film/');
 
 // 生成后给 JS/CSS 引用打内容版本号（避免缓存导致改动发不出去）
+try { require('child_process').execSync('node tools/gen-home-grid.js', { stdio: 'inherit' }); } catch (e) {}
 try { require('child_process').execSync('node tools/bust-assets.js', { stdio: 'ignore' }); } catch (e) {}
