@@ -36,6 +36,15 @@
   };
 
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+  // ⚠️ 链接统一「无扩展名」：Cloudflare Pages 会把 /x.html 308 跳到 /x，
+  // 而 canonical 与 sitemap 用的就是无扩展名 → 站内链接也跟着写无扩展名，
+  // 用户少一次 308 往返、爬虫少抓一轮重定向。
+  // index.html 要特殊处理：前缀写成 ../ 或 ./（不能把 /index 当作目录索引）
+  const href = (p) => String(p)
+    .replace(/(^|\/)index\.html$/, '$1')
+    .replace(/(^|\/)index\.html(?=["#?])/, '$1')
+    .replace(/\.html(?=["#?])/g, '')
+    .replace(/\.html$/g, '');
   const catLabel = (c) => `${CATEGORY_LABEL[c] || c} · ${CATEGORY_LABEL_EN[c] || c}`;
   const sceneLabel = (s) => `${SCENE_LABEL[s] || s} · ${SCENE_LABEL_EN[s] || s}`;
   const scenesChips = (f) => (f.scenes || []).map((s) => `<span class="scene-chip">${esc(sceneLabel(s))}</span>`).join('');
@@ -44,7 +53,7 @@
 
   // 单张卡片（结构与 app.js render() 完全一致）
   function cardHTML(f) {
-    return `      <a class="card" href="film/${f.id}.html" aria-label="查看 ${esc(f.name_en)} 胶卷详情">
+    return `      <a class="card" href="${href('film/' + f.id + '.html')}" aria-label="查看 ${esc(f.name_en)} 胶卷详情">
         ${filmArt(f)}
         <div class="card-top">
           <span class="card-brand">${esc(f.brand_cn || f.brand)}</span>
@@ -65,5 +74,5 @@
   }
   function gridHTML(films) { return films.map(cardHTML).join('\n'); }
 
-  return { cardHTML, gridHTML, scenesChips, catLabel, sceneLabel, statusBadge, filmArt, CATEGORY_LABEL, SCENE_LABEL, esc };
+  return { cardHTML, gridHTML, scenesChips, catLabel, sceneLabel, statusBadge, filmArt, href, CATEGORY_LABEL, SCENE_LABEL, esc };
 });

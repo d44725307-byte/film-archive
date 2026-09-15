@@ -230,7 +230,7 @@
     emptyEl.hidden = list.length !== 0;
     if (list.length === 0) {
       emptyEl.innerHTML = state.q
-        ? `未找到「<b>${escapeXml(state.q)}</b>」相关的胶卷。<br><span class="empty-sub">可能是还没收录 —— 欢迎到 <a href="about.html">关于</a> 页告诉我们补充。</span>`
+        ? `未找到「<b>${escapeXml(state.q)}</b>」相关的胶卷。<br><span class="empty-sub">可能是还没收录 —— 欢迎到 <a href="about">关于</a> 页告诉我们补充。</span>`
         : `没有匹配的胶卷。换个关键词或放宽筛选试试。`;
     }
 
@@ -503,7 +503,7 @@
     const matches = FILMS.filter((f) => (f.name_en + ' ' + (f.name_cn || '') + ' ' + f.brand + ' ' + (f.brand_cn || '')).toLowerCase().includes(query)).slice(0, 8);
     if (!matches.length) { closeSuggest(); return; }
     sugItems = matches; sugIdx = -1;
-    suggestEl.innerHTML = matches.map((f, i) => `<a class="suggest-item" href="film/${f.id}.html"><span class="s-name">${escapeXml(f.name_en)}</span><span class="s-meta">${escapeXml((f.brand_cn || f.brand))} · ISO ${f.iso}</span></a>`).join('');
+    suggestEl.innerHTML = matches.map((f, i) => `<a class="suggest-item" href="film/${f.id}"><span class="s-name">${escapeXml(f.name_en)}</span><span class="s-meta">${escapeXml((f.brand_cn || f.brand))} · ISO ${f.iso}</span></a>`).join('');
     suggestEl.hidden = false;
   }
   searchEl.addEventListener('input', (e) => { state.q = e.target.value; render(); renderSuggest(e.target.value); });

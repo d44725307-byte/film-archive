@@ -42,17 +42,31 @@ function walkHtml(dir, out = []) {
       if (/[\s+\x27\x22]/.test(u)) continue; // 跳过内联 JS 里的字符串片段（误报）
       const clean = u.split('?')[0].split('#')[0];
       if (!clean) continue;
-      const resolved = path.normalize(path.join(path.dirname(p), clean));
+      // 站内链接现在统一「无扩展名」（/film/xxx），本地对应的是 film/xxx.html；
+      // 目录链接（/journal）本地对应 journal.html 或 journal/index.html。
+      // 若无扩展名解析不到文件，再试 .html —— 否则会误报一堆 404。
+      let resolved = path.normalize(path.join(path.dirname(p), clean));
+      if (!fs.existsSync(resolved) && !path.extname(resolved)) {
+        for (const cand of [resolved + '.html', path.join(resolved, 'index.html')]) {
+          if (fs.existsSync(cand)) { resolved = cand; break; }
+        }
+      }
       if (!targets.has(resolved)) targets.set(resolved, p);
     }
   });
 
   console.log('页面数', pages.length, '| 待检内部链接/资源', targets.size, '\n');
   const bad = [];
+  const isLocal = BASE.includes('127.0.0.1') || BASE.includes('localhost');
   for (const [rel, from] of targets) {
     const url = BASE + '/' + rel.replace(/^\.\//, '');
     const r = await get(url);
-    if (r.status !== 200) bad.push({ rel, from, status: r.status, loc: r.location });
+    if (r.status === 200) continue;
+    // ⚠️ 无扩展名链接（/film/xxx、/journal）在 Cloudflare Pages 上是正常的，
+    // 但本地 python http.server 不支持 → 会 301 到 /film/xxx/ 再 404。
+    // 本地检查时这类跳转不算断链，否则每次都误报。
+    if (isLocal && /^3\d\d$/.test(String(r.status)) && !path.extname(rel)) continue;
+    bad.push({ rel, from, status: r.status, loc: r.location });
   }
   if (!bad.length) console.log('✅ 全部内部链接/资源正常（无断链）');
   else {

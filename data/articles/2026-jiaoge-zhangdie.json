@@ -182,9 +182,21 @@
   ],
   "linksTitle": "这几卷今年没怎么涨（或降过价）",
   "links": [
-    { "label": "Tri-X 400（降过价的经典）", "href": "film/kodak-tri-x-400.html" },
-    { "label": "Fomapan 100 Classic（低价口粮）", "href": "film/foma-fomapan-100.html" },
-    { "label": "T-Max 100（细腻派）", "href": "film/kodak-tmax-100.html" },
-    { "label": "CHM 400（平民版 HP5）", "href": "film/adox-chm-400.html" }
+    {
+      "label": "Tri-X 400（降过价的经典）",
+      "href": "film/kodak-tri-x-400"
+    },
+    {
+      "label": "Fomapan 100 Classic（低价口粮）",
+      "href": "film/foma-fomapan-100"
+    },
+    {
+      "label": "T-Max 100（细腻派）",
+      "href": "film/kodak-tmax-100"
+    },
+    {
+      "label": "CHM 400（平民版 HP5）",
+      "href": "film/adox-chm-400"
+    }
   ]
 }

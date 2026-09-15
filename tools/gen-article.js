@@ -23,7 +23,7 @@ const esc = (s) => String(s || '').replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '
 const jp = 'data/journal.json';
 const j = JSON.parse(fs.readFileSync(jp, 'utf8'));
 j.items = j.items.filter((x) => x.id !== 'j-' + slug);
-j.items.unshift({ id: 'j-' + slug, type: a.type || 'article', title: a.title, excerpt: a.excerpt, date: a.date, link: 'journal/' + slug + '.html', media: a.hero || 'samples/photos/berlin-kino-400-1.jpg' });
+j.items.unshift({ id: 'j-' + slug, type: a.type || 'article', title: a.title, excerpt: a.excerpt, date: a.date, link: 'journal/' + slug, media: a.hero || 'samples/photos/berlin-kino-400-1.jpg' });
 // 去重：同一篇文章可能既是手工条目（j-bl-sl）又有生成器条目（j-bishilian）→ 按 link 去重，保留首个
 const seen = new Set();
 j.items = j.items.filter((x) => {
@@ -76,7 +76,9 @@ let figNo = 0;
 // Markdown 链接 → HTML（方便写作时用 [文字](网址)）
 // Markdown 加粗 **文字** → <strong>
 const mdBold = (s) => String(s == null ? '' : s).replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-const mdLinks = (s) => String(s == null ? '' : s).replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+const mdLinks = (s) => String(s == null ? '' : s).replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+  // 站内 Markdown 链接写成 xxx.html 会吃一次 308（Pages 会去掉 .html）→ 统一去掉扩展名
+  .replace(/\[([^\]]+)\]\((?!https?:\/\/)([^)\s]*?)\.html((?:[#?][^)\s]*)?)\)/g, '<a href="$2$3">$1</a>');
 const md = (s) => mdBold(mdLinks(s));
 
 function block(b) {
@@ -147,7 +149,7 @@ function filmCard(f) {
   const media = thumb
     ? `<span class="fc-photo"><img class="fc-media" src="${thumb}" alt="${esc(f.name_en)} 实拍样片"${size} loading="lazy" decoding="async" data-full="${esc('../' + first.src)}"></span>`
     : '';
-  return `      <a class="film-card${thumb ? '' : ' film-card-noimg'}" href="../film/${f.id}.html">
+  return `      <a class="film-card${thumb ? '' : ' film-card-noimg'}" href="../film/${f.id}">
         ${media}
         <span class="fc-body">
           <span class="fc-name">${esc(f.name_en)}</span>
@@ -167,8 +169,8 @@ function libraryBlock() {
 ${films.map(filmCard).join('\n')}
       </div>
       <div class="article-library-cta">
-        <a class="al-btn al-btn-primary" href="../index.html#search">去胶卷库搜索 →</a>
-        <a class="al-btn" href="../index.html">浏览全部 ${ALL_FILMS.length} 卷</a>
+        <a class="al-btn al-btn-primary" href="../#search">去胶卷库搜索 →</a>
+        <a class="al-btn" href="../">浏览全部 ${ALL_FILMS.length} 卷</a>
       </div>
     </section>`;
 }
@@ -182,6 +184,7 @@ const html = `<!DOCTYPE html>
 <meta name="description" content="${a.excerpt}" />
 <link rel="canonical" href="${BASE}/journal/${slug}" />
 <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
 <meta name="google-site-verification" content="${VERIFY}" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="${SITE}" />
@@ -209,12 +212,12 @@ const html = `<!DOCTYPE html>
 <header class="site-header">
   <div class="container">
     <div class="brand"><div class="brand-text"><div class="brand-lockup"><div class="brand-cn">${SITE}</div><span class="brand-en">Film Stock Hub</span></div></div></div>
-    <nav class="site-nav"><a href="../index.html">胶卷库</a><a class="active" href="../journal.html">资讯</a><a href="../about.html">关于</a></nav>
+    <nav class="site-nav"><a href="../">胶卷库</a><a class="active" href="../journal">资讯</a><a href="../about">关于</a></nav>
   </div>
 </header>
 
 <main class="container">
-  <nav class="crumb"><a href="../index.html">首页</a> › <a href="../journal.html">资讯</a> › <span>${a.title}</span></nav>
+  <nav class="crumb"><a href="../">首页</a> › <a href="../journal">资讯</a> › <span>${a.title}</span></nav>
 
   <article class="page article">
     <header class="article-head">
@@ -234,14 +237,14 @@ ${libraryBlock()}
     </div>
     <p class="share-note">存出的分享图可直接发朋友圈；发微信群若没预览，用「复制链接」粘贴即可。</p>
 ${relatedBlock()}
-    <p><a class="article-back" href="../index.html">← 回到胶卷库，搜你想查的那卷</a></p>
+    <p><a class="article-back" href="../">← 回到胶卷库，搜你想查的那卷</a></p>
   </article>
 </main>
 
 <footer class="site-footer">
   <div class="container">
     <p class="footer-copy">© 2026 ${SITE}</p>
-    <p class="footer-links"><a href="../disclaimer.html">免责声明</a><span class="dot">·</span><a href="../privacy.html">隐私政策</a></p>
+    <p class="footer-links"><a href="../disclaimer">免责声明</a><span class="dot">·</span><a href="../privacy">隐私政策</a></p>
   </div>
 </footer>
 
