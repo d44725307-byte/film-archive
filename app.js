@@ -1,4 +1,7 @@
 /* 黑白胶卷 —— 前端逻辑（纯原生，零依赖） */
+// 透明占位图：避免 img.src='' 让浏览器把当前页面当图片再请求一次
+const PLACEHOLDER = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
 (async function () {
   let FILMS = [];
   try {
@@ -315,7 +318,7 @@
   }
   function closeLightbox() {
     lightbox.hidden = true;
-    lightboxImg.src = '';
+    lightboxImg.src = PLACEHOLDER;
     document.body.style.overflow = '';
   }
 
@@ -329,7 +332,7 @@
   }
   function closeCardSave() {
     cardSave.hidden = true;
-    cardSaveImg.src = '';
+    cardSaveImg.src = PLACEHOLDER;
     document.body.style.overflow = '';
   }
 

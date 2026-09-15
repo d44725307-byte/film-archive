@@ -101,12 +101,12 @@
   const cardSave = document.getElementById('cardSave');
   const cardSaveImg = document.getElementById('cardSaveImg');
   function showCardSave(url) { cardSaveImg.src = url; cardSave.hidden = false; document.body.style.overflow = 'hidden'; }
-  function closeCardSave() { cardSave.hidden = true; cardSaveImg.src = ''; document.body.style.overflow = ''; }
+  function closeCardSave() { cardSave.hidden = true; cardSaveImg.src = PLACEHOLDER; document.body.style.overflow = ''; }
 
   // 文末「主推胶卷」缩略图点开放大（原图），与胶卷页/首页的 lightbox 行为一致
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
-  function closeLightbox() { if (!lightbox) return; lightbox.hidden = true; lightboxImg.src = ''; document.body.style.overflow = ''; }
+  function closeLightbox() { if (!lightbox) return; lightbox.hidden = true; lightboxImg.src = PLACEHOLDER; document.body.style.overflow = ''; }
   document.querySelectorAll('.article-filmcards .fc-media[data-full]').forEach((im) => {
     im.addEventListener('click', (e) => {
       e.preventDefault();

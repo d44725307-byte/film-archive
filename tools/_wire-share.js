@@ -21,7 +21,7 @@ if (!s.includes('分享这篇文章')) {
 if (!s.includes('__article')) {
   s = s.replace(
     '${BEACON}\n</body>',
-    `<div id="cardSave" class="card-save" hidden><div class="card-save-backdrop" data-cardsave-close></div><div class="card-save-body"><img id="cardSaveImg" src="" alt="分享图" /><p class="card-save-hint">长按 / 按住图片，选择「保存图片」即可存入相册</p><button class="card-save-close" data-cardsave-close aria-label="关闭">×</button></div></div>
+    `<div id="cardSave" class="card-save" hidden><div class="card-save-backdrop" data-cardsave-close></div><div class="card-save-body"><img id="cardSaveImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="分享图" /><p class="card-save-hint">长按 / 按住图片，选择「保存图片」即可存入相册</p><button class="card-save-close" data-cardsave-close aria-label="关闭">×</button></div></div>
 <div id="toast" class="toast" aria-live="polite"></div>
 <script>window.__article={title:${JSON.stringify(a.title)},excerpt:${JSON.stringify(a.excerpt)},slug:${JSON.stringify(a.slug)},hero:${JSON.stringify(heroThumb.replace(BASE + '/', '../'))},url:${JSON.stringify(BASE + '/journal/' + a.slug)}};</script>
 <script src="../article.js"></script>

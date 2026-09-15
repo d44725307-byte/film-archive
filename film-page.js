@@ -79,10 +79,10 @@
 
   const lightbox = document.getElementById('lightbox'), lbImg = document.getElementById('lightbox-img');
   function openLightbox(src) { lbImg.src = src; lightbox.hidden = false; document.body.style.overflow = 'hidden'; }
-  function closeLightbox() { lightbox.hidden = true; lbImg.src = ''; document.body.style.overflow = ''; }
+  function closeLightbox() { lightbox.hidden = true; lbImg.src = PLACEHOLDER; document.body.style.overflow = ''; }
   const cardSave = document.getElementById('cardSave'), cardSaveImg = document.getElementById('cardSaveImg');
   function showCardSave(dataUrl) { cardSaveImg.src = dataUrl; cardSave.hidden = false; document.body.style.overflow = 'hidden'; }
-  function closeCardSave() { cardSave.hidden = true; cardSaveImg.src = ''; document.body.style.overflow = ''; }
+  function closeCardSave() { cardSave.hidden = true; cardSaveImg.src = PLACEHOLDER; document.body.style.overflow = ''; }
 
   window.filmShare = async function (kind) {
     if (!f) return;
