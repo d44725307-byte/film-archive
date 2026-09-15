@@ -35,19 +35,40 @@ function page(f) {
   const ogimg = ogFull.replace('/samples/photos/', '/samples/photos/thumbs/');
   const ogd = THUMB_DIMS[ogimg.split('/').pop()] || [480, 320];
   const priceVal = (f.price_new && f.price_new['135']) || (f.price_new && f.price_new['120']) || '';
+  // 结构化数据（合并成 @graph，比多段独立 ld+json 更规范）
+  // ⚠️ 关于 GSC 的「产品摘要」提醒：
+  //   - aggregateRating / reviewRating：**故意不填** —— 站上没有用户评分体系，编造评分属结构化数据造假，会触发人工处罚。
+  //   - review：**填**，内容就是页面上本来就有的「使用感受」原文（作者原创），这是合法且 Google 想要的。
+  //   因此 GSC 仍会提示缺 aggregateRating，属预期，忽略即可。
+  const inGraph = [];
   const ld = {
-    '@context': 'https://schema.org', '@type': 'Product',
+    '@type': 'Product',
+    '@id': url + '#product',
     name: f.name_en + ' 胶卷', brand: { '@type': 'Brand', name: f.brand_cn || f.brand },
-    description: f.character || '', image: ogimg,
-    offers: priceVal ? { '@type': 'Offer', priceCurrency: 'CNY', price: (priceVal.match(/\d+/g) || [0])[0], availability: 'https://schema.org/InStock' } : undefined
+    description: f.character || '', image: ogimg
   };
+  if (f.notes) {
+    ld.review = [{
+      '@type': 'Review',
+      reviewBody: f.notes,
+      author: { '@type': 'Organization', name: '胶卷档案' },
+      publisher: { '@type': 'Organization', name: '胶卷档案' },
+      inLanguage: 'zh-CN'
+    }];
+  }
+  if (priceVal) {
+    ld.offers = { '@type': 'Offer', priceCurrency: 'CNY', price: (priceVal.match(/\d+/g) || [0])[0], availability: 'https://schema.org/InStock', url: url };
+  }
+  inGraph.push(ld);
   const ldBreadcrumb = {
-    '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    '@type': 'BreadcrumbList', '@id': url + '#breadcrumb', itemListElement: [
       { '@type': 'ListItem', position: 1, name: '首页', item: BASE + '/' },
       { '@type': 'ListItem', position: 2, name: '胶卷库', item: BASE + '/' },
       { '@type': 'ListItem', position: 3, name: f.name_en + ' 胶卷', item: url }
     ]
   };
+  inGraph.push(ldBreadcrumb);
+  const LD_JSON = JSON.stringify({ '@context': 'https://schema.org', '@graph': inGraph });
 
   const specs = [
     ['感光度', 'ISO ' + f.iso], ['类型', typeLabel(f.type)], ['颗粒', grainLabel(f.grain)], ['尺寸', (f.formats || []).join(' · ')], ['分类', catLabel(f.category)], ['状态', f.status === 'discontinued' ? '已停产' : '在产']
@@ -88,8 +109,7 @@ function page(f) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" media="print" onload="this.media='all'" />
 <link rel="stylesheet" href="../style.css" />
-<script type="application/ld+json">${JSON.stringify(ld)}</script>
-<script type="application/ld+json">${JSON.stringify(ldBreadcrumb)}</script>
+<script type="application/ld+json">${LD_JSON}</script>
 </head>
 <body>
 <header class="site-header">
