@@ -24,6 +24,16 @@ const jp = 'data/journal.json';
 const j = JSON.parse(fs.readFileSync(jp, 'utf8'));
 j.items = j.items.filter((x) => x.id !== 'j-' + slug);
 j.items.unshift({ id: 'j-' + slug, type: a.type || 'article', title: a.title, excerpt: a.excerpt, date: a.date, link: 'journal/' + slug + '.html', media: a.hero || 'samples/photos/berlin-kino-400-1.jpg' });
+// 去重：同一篇文章可能既是手工条目（j-bl-sl）又有生成器条目（j-bishilian）→ 按 link 去重，保留首个
+const seen = new Set();
+j.items = j.items.filter((x) => {
+  const k = x.link || x.id;
+  if (seen.has(k)) { console.log('  🧹 移除重复资讯条目:', x.id); return false; }
+  seen.add(k);
+  return true;
+});
+// 按日期倒序（首页只显示前 2 条，必须是最新的）
+j.items.sort((x, y) => String(y.date || '').localeCompare(String(x.date || '')));
 fs.writeFileSync(jp, JSON.stringify(j, null, 2) + '\n');
 console.log('✅ 资讯已收录，共', j.items.length, '条（首页显示前 2 条）');
 
