@@ -26,12 +26,16 @@ def set_font(run, size=11, bold=False, color=DARK, italic=False):
         rFonts = rPr.makeelement(qn('w:rFonts'), {}); rPr.append(rFonts)
     rFonts.set(qn('w:ascii'), FONT); rFonts.set(qn('w:hAnsi'), FONT); rFonts.set(qn('w:eastAsia'), FONT)
 
-def para(doc, align=None, space_after=8, space_before=0):
+def para(doc, align=None, space_after=8, space_before=0, indent=0):
     p = doc.add_paragraph()
     if align is not None: p.alignment = align
     p.paragraph_format.space_after = Pt(space_after)
     p.paragraph_format.space_before = Pt(space_before)
     p.paragraph_format.line_spacing = 1.6
+    if indent:
+        # 悬挂缩进：换行的第二行与正文对齐，公众号里也不会乱
+        p.paragraph_format.left_indent = Cm(indent)
+        p.paragraph_format.first_line_indent = Cm(-indent)
     return p
 
 TOKEN = re.compile(r'(<strong>.*?</strong>|<a\s+href="[^"]*"[^>]*>.*?</a>|<br\s*/?>)', re.S)
@@ -79,6 +83,15 @@ def build(art, outdir, imgdir):
         elif t in ('lead', 'p'):
             p = para(doc)
             add_inline(p, b.get('html', ''), 11.5 if t == 'lead' else 11)
+        elif t in ('list', 'ul', 'ol'):
+            # 列表：每项单独一段 + 悬挂缩进（① ② 这类自带序号的项不再加符号）
+            for it in (b.get('items') or []):
+                plain = re.sub(r'<[^>]+>', '', md2html(it)).strip()
+                mark = '' if re.match(r'^[①②③④⑤⑥⑦⑧⑨⑩]', plain) else '· '
+                p = para(doc, space_after=4, indent=0.75)
+                if mark:
+                    set_font(p.add_run(mark), 11, bold=True, color=GOLD)
+                add_inline(p, it, 11)
         elif t == 'quote':
             p = para(doc, WD_ALIGN_PARAGRAPH.CENTER, space_before=12, space_after=12)
             set_font(p.add_run(re.sub(r'<[^>]+>', '', b.get('html', ''))), 13, bold=True, color=RGBColor(0x22, 0x40, 0x2F))

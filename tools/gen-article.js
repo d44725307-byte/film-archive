@@ -67,13 +67,27 @@ let figNo = 0;
 // Markdown 加粗 **文字** → <strong>
 const mdBold = (s) => String(s == null ? '' : s).replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
 const mdLinks = (s) => String(s == null ? '' : s).replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+const md = (s) => mdBold(mdLinks(s));
 
 function block(b) {
-  b = Object.assign({}, b, { html: mdBold(mdLinks(b.html)) });
+  b = Object.assign({}, b, { html: md(b.html) });
   if (b.t === 'lead') return `    <p class="lead">${b.html}</p>`;
   if (b.t === 'p') return `    <p>${b.html}</p>`;
   if (b.t === 'h2') return `    <h2>${b.html}</h2>`;
   if (b.t === 'quote') return `    <blockquote class="article-quote">${b.html}</blockquote>`;
+  // 列表：原来是塞在一个 <p> 里用 · / <br> 分隔，手机上换行后与正文同缩进、层级看不出 → 改成真列表
+  // 用 .article-list + 每项一个子弹列（悬挂缩进），不用 ul/ol 默认缩进（手机上默认缩进最容易显得乱）
+  // 条目自带序号（① ② ③）时不再加子弹，避免「· ①」这种双重标记
+  if (b.t === 'list' || b.t === 'ul' || b.t === 'ol') {
+    const items = (b.items || []).map((it) => {
+      // 注意：条目常写成 **① 冲**，所以要先剥掉 Markdown 标记再判断序号
+      const plain = String(it).replace(/\*\*/g, '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').trim();
+      const selfNumbered = /^[①②③④⑤⑥⑦⑧⑨⑩]/.test(plain);
+      const mark = selfNumbered ? '' : '·';
+      return `      <div class="list-item"><span class="list-mark" aria-hidden="true">${mark}</span><span class="list-text">${md(it)}</span></div>`;
+    }).join('\n');
+    return `    <div class="article-list">\n${items}\n    </div>`;
+  }
   if (b.t === 'fig') {
     figNo++;
     const d = DIMS[b.src.replace(/^.*\//, '')] || [];

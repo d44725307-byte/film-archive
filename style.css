@@ -217,8 +217,14 @@ html, body {
   background: var(--card); border-radius: 12px; border: 1px solid var(--line);
   border-top: 3px solid var(--accent); border-bottom: 3px solid var(--accent);
 }
-.article-links { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; }
-.article-links a {
+/* 文章内的列表（悬挂缩进：子弹单独一列、文字对齐，手机上不会出现「换行后缩进乱掉」） */
+.article-list { margin: 0 0 22px; }
+.article-list .list-item { display: flex; align-items: baseline; gap: 10px; margin: 0 0 10px; }
+.article-list .list-item:last-child { margin-bottom: 0; }
+.article-list .list-mark { flex: 0 0 16px; text-align: right; color: var(--accent-strong); font-weight: 700; font-size: 15px; line-height: 2; }
+.article-list .list-text { flex: 1 1 auto; min-width: 0; font-size: 16.5px; line-height: 2.05; color: var(--text); }
+.article-list .list-text a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent-soft); text-underline-offset: 3px; }
+.article-links { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; }.article-links a {
   display: inline-block; padding: 7px 15px; border: 1px solid var(--line); border-radius: 999px;
   font-size: 13.5px; color: var(--text); text-decoration: none; background: var(--card); transition: all .15s;
 }
@@ -239,6 +245,10 @@ html, body {
   .article p { font-size: 16px; line-height: 1.95; }
   .article h2 { font-size: 18px; margin-top: 34px; }
   .article-quote { font-size: 20px; padding: 24px 18px; }
+  /* 窄屏列表：子弹列与间距收窄，避免缩进过深把正文挤成窄柱 */
+  .article .list-mark { flex-basis: 12px; font-size: 14px; }
+  .article .list-item { gap: 8px; margin-bottom: 9px; }
+  .article .list-text { font-size: 16px; line-height: 1.95; }
 }
 
 /* footer */
