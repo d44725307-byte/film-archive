@@ -4,6 +4,15 @@
   "updated": "2026-09-06",
   "items": [
     {
+      "id": "j-jiaopian-pa-huai-zenmeban",
+      "type": "article",
+      "title": "底片拍坏了怎么办？漏光、欠曝、划痕、发灰，一篇说清怎么救、怎么防",
+      "excerpt": "拍胶片最崩溃的不是贵，是拍完发现全废了。这篇把最常见的 5 种「翻车」现象拆开：怎么一眼判断是相机的问题、冲扫的问题，还是你的问题；哪些能救、哪些只能认；以及下次怎么防。免费内容，建议收藏或转发给刚入坑的朋友。",
+      "date": "2026-09-16",
+      "link": "journal/jiaopian-pa-huai-zenmeban",
+      "media": "samples/photos/lady-grey-400-3.jpg"
+    },
+    {
       "id": "j-2026-jiaoge-zhangdie",
       "type": "news",
       "title": "2026 胶片到底涨了没？我把每卷的涨跌拆开算了一遍",
