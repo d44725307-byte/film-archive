@@ -51,22 +51,25 @@ function walkHtml(dir, out = []) {
           if (fs.existsSync(cand)) { resolved = cand; break; }
         }
       }
-      if (!targets.has(resolved)) targets.set(resolved, p);
+      // ⚠️ 去重键用「本地解析后的文件名」，但请求必须用「页面里真实的 URL」。
+      // 否则无扩展名链接会被解析成 xxx.html 再去请求 → 线上 308（误报）。
+      if (!targets.has(resolved)) targets.set(resolved, { from: p, url: clean });
     }
   });
 
   console.log('页面数', pages.length, '| 待检内部链接/资源', targets.size, '\n');
   const bad = [];
   const isLocal = BASE.includes('127.0.0.1') || BASE.includes('localhost');
-  for (const [rel, from] of targets) {
-    const url = BASE + '/' + rel.replace(/^\.\//, '');
+  for (const [rel, info] of targets) {
+    // 请求页面里真实的 URL（rel 只是本地去重键）
+    const url = BASE + '/' + info.url.replace(/^\.\//, '');
     const r = await get(url);
     if (r.status === 200) continue;
     // ⚠️ 无扩展名链接（/film/xxx、/journal）在 Cloudflare Pages 上是正常的，
     // 但本地 python http.server 不支持 → 会 301 到 /film/xxx/ 再 404。
     // 本地检查时这类跳转不算断链，否则每次都误报。
-    if (isLocal && /^3\d\d$/.test(String(r.status)) && !path.extname(rel)) continue;
-    bad.push({ rel, from, status: r.status, loc: r.location });
+    if (isLocal && /^3\d\d$/.test(String(r.status)) && !path.extname(info.url)) continue;
+    bad.push({ rel, from: info.from, status: r.status, loc: r.location });
   }
   if (!bad.length) console.log('✅ 全部内部链接/资源正常（无断链）');
   else {
