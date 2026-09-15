@@ -176,5 +176,12 @@
       "label": "RPX 400",
       "href": "film/rollei-rpx-400.html"
     }
-  ]
+  ],
+  "featuredFilms": [
+    "kodak-tri-x-400",
+    "foma-fomapan-100",
+    "adox-silvermax-100",
+    "adox-cms-20-ii"
+  ],
+  "featuredCount": 4
 }

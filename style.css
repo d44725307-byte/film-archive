@@ -239,6 +239,27 @@ html, body {
 .article-back { display: inline-block; margin-top: 8px; font-size: 14px; color: var(--accent); text-decoration: none; }
 .article-back:hover { color: var(--accent-strong); }
 
+/* ---- 文末转化区：文章 → 胶卷库 ---- */
+.article-library { margin: 44px 0 8px; padding: 24px 22px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); border-top: 3px solid var(--accent); }
+.article-library h2 { margin: 0 0 12px !important; border-left: none !important; padding-left: 0 !important; }
+.article-library .al-lead { font-size: 14.5px; line-height: 1.85; color: var(--text-dim); margin: 0 0 16px; }
+.article-filmcards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.film-card { display: flex; gap: 11px; align-items: flex-start; padding: 10px; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; text-decoration: none; color: inherit; transition: all .15s; }
+.film-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.fc-photo { flex: 0 0 76px; width: 76px; height: 76px; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); background: var(--card); display: block; }
+.fc-media { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; }
+/* 没有样片的卷：不显示空图位，文字占满（避免「破图方块」） */
+.film-card-noimg .fc-body { padding: 2px 0; }
+.fc-body { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.fc-name { font-family: 'Playfair Display', 'Noto Serif SC', serif; font-weight: 700; font-size: 15px; color: var(--film); line-height: 1.3; }
+.fc-meta { font-size: 11.5px; color: var(--accent-strong); letter-spacing: .3px; }
+.fc-desc { font-size: 12.5px; line-height: 1.6; color: var(--text-dim); }
+.article-library-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.al-btn { display: inline-block; padding: 11px 18px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; color: var(--text); text-decoration: none; background: var(--bg); transition: all .15s; }
+.al-btn:hover { border-color: var(--accent); color: var(--accent-strong); }
+.al-btn-primary { background: var(--accent); border-color: var(--accent-strong); color: var(--dark); font-weight: 700; }
+.al-btn-primary:hover { background: var(--accent-strong); color: #fff; }
+
 @media (max-width: 720px) {
   .article-head h1 { font-size: 25px; }
   .article .lead { font-size: 16px; }
@@ -249,6 +270,11 @@ html, body {
   .article .list-mark { flex-basis: 12px; font-size: 14px; }
   .article .list-item { gap: 8px; margin-bottom: 9px; }
   .article .list-text { font-size: 16px; line-height: 1.95; }
+  /* 窄屏文末转化区：单列、卡片缩排 */
+  .article-library { padding: 20px 15px; }
+  .article-filmcards { grid-template-columns: 1fr; gap: 9px; }
+  .fc-photo { flex-basis: 68px; width: 68px; height: 68px; }
+  .article-library-cta .al-btn { flex: 1 1 auto; text-align: center; padding: 12px 14px; }
 }
 
 /* footer */

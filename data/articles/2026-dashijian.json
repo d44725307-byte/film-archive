@@ -142,5 +142,12 @@
       "label": "Fomapan 100 Classic（便宜档）",
       "href": "film/foma-fomapan-100.html"
     }
-  ]
+  ],
+  "featuredFilms": [
+    "kodak-tri-x-400",
+    "lomo-lady-grey-400",
+    "cinestill-bwxx",
+    "rollei-retro-400s"
+  ],
+  "featuredCount": 4
 }

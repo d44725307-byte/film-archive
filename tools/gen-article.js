@@ -104,6 +104,65 @@ function linksBlock() {
   return `    <h2>${a.linksTitle || '相关胶卷'}</h2>\n    <p class="article-links">\n      ${items}\n    </p>`;
 }
 
+// ---- 文末转化区：把文章读者送进胶卷库 ----
+// 文章页是主要流量入口（实测 /journal/2026-dashijian 3 天 104 次访问），
+// 但原来出口只有一个文末文字链接、还在最底部 → 这里做成主推卡 + 搜索引导。
+const ALL_FILMS = JSON.parse(fs.readFileSync('data/films.json', 'utf8')).films;
+const CAT_CN = { traditional: '传统颗粒', tabular: 'T颗粒', fine: '细腻/超微粒', 'high-speed': '高速', cinema: '电影卷', chromogenic: 'C-41 黑白', ortho: '正色卷', infrared: '红外卷', 'direct-positive': '直接正片' };
+
+function pickFilms(ids, n) {
+  const byId = {};
+  ALL_FILMS.forEach((f) => { byId[f.id] = f; });
+  const picked = (ids || []).map((id) => byId[id]).filter(Boolean);
+  if (picked.length) return picked.slice(0, n);
+  // 没指定就取首页前 n 卷（与首页卡片顺序一致），保证一定有内容
+  return ALL_FILMS.slice(0, n);
+}
+
+// 卡片描述：优先在标点处断开，避免出现「街头/纪」这种半截词
+function blurb(s, max) {
+  const t = String(s || '').replace(/\s+/g, ' ').trim();
+  if (t.length <= max) return t;
+  const head = t.slice(0, max);
+  const cut = Math.max(head.lastIndexOf('，'), head.lastIndexOf('。'), head.lastIndexOf('、'), head.lastIndexOf('；'), head.lastIndexOf('：'));
+  return (cut >= max * 0.55 ? head.slice(0, cut) : head.replace(/[，、；：\s]*$/, '')) + '…';
+}
+
+function filmCard(f) {
+  const first = (f.samples || []).find((s) => s.src);
+  const thumb = first ? '../' + first.src.replace('samples/photos/', 'samples/photos/thumbs/') : '';
+  const d = thumb ? (THUMB_DIMS[thumb.split('/').pop()] || []) : [];
+  const size = d.length ? ` width="${d[0]}" height="${d[1]}"` : '';
+  // 没有样片的卷不占位（否则卡片里会出现一个空方块的「破图感」），文字自然占满整行
+  const media = thumb
+    ? `<span class="fc-photo"><img class="fc-media" src="${thumb}" alt="${esc(f.name_en)} 实拍样片"${size} loading="lazy" decoding="async" data-full="${esc('../' + first.src)}"></span>`
+    : '';
+  return `      <a class="film-card${thumb ? '' : ' film-card-noimg'}" href="../film/${f.id}.html">
+        ${media}
+        <span class="fc-body">
+          <span class="fc-name">${esc(f.name_en)}</span>
+          <span class="fc-meta">${esc(f.brand_cn || f.brand)} · ISO ${f.iso} · ${esc(CAT_CN[f.category] || f.category)}</span>
+          <span class="fc-desc">${esc(blurb(f.character, 58))}</span>
+        </span>
+      </a>`;
+}
+
+function libraryBlock() {
+  const films = pickFilms(a.featuredFilms, a.featuredCount || 4);
+  if (!films.length) return '';
+  return `    <section class="article-library">
+      <h2>去胶卷库看看这几卷</h2>
+      <p class="al-lead">「胶卷档案」是一个可搜索的胶卷资料库：每卷都有规格、特性、使用感受、参考价与实拍样片。搜品牌或型号就能直达。</p>
+      <div class="article-filmcards">
+${films.map(filmCard).join('\n')}
+      </div>
+      <div class="article-library-cta">
+        <a class="al-btn al-btn-primary" href="../index.html#search">去胶卷库搜索 →</a>
+        <a class="al-btn" href="../index.html">浏览全部 ${ALL_FILMS.length} 卷</a>
+      </div>
+    </section>`;
+}
+
 const html = `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -156,6 +215,7 @@ const html = `<!DOCTYPE html>
 ${a.blocks.map(block).filter(Boolean).join('\n\n')}
 
 ${linksBlock()}
+${libraryBlock()}
     <h2>分享这篇文章</h2>
     <div class="share-actions">
       <button class="share-btn" onclick="articleShare('copy')">复制链接</button>
@@ -175,6 +235,7 @@ ${relatedBlock()}
   </div>
 </footer>
 
+<div id="lightbox" class="lightbox" hidden><div class="lightbox-backdrop" data-close></div><div class="lightbox-body"><img id="lightbox-img" src="" alt="样片大图" /><button class="lightbox-close" data-close aria-label="关闭">×</button></div></div>
 <div id="cardSave" class="card-save" hidden><div class="card-save-backdrop" data-cardsave-close></div><div class="card-save-body"><img id="cardSaveImg" src="" alt="分享图" /><p class="card-save-hint">长按 / 按住图片，选择「保存图片」即可存入相册</p><button class="card-save-close" data-cardsave-close aria-label="关闭">×</button></div></div>
 <div id="toast" class="toast" aria-live="polite"></div>
 <script>window.__article={title:${JSON.stringify(a.title)},excerpt:${JSON.stringify(a.excerpt)},slug:${JSON.stringify(a.slug)},hero:${JSON.stringify(heroThumb.replace(BASE + '/', '../'))},url:${JSON.stringify(BASE + '/journal/' + a.slug)},qr:${JSON.stringify(qrRel)}};</script>

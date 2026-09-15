@@ -4,22 +4,13 @@
   "updated": "2026-09-06",
   "items": [
     {
-      "id": "j-2026-dashijian",
-      "type": "news",
-      "title": "2026 胶片圈三件大事：乐凯回来了、柯达改名了、还多了一卷彩色",
-      "excerpt": "今年胶片圈出了三件跟你钱包有关的事：停产 13 年的乐凯彩色胶卷复产（每卷 52 元）、柯达把 Portra 和 T-Max 换了名字（小心买错）、Ilford 母公司又出了一卷彩色。一篇说清。",
-      "date": "2026-09-14",
-      "link": "journal/2026-dashijian.html",
-      "media": "samples/photos/retro-400s-1.jpg"
-    },
-    {
-      "id": "j-chongsao-zhinan",
+      "id": "j-bishilian",
       "type": "article",
-      "title": "胶片拍完怎么冲？多少钱、怎么选店、别被坑",
-      "excerpt": "拍完只是走了一半。冲扫是另一半，也是最容易花冤枉钱的一半：同一卷底片，快扫和精扫能差 3 倍价，送错工艺甚至会毁片。这篇把「冲、扫、印」三笔钱和下单前必问的 5 个问题一次讲清。",
-      "date": "2026-09-14",
-      "link": "journal/chongsao-zhinan.html",
-      "media": "samples/photos/potsdam-kino-100-2.jpg"
+      "title": "黑白胶卷鄙视链：原厂党、平替党、参数党，你站哪队？",
+      "excerpt": "黑白胶卷的鄙视链到底在鄙视什么？用真实规格与价格拆开：伊尔福 HP5+ 与 Adox CHM 400（平民版 HP5+）、柯达 Tri-X 400 与 HP5+ 的口味之争、Adox Silvermax 100 与 CMS 20 II 的参数神话。",
+      "date": "2026-09-12",
+      "link": "journal/bishilian.html",
+      "media": "samples/photos/berlin-kino-400-1.jpg"
     },
     {
       "id": "j-hangqing-2026",
@@ -38,6 +29,24 @@
       "date": "2026-09-13",
       "link": "journal/xinshou-xuanjuan.html",
       "media": "samples/photos/earl-grey-100-1.jpg"
+    },
+    {
+      "id": "j-2026-dashijian",
+      "type": "news",
+      "title": "2026 胶片圈三件大事：乐凯回来了、柯达改名了、还多了一卷彩色",
+      "excerpt": "今年胶片圈出了三件跟你钱包有关的事：停产 13 年的乐凯彩色胶卷复产（每卷 52 元）、柯达把 Portra 和 T-Max 换了名字（小心买错）、Ilford 母公司又出了一卷彩色。一篇说清。",
+      "date": "2026-09-14",
+      "link": "journal/2026-dashijian.html",
+      "media": "samples/photos/retro-400s-1.jpg"
+    },
+    {
+      "id": "j-chongsao-zhinan",
+      "type": "article",
+      "title": "胶片拍完怎么冲？多少钱、怎么选店、别被坑",
+      "excerpt": "拍完只是走了一半。冲扫是另一半，也是最容易花冤枉钱的一半：同一卷底片，快扫和精扫能差 3 倍价，送错工艺甚至会毁片。这篇把「冲、扫、印」三笔钱和下单前必问的 5 个问题一次讲清。",
+      "date": "2026-09-14",
+      "link": "journal/chongsao-zhinan.html",
+      "media": "samples/photos/potsdam-kino-100-2.jpg"
     },
     {
       "id": "j-bl-sl",

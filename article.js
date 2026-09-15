@@ -103,6 +103,22 @@
   function showCardSave(url) { cardSaveImg.src = url; cardSave.hidden = false; document.body.style.overflow = 'hidden'; }
   function closeCardSave() { cardSave.hidden = true; cardSaveImg.src = ''; document.body.style.overflow = ''; }
 
+  // 文末「主推胶卷」缩略图点开放大（原图），与胶卷页/首页的 lightbox 行为一致
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  function closeLightbox() { if (!lightbox) return; lightbox.hidden = true; lightboxImg.src = ''; document.body.style.overflow = ''; }
+  document.querySelectorAll('.article-filmcards .fc-media[data-full]').forEach((im) => {
+    im.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation(); // 别触发外层卡片链接的跳转
+      if (!lightbox) return;
+      lightboxImg.src = im.getAttribute('data-full');
+      lightbox.hidden = false;
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  if (lightbox) document.querySelectorAll('#lightbox [data-close]').forEach((el) => el.addEventListener('click', closeLightbox));
+
   window.articleShare = async function (kind) {
     const url = A.url || location.href;
     const title = A.title || document.title;
@@ -132,5 +148,9 @@
   };
 
   document.querySelectorAll('#cardSave [data-cardsave-close]').forEach((el) => el.addEventListener('click', closeCardSave));
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && cardSave && !cardSave.hidden) closeCardSave(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (lightbox && !lightbox.hidden) closeLightbox();
+    else if (cardSave && !cardSave.hidden) closeCardSave();
+  });
 })();

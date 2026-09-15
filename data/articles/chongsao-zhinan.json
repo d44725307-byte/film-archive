@@ -184,5 +184,12 @@
       "label": "Double-X 5222（电影卷 · 需 ECN-2）",
       "href": "film/kodak-double-x-5222.html"
     }
-  ]
+  ],
+  "featuredFilms": [
+    "foma-fomapan-100",
+    "kodak-tri-x-400",
+    "ilford-xp2-super",
+    "kodak-double-x-5222"
+  ],
+  "featuredCount": 4
 }
