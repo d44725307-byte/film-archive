@@ -137,7 +137,29 @@
       "price_used": {
         "120": "约¥89–145",
         "135": "约¥77–110"
-      }
+      },
+      "samples": [
+        {
+          "src": "samples/photos/tmax-400-1.jpg",
+          "credit": "© Curtain · T-Max 400"
+        },
+        {
+          "src": "samples/photos/tmax-400-2.jpg",
+          "credit": "© David Reams · T-Max 400"
+        },
+        {
+          "src": "samples/photos/tmax-400-3.jpg",
+          "credit": "© Erik van Straten · T-Max 400"
+        },
+        {
+          "src": "samples/photos/tmax-400-4.jpg",
+          "credit": "© Jeff Anderson · T-Max 400"
+        },
+        {
+          "src": "samples/photos/tmax-400-5.jpg",
+          "credit": "© vladk · T-Max 400"
+        }
+      ]
     },
     {
       "id": "kodak-tmax-p3200",
