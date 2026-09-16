@@ -192,7 +192,29 @@
       "price_used": {
         "120": "约¥94–150",
         "135": "约¥81–115"
-      }
+      },
+      "samples": [
+        {
+          "src": "samples/photos/tmax-p3200-1.jpg",
+          "credit": "© Gregory Owain · T-Max P3200"
+        },
+        {
+          "src": "samples/photos/tmax-p3200-2.jpg",
+          "credit": "© Gregory Owain · T-Max P3200"
+        },
+        {
+          "src": "samples/photos/tmax-p3200-3.jpg",
+          "credit": "© Gregory Owain · T-Max P3200"
+        },
+        {
+          "src": "samples/photos/tmax-p3200-4.jpg",
+          "credit": "© Gregory Owain · T-Max P3200"
+        },
+        {
+          "src": "samples/photos/tmax-p3200-5.jpg",
+          "credit": "© Vinyl Rhino · T-Max P3200"
+        }
+      ]
     },
     {
       "id": "kodak-double-x-5222",
