@@ -407,3 +407,36 @@ html, body {
 @media (max-width: 620px) {
   .spec { grid-template-columns: 1fr; }
 }
+
+/* ---- 排行 / 筛选页 ---- */
+.rank-note { font-size: 13px; color: var(--text-dim); line-height: 1.8; margin: 0 0 16px; }
+.rank-presets { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 20px; }
+.rank-presets-label { font-size: 12px; color: var(--text-dim); }
+.rank-presets a { display: inline-block; padding: 6px 13px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; color: var(--text); text-decoration: none; background: var(--card); transition: all .15s; }
+.rank-presets a:hover { border-color: var(--accent); color: var(--accent-strong); }
+.rank-controls { display: flex; flex-direction: column; gap: 8px; padding: 14px 0 4px; border-top: 1px solid var(--line); }
+.rank-stats { margin: 14px 0 10px; font-size: 13px; color: var(--text-dim); }
+.rank-list { display: flex; flex-direction: column; gap: 8px; padding-bottom: 30px; }
+.rank-row { display: flex; align-items: center; gap: 12px; padding: 10px 12px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; text-decoration: none; color: inherit; transition: all .15s; }
+.rank-row:hover { border-color: var(--accent); transform: translateY(-1px); }
+.rank-thumb { flex: 0 0 56px; width: 56px; height: 56px; border-radius: 8px; object-fit: cover; border: 1px solid var(--line); background: var(--bg-soft); display: block; }
+.rank-thumb-empty { display: block; }
+.rank-main { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.rank-name { font-family: 'Noto Serif SC', 'Songti SC', serif; font-weight: 700; font-size: 15px; color: var(--film); }
+.rank-meta { font-size: 12px; color: var(--text-dim); }
+.rank-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+.rank-tags .scene-chip { font-size: 11px; padding: 2px 8px; }
+.rank-price { flex: 0 0 auto; text-align: right; display: flex; flex-direction: column; gap: 2px; }
+.rank-price b { font-size: 14px; color: var(--accent-strong); white-space: nowrap; }
+.rank-price-fmt { font-size: 11px; color: var(--text-dim); white-space: nowrap; }
+.rank-empty { color: var(--text-dim); font-size: 14px; padding: 20px 0 40px; }
+@media (max-width: 720px) {
+  .rank-thumb { flex-basis: 48px; width: 48px; height: 48px; }
+  .rank-name { font-size: 14px; }
+  .rank-row { gap: 10px; padding: 9px 10px; }
+}
+
+/* 首页：通往排行/对比页的入口 */
+.stats-rank-link { margin: -8px 0 14px; font-size: 13.5px; }
+.stats-rank-link a { color: var(--accent-strong); text-decoration: none; border-bottom: 1px dashed var(--accent-soft); padding-bottom: 1px; }
+.stats-rank-link a:hover { color: var(--accent); border-bottom-style: solid; }

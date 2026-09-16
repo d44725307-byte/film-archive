@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://filmstockhub.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://filmstockhub.com/journal</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmstockhub.com/rank</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://filmstockhub.com/rank/zuipianyi</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmstockhub.com/rank/iso400</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmstockhub.com/rank/kouchailiang</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmstockhub.com/rank/120</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmstockhub.com/film/kodak-tri-x-400</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmstockhub.com/film/kodak-tmax-100</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmstockhub.com/film/kodak-tmax-400</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>

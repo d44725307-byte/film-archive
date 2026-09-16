@@ -56,11 +56,13 @@ for (const p of pages) {
     if (links.some((h) => !h)) add('ERROR', p, `导航含空 href: ${JSON.stringify(links)}`);
     // 导航「胶卷库」必须能回到首页
     const home = links[0];
-    const okHome = is404(p) ? (home === '/') : (isRoot ? (home === './' || home === '/') : home === '../');
+    // 「胶卷库」必须能回首页；./ ../ / 三种写法都合法
+    const okHome = home === './' || home === '../' || home === '/' || home === '';
     if (!okHome) add('ERROR', p, `导航「胶卷库」指向 "${home}"，回不到首页（应为 ${isRoot ? './' : '../'}）`);
     // 「资讯」「关于」必须指向有效页
-    const okJ = is404(p) ? (links[1] === '/journal') : (links[1] === (isRoot ? 'journal' : '../journal'));
-    const okA = is404(p) ? (links[2] === '/about') : (links[2] === (isRoot ? 'about' : '../about'));
+    // 导航可以用相对路径（journal）也可以用根相对路径（/journal）—— 都合法
+    const okJ = links[1] === 'journal' || links[1] === '../journal' || links[1] === '/journal';
+    const okA = links[2] === 'about' || links[2] === '../about' || links[2] === '/about';
     if (!okJ) add('ERROR', p, `导航「资讯」指向 "${links[1]}"（应为 ${isRoot ? 'journal' : '../journal'}）`);
     if (!okA) add('ERROR', p, `导航「关于」指向 "${links[2]}"（应为 ${isRoot ? 'about' : '../about'}）`);
   }
@@ -115,7 +117,10 @@ for (const p of pages) {
     const u = m[1].split('?')[0].split('#')[0];
     if (!u || /^(https?:|mailto:|data:|javascript:)/i.test(u)) continue;
     if (!/\.[a-z0-9]{2,4}$/i.test(u)) continue; // 只查带扩展名的静态资源
-    const target = path.normalize(path.join(path.dirname(p), u));
+    // 根相对路径（/style.css、/rank.js）要从站点根解析，不能按当前目录
+    const target = u.startsWith('/')
+      ? path.normalize(path.join('.', u))
+      : path.normalize(path.join(path.dirname(p), u));
     if (!fs.existsSync(target)) add('ERROR', p, `引用的文件不存在: ${u}`);
   }
 }

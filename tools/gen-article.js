@@ -264,20 +264,8 @@ console.log('✅ 生成 journal/' + slug + '.html');
 // 同步首页「资讯」静态区块（消除 CLS + SEO）
 try { require('child_process').execSync('node tools/gen-home-journal.js', { stdio: 'inherit' }); } catch (e) { console.log('  ⚠️ 首页资讯同步失败'); }
 
-// 更新 sitemap
-const films = JSON.parse(fs.readFileSync('data/films.json', 'utf8')).films;
-const arts = j.items.filter((it) => it.link && it.link.startsWith('journal/')).map((it) => it.link.replace('.html', ''));
-const body = [
-  '  <url><loc>' + BASE + '/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>',
-  '  <url><loc>' + BASE + '/journal</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>',
-  ...films.map((f) => '  <url><loc>' + BASE + '/film/' + f.id + '</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>'),
-  ...arts.map((s) => '  <url><loc>' + BASE + '/' + s + '</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>'),
-  '  <url><loc>' + BASE + '/about</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>',
-  '  <url><loc>' + BASE + '/privacy</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>',
-  '  <url><loc>' + BASE + '/disclaimer</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>'
-].join('\n');
-fs.writeFileSync('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + body + '\n</urlset>\n');
-console.log('✅ sitemap 已更新，共', ((body.match(/<loc>/g) || []).length), '条');
+// 更新 sitemap（统一出口 tools/gen-sitemap.js —— 新增页面类型只需改那一处）
+try { require('child_process').execSync('node tools/gen-sitemap.js', { stdio: 'inherit' }); } catch (e) { console.log('  ⚠️ sitemap 生成失败'); }
 console.log('\n下一步：git add -A && git commit -m "新文章：' + a.title + '" && git push origin master');
 
 // 生成后给 JS/CSS 引用打内容版本号
