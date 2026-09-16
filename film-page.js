@@ -84,6 +84,21 @@
   function showCardSave(dataUrl) { cardSaveImg.src = dataUrl; cardSave.hidden = false; document.body.style.overflow = 'hidden'; }
   function closeCardSave() { cardSave.hidden = true; cardSaveImg.src = PLACEHOLDER; document.body.style.overflow = ''; }
 
+
+  // 「生成卡片/存分享图」要点时间（canvas 画图在主线程）→ 期间给按钮一个"生成中"反馈，
+  // 既解决 INP 观感，也防连点。Cloudflare 实测该按钮 INP 288–328ms。
+  async function withBusy(fnName, kind, label, fn) {
+    const btn = Array.from(document.querySelectorAll('button')).find((b) => (b.getAttribute('onclick') || '').indexOf(fnName + "('" + kind + "')") >= 0);
+    if (!btn) return fn();
+    const old = btn.textContent;
+    btn.textContent = label;
+    btn.disabled = true;
+    btn.style.opacity = '.6';
+    btn.style.pointerEvents = 'none';
+    try { return await fn(); }
+    finally { btn.textContent = old; btn.disabled = false; btn.style.opacity = ''; btn.style.pointerEvents = ''; }
+  }
+
   window.filmShare = async function (kind) {
     if (!f) return;
     const url = location.href;
@@ -93,10 +108,12 @@
       if (kind === 'copy') { await navigator.clipboard.writeText(url); flash('链接已复制'); }
       else if (kind === 'native') { if (navigator.share) await navigator.share({ title, text, url }); else { await navigator.clipboard.writeText(url); flash('已复制链接'); } }
       else if (kind === 'poster') {
+        await withBusy('filmShare', 'poster', '生成中…', async () => {
         await (document.fonts && document.fonts.ready); const dataUrl = await makePoster(f);
         try { const blob = await (await fetch(dataUrl)).blob(); const file = new File([blob], f.id + '.png', { type: 'image/png' }); if (navigator.canShare && navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], title }); flash('已呼出分享/保存'); return; } } catch (e) {}
         if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) { showCardSave(dataUrl); flash('长按图片保存到相册'); }
         else { const a = document.createElement('a'); a.href = dataUrl; a.download = f.id + '.png'; a.click(); flash('卡片已下载'); }
+        });
       }
     } catch (e) { flash('操作失败'); }
   };

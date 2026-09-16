@@ -119,6 +119,21 @@
   });
   if (lightbox) document.querySelectorAll('#lightbox [data-close]').forEach((el) => el.addEventListener('click', closeLightbox));
 
+
+  // 「生成卡片/存分享图」要点时间（canvas 画图在主线程）→ 期间给按钮一个"生成中"反馈，
+  // 既解决 INP 观感，也防连点。Cloudflare 实测该按钮 INP 288–328ms。
+  async function withBusy(fnName, kind, label, fn) {
+    const btn = Array.from(document.querySelectorAll('button')).find((b) => (b.getAttribute('onclick') || '').indexOf(fnName + "('" + kind + "')") >= 0);
+    if (!btn) return fn();
+    const old = btn.textContent;
+    btn.textContent = label;
+    btn.disabled = true;
+    btn.style.opacity = '.6';
+    btn.style.pointerEvents = 'none';
+    try { return await fn(); }
+    finally { btn.textContent = old; btn.disabled = false; btn.style.opacity = ''; btn.style.pointerEvents = ''; }
+  }
+
   window.articleShare = async function (kind) {
     const url = A.url || location.href;
     const title = A.title || document.title;
@@ -130,6 +145,7 @@
         if (navigator.share) { await navigator.share({ title, text: A.excerpt || title, url }); }
         else { await navigator.clipboard.writeText(url); flash('链接已复制，粘贴到微信即可分享'); }
       } else if (kind === 'card') {
+        await withBusy('articleShare', 'card', '生成中…', async () => {
         await (document.fonts && document.fonts.ready);
         const dataUrl = await makeCard();
         try {
@@ -143,6 +159,7 @@
         } catch (e) {}
         if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) { showCardSave(dataUrl); flash('长按图片保存到相册'); }
         else { const a = document.createElement('a'); a.href = dataUrl; a.download = (A.slug || 'article') + '.png'; a.click(); flash('分享图已下载'); }
+        });
       }
     } catch (e) { flash('操作失败'); }
   };

@@ -454,6 +454,20 @@ const PLACEHOLDER = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAAL
     return out.toDataURL('image/png');
   }
 
+
+  // 「下载卡片」要几秒（canvas 在主线程画图）→ 给按钮一个"生成中"反馈（同时防连点）。
+  async function withBusy(fnName, kind, label, fn) {
+    const btn = Array.from(document.querySelectorAll('button')).find((b) => (b.getAttribute('onclick') || '').indexOf(fnName + "('" + kind + "')") >= 0);
+    if (!btn) return fn();
+    const old = btn.textContent;
+    btn.textContent = label;
+    btn.disabled = true;
+    btn.style.opacity = '.6';
+    btn.style.pointerEvents = 'none';
+    try { return await fn(); }
+    finally { btn.textContent = old; btn.disabled = false; btn.style.opacity = ''; btn.style.pointerEvents = ''; }
+  }
+
   window.shareAction = async function (id, kind) {
     const f = FILMS.find((x) => x.id === id);
     if (!f) return;
@@ -466,6 +480,7 @@ const PLACEHOLDER = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAAL
         if (navigator.share) { await navigator.share({ title, text, url }); }
         else { await navigator.clipboard.writeText(url); flash('已复制链接'); }
       } else if (kind === 'poster') {
+        await withBusy('shareAction', 'poster', '生成中…', async () => {
         await (document.fonts && document.fonts.ready);
         const dataUrl = await makePoster(f);
         const ttl = f.name_en + ' 胶卷';
@@ -488,6 +503,7 @@ const PLACEHOLDER = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAAL
           const a = document.createElement('a'); a.href = dataUrl; a.download = f.id + '.png'; a.click();
           flash('卡片已下载');
         }
+        });
       }
     } catch (e) { flash('操作失败'); }
   };
@@ -558,7 +574,10 @@ const PLACEHOLDER = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAAL
         const thumb = media ? media.replace('samples/photos/', 'samples/photos/thumbs/') : '';
         const d = thumb && THUMB_DIMS[thumb.split('/').pop()];
         const size = d ? ` width="${d[0]}" height="${d[1]}"` : '';
-        const load = idx === 0 ? 'loading="eager" fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"';
+        // 前两张都在手机首屏内 → 都 eager；第 2 张用 low，别跟前一张抢带宽
+        const load = idx === 0
+          ? 'loading="eager" fetchpriority="high" decoding="async"'
+          : (idx === 1 ? 'loading="eager" fetchpriority="low" decoding="async"' : 'loading="lazy" decoding="async"');
         return `
           <a class="j-item" href="${escapeXml(it.link || '#')}">
             ${thumb ? `<img class="j-media" src="${escapeXml(thumb)}" alt="${escapeXml(it.title)}"${size} ${load}>` : ''}

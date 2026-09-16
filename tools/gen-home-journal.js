@@ -15,7 +15,11 @@ const html = items.map((it, idx) => {
   const thumb = it.media ? String(it.media).replace('samples/photos/', 'samples/photos/thumbs/') : '';
   const d = thumb ? dims[thumb.split('/').pop()] : null;
   const size = d ? ` width="${d[0]}" height="${d[1]}"` : '';
-  const load = idx === 0 ? 'loading="eager" fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"';
+  // ⚠️ 前两张都在手机首屏内（单列排版）→ 都 eager。
+  // 第 2 张不给 fetchpriority=high，避免和第 1 张抢带宽（它才是 LCP 候选）。
+  const load = idx === 0
+    ? 'loading="eager" fetchpriority="high" decoding="async"'
+    : (idx === 1 ? 'loading="eager" fetchpriority="low" decoding="async"' : 'loading="lazy" decoding="async"');
   return `        <a class="j-item" href="${esc(it.link || '#')}">
           ${thumb ? `<img class="j-media" src="${esc(thumb)}" alt="${esc(it.title)}"${size} ${load}>` : ''}
           <div class="j-meta">
