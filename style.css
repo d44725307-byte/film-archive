@@ -437,6 +437,9 @@ html, body {
 }
 
 /* 首页：通往排行/对比页的入口 */
-.stats-rank-link { margin: -8px 0 14px; font-size: 13.5px; }
-.stats-rank-link a { color: var(--accent-strong); text-decoration: none; border-bottom: 1px dashed var(--accent-soft); padding-bottom: 1px; }
+/* 首页「按价格/ISO 排行对比」入口。
+   ⚠️ 原来写成 margin:-8px 把「共 N 款」和这行拽到一起了（用户反馈太挤）→ 改为正常间距。
+   .stats 本身 margin-top:16px 且无 margin-bottom，所以这里给一个独立的上间距即可。 */
+.stats-rank-link { margin: 10px 0 18px; font-size: 13.5px; line-height: 1.9; }
+.stats-rank-link a { color: var(--accent-strong); text-decoration: none; border-bottom: 1px dashed var(--accent-soft); padding-bottom: 2px; }
 .stats-rank-link a:hover { color: var(--accent); border-bottom-style: solid; }
