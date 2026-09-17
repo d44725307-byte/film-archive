@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
-const ASSETS = ['style.css', 'app.js', 'film-page.js', 'article.js', 'card-template.js', 'filter-template.js', 'rank.js'];
+const ASSETS = ['style.css', 'app.js', 'film-page.js', 'article.js', 'card-template.js', 'filter-template.js', 'rank.js', 'follow-block.js'];
 const hash = {};
 ASSETS.forEach((f) => {
   if (fs.existsSync(f)) hash[f] = crypto.createHash('md5').update(fs.readFileSync(f)).digest('hex').slice(0, 8);

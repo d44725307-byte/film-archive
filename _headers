@@ -7,6 +7,10 @@
 /favicon.svg
   Cache-Control: public, max-age=604800
 
+# 公众号二维码：短缓存 —— 万一以后换码，能较快生效
+/mp-qrcode.jpg
+  Cache-Control: public, max-age=3600
+
 /style.css
   Cache-Control: public, max-age=0, must-revalidate
 /app.js

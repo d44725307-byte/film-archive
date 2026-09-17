@@ -140,7 +140,16 @@ function page(f) {
     <div class="spec-block"><h2>分享 / 下载</h2><div class="share-actions"><button class="share-btn" onclick="filmShare('copy')">复制链接</button><button class="share-btn" onclick="filmShare('native')">分享好友</button><button class="share-btn share-btn-primary" onclick="filmShare('poster')">下载卡片</button></div></div>
   </article>
 </main>
-<footer class="site-footer"><div class="container"><p class="footer-copy">© 2026 胶卷档案</p><p class="footer-links"><a href="../disclaimer">免责声明</a><span class="dot">·</span><a href="../privacy">隐私政策</a></p></div></footer>
+<footer class="site-footer"><div class="container">
+  <section class="follow-block">
+    <div class="follow-text">
+      <p class="follow-title">关注「观察家摄影」</p>
+      <p class="follow-desc">新文章先发在公众号：器材吐槽、胶片行情、拍摄思路。<br />想看更新，扫码关注就好。</p>
+      <p class="follow-hint">微信长按识别二维码</p>
+    </div>
+    <div class="follow-qr"><img src="../mp-qrcode.jpg" alt="观察家摄影 公众号二维码" width="480" height="480" loading="lazy" decoding="async" /></div>
+  </section>
+<p class="footer-copy">© 2026 胶卷档案</p><p class="footer-links"><a href="../disclaimer">免责声明</a><span class="dot">·</span><a href="../privacy">隐私政策</a></p></div></footer>
 
 <div id="lightbox" class="lightbox" hidden><div class="lightbox-backdrop" data-close></div><div class="lightbox-body"><img id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="样片大图" /><button class="lightbox-close" data-close aria-label="关闭">×</button></div></div>
 <div id="cardSave" class="card-save" hidden><div class="card-save-backdrop" data-cardsave-close></div><div class="card-save-body"><img id="cardSaveImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="卡片" /><p class="card-save-hint">长按 / 按住图片，选择「保存图片」即可存入相册</p><button class="card-save-close" data-cardsave-close aria-label="关闭">×</button></div></div>

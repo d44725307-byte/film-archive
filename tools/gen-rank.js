@@ -169,7 +169,16 @@ ${FONTS}
     <p class="rank-empty" id="rankEmpty" hidden>没有符合条件的胶卷 —— 放宽一下筛选试试。</p>
   </article>
 </main>
-<footer class="site-footer"><div class="container"><p class="footer-copy">© 2026 胶卷档案</p><p class="footer-links"><a href="/disclaimer">免责声明</a><span class="dot">·</span><a href="/privacy">隐私政策</a></p></div></footer>
+<footer class="site-footer"><div class="container">
+    <section class="follow-block">
+      <div class="follow-text">
+        <p class="follow-title">关注「观察家摄影」</p>
+        <p class="follow-desc">新文章先发在公众号：器材吐槽、胶片行情、拍摄思路。<br />想看更新，扫码关注就好。</p>
+        <p class="follow-hint">微信长按识别二维码</p>
+      </div>
+      <div class="follow-qr"><img src="/mp-qrcode.jpg" alt="观察家摄影 公众号二维码" width="480" height="480" loading="lazy" decoding="async" /></div>
+    </section>
+<p class="footer-copy">© 2026 胶卷档案</p><p class="footer-links"><a href="/disclaimer">免责声明</a><span class="dot">·</span><a href="/privacy">隐私政策</a></p></div></footer>
 <script>window.__RANK_FILMS=${JSON.stringify(payload)};window.__RANK_INIT=${JSON.stringify(query || '')};window.__RANK_CAT=${JSON.stringify(CAT)};window.__RANK_GRAIN=${JSON.stringify(GRAIN)};</script>
 <script src="/rank.js"></script>
 ${BEACON}
