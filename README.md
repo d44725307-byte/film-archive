@@ -1,105 +1,83 @@
-# 黑白胶卷（film-archive）
+# 胶卷档案 · Film Stock Hub
 
-一个**可搜索、可按品牌/类型/尺寸/ISO/在产状态筛选**的黑白胶卷资料库。面向胶片爱好者，帮你在买卷前快速判断「这款适不适合你、该用在什么题材」。
+> 一个面向胶片爱好者的**可搜索胶卷资料库**：按品牌 / 型号 / ISO / 尺寸 / 类型 / 颗粒 / 在产状态筛选，
+> 在买卷前快速判断「这卷适不适合你、该用在什么题材上」。
 
-> 定位：**情报档案**，不是图库。第一版只放「特性 + 场景 + 参考价格」等**文字资料**，不托管任何第三方版权图片。样片后续用**用户投稿**（标注 © 原作者）方式补充。
+**线上站点：<https://filmstockhub.com>**
+（主站 · 无需登录 · 手机端可用）
 
 ---
+
+## 这是什么
+
+- **39 卷黑白胶卷**档案：规格、特性、使用感受（三段式：适合拍 / 谁在用它 / 争议）、全新价与二手价、实拍样片
+- **实拍样片 21/39 卷**（均标注原作者 ©，仅供学习参考）
+- **8 篇原创文章**：行情、器材观点、冲扫指南、拍坏排查、ISO/曝光、新手选卷
+- **排行 / 筛选工具**：按价格、ISO、规格排序比较 —— <https://filmstockhub.com/rank>
+
+定位：**情报档案，不是图库。** 技术参数来自可公开核实的规格；
+「特性 / 手感 / 使用场景」为作者原创撰写；**价格随市场波动，仅供参考**。
 
 ## 目录结构
 
 ```
 film-archive/
-├── index.html        主页面（搜索 + 筛选 + 卡片 + 详情弹窗）
-├── app.js            前端逻辑（纯原生 JS，零依赖）
-├── style.css         黑白摄影风样式
+├── index.html                首页（搜索 + 筛选 + 卡片，卡片与筛选栏**构建期静态渲染**）
+├── app.js                    前端逻辑（原生 JS，零依赖）
+├── style.css                 视觉样式（古典绿 + 金黄的现代复古 VI）
+├── card-template.js          卡片模板（浏览器与构建脚本共用，防两边不一致）
+├── filter-template.js        筛选栏模板（同上）
+├── follow-block.js           关注区块模板（一次定义、50+ 页复用）
+├── rank.js                   排行页的客户端筛选/排序
+├── film-page.js              胶卷详情页逻辑（样片灯箱 / 海报生成 / 分享）
+├── article.js                文章页逻辑（分享图生成）
 ├── data/
-│   └── films.json    黑白胶卷数据（首批 36 款）
-├── about.html        关于
-├── disclaimer.html   免责声明
-├── privacy.html      隐私政策
-└── README.md         本说明
+│   ├── films.json            39 卷数据（含 price_num 数值化字段，供排序比较）
+│   ├── journal.json          资讯索引
+│   ├── articles/*.json       8 篇文章（结构化的 blocks）
+│   ├── photo-dims.json       样片尺寸（防 CLS）
+│   └── photo-thumbs.json     缩略图尺寸
+├── film/                     39 个胶卷独立页（生成物）
+├── journal/                  文章页（生成物）
+├── rank/                     排行预设页（生成物）
+├── samples/                  样片、缩略图、二维码
+└── tools/                    构建与体检脚本（见下）
 ```
 
----
-
-## 本地预览
-
-`fetch('data/films.json')` 需要 http 协议，**直接双击 index.html（file://）会被浏览器 CORS 拦截**。请起一个本地静态服务：
+## 构建流程
 
 ```bash
-cd "/Users/apple/DSH/Gemini 3.6视觉模型/DeepSeek/film-archive"
-python3 -m http.server 8091
-# 浏览器打开 http://127.0.0.1:8091
+node tools/gen-films.js       # films.json → 39 个胶卷页 + 首页卡片 + 缩略图 + 二维码
+node tools/gen-article.js data/articles/<slug>.json   # 文章 → 页面 + 资讯索引 + sitemap
+node tools/gen-rank.js        # 排行页 + 预设页
+node tools/gen-sitemap.js     # sitemap（唯一出口）
+node tools/gen-thumbs.js      # 样片缩略图 + 尺寸表
+node tools/parse-prices.js    # 价格字符串 → 数值（供筛选排序）
+node tools/bust-assets.js     # 给 JS/CSS 引用打内容哈希版本号（防缓存发不出改动）
+node tools/audit.js           # 全站体检（空 href / 模板残留 / canonical / 重复 id / h1 唯一…）
+node tools/check-links.js     # 断链检查（本地或线上）
+python3 tools/preview-server.py 8091 .   # 本地预览（支持无扩展名路径，与线上一致）
 ```
 
----
+## 工程要点
 
-## 数据模型（films.json 的每条胶片）
+- **全静态**：无后端、无构建框架，Cloudflare Pages 直接托管
+- **CLS 优化**：首页卡片区 / 筛选栏 / 资讯区全部**构建期静态渲染**（而非 JS 注入）
+- **链接规范**：站内链接统一为「无扩展名」（`/film/xxx`），与 canonical、sitemap 一致
+- **资源版本号**：JS/CSS 引用带内容哈希，避免 CDN 缓存导致改动发不出去
+- **可访问性/SEO**：每页唯一 h1、图片 alt、结构化数据（Product + Review + BreadcrumbList）、OG、sitemap
 
-```json
-{
-  "id": "kodak-tri-x-400",          // 唯一 id（作为档案主键、URL/锚点用）
-  "brand": "Kodak",                 // 品牌英文
-  "brand_cn": "柯达",               // 品牌中文
-  "name_en": "Tri-X 400",           // 型号英文
-  "name_cn": "崔 X 400",            // 型号中文（可留与英文相同或省略）
-  "iso": 400,                       // 感光度
-  "formats": ["35mm", "120", "4x5"],// 可用尺寸
-  "category": "traditional",        // 分类(见下)
-  "type": "panchromatic",           // 感色性类型
-  "grain": "medium",                // 颗粒感
-  "status": "in-production",        // in-production / discontinued
-  "character": "……",                // 特性/手感/点评（**作者撰写**，本站核心价值）
-  "scenes": ["street", "portrait"], // 适用场景
-  "price_new": { "135": "约¥85–105", "120": "约¥95–125" }, // 全新价（按格式 135/120；停产卷两格留空）
-  "price_used": { "135": "", "120": "" },                  // 二手价（按格式；停产卷通常只有这个）
-  "notes": "",                      // 补充备注
-  "image": ""                       // 可选：真实胶卷图 URL；填了就用图，不填则用原创插画
-}
-```
+## 数据纪律
 
-### 价格怎么填（全新/二手 × 135/120）
-- `price_new` / `price_used` 是**对象**，键为 `135` 和 `120`，值是**人民币区间字符串**，例如：
-  ```json
-  "price_new":  { "135": "约¥85–105", "120": "约¥95–125" },
-  "price_used": { "135": "约¥65", "120": "" }
-  ```
-- **停产卷**：`price_new` 两个值都留空 `""`（界面显示「待补」），只填 `price_used`。
-- 界面在详情弹窗「参考价格 · Price」里，**全新 New / 二手 Used** 两栏各显示 **135 / 120 两行**，空则显示「待补」。
+- **不编造**：技术参数来自公开可核实来源；价格标注为参考价并说明会波动
+- **样片署名**：均标注原作者（`© 作者 · 卷名`），仅作学习参考，侵权请告知删除
+- **未证实的名人关联一律不写**（宁可只写【特点】【来历】）
 
-### 外观（胶卷「样子」）
-- **默认不显示任何图片**（保持简洁卡片，纯文字资料）。
-- 想让某卷显示**真实胶卷照片**：给该条目的 `image` 填一个图片 URL 即可。
-- ⚠️ **不要抓取并托管他人有版权的产品照**（会踩 DMCA + AdSense 拒审）。用你自己的/用户投稿（注明 ©）/已授权图。
+## 许可
 
-### 字段枚举说明
-
-| 字段 | 可选值 |
-|---|---|
-| `category` | `traditional` 传统颗粒 / `tabular` T颗粒·平面颗粒 / `fine` 细腻·超微粒 / `high-speed` 高速 / `cinema` 电影卷 / `chromogenic` 彩色工艺黑白 / `ortho` 正色卷 / `infrared` 红外卷 / `direct-positive` 直接正片 |
-| `type` | `panchromatic` 全色性 / `orthochromatic` 正色性 / `chromogenic` 彩色工艺冲洗 |
-| `grain` | `ultra-fine` 超微粒 / `fine` 细颗粒 / `medium` 中等颗粒 / `coarse` 粗颗粒 |
-| `scenes` | `street`街头 `portrait`人像 `documentary`纪实 `low-light`暗光 `push`迫冲 `landscape`风光 `product`静物 `large-format`大画幅 `fine-art`艺术 `action`运动 `indoor`室内 `sports`体育 `cinematic`电影感 `event`活动 `travel`旅行 `copy`翻拍 `studio`棚拍 `infrared`红外 `creative`创意 `architecture`建筑 `retro`复古 `daily`日常 `sunlight`阳光 `high-contrast`高反差 `direct-positive`直接正像 `artistic`艺术 `laboratory`实验室 `all-purpose`通用 |
-| `status` | `in-production` 在产 / `discontinued` 已停产 |
-
-> 新增标签时，请在 `app.js` 顶部的 `CATEGORY_LABEL / GRAIN_LABEL / TYPE_LABEL / SCENE_LABEL` 里补上对应中文，否则页面会直接显示原始英文 key。
+站点文字内容（特性、使用感受、文章观点）为作者原创，**欢迎注明出处转载**。
+技术规格部分属公开客观事实。
 
 ---
 
-## 如何补录 / 修改
-
-1. 在 `data/films.json` 的 `films` 数组里加一条（或用 JSON 编辑器），或编辑已有条目。
-2. 注意 `id` 全局唯一、`scenes` 用上面枚举、`category`/`grain`/`type` 用枚举值。
-3. 「特性/场景」**必须由真人鉴赏**——这是本站区别于「AI 复读机」的核心，不要用 AI 批量套话。
-4. 保存后刷新页面即可看到；筛选 chips 会自动根据数据里出现的品牌/分类/尺寸更新。
-
----
-
-## 后续 roadmap（待你定）
-
-- [ ] 校订现有 36 款的「特性/场景」，补充价格
-- [ ] 补齐**停产/收藏级**黑白卷（Retro、Agfa、老 Kodak 等）
-- [ ] 用户投稿样片（标注 © 原作者）
-- [ ] 胶卷实拍对比 / 冲洗配方速查
-- [ ] 上公网（Cloudflare Pages / GitHub Pages）+ 挂 AdSense / 联盟带货
+*Built and maintained by [观察家摄影](https://filmstockhub.com/about) · 站点：<https://filmstockhub.com>*
