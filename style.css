@@ -460,3 +460,17 @@ html, body {
   .follow-title { font-size: 15px; }
   .follow-desc { font-size: 13px; }
 }
+
+/* 文章内表格（手机上横向可滚动，不撑破页面） */
+.article-table-wrap { margin: 0 0 24px; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--line); border-radius: 10px; }
+.article-table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.7; }
+.article-table th, .article-table td { padding: 10px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+.article-table thead th { background: var(--bg-soft); font-weight: 700; color: var(--film); white-space: nowrap; }
+.article-table tbody tr:last-child td { border-bottom: 0; }
+.article-table tbody tr:nth-child(even) td { background: rgba(216, 203, 175, .16); }
+.article-table td { color: var(--text); }
+.article-table td strong { color: var(--film); }
+@media (max-width: 720px) {
+  .article-table { font-size: 14px; }
+  .article-table th, .article-table td { padding: 9px 11px; }
+}

@@ -100,6 +100,12 @@ function block(b) {
     }).join('\n');
     return `    <div class="article-list">\n${items}\n    </div>`;
   }
+  // 表格：手机上是横向可滚动容器（不撑破页面），表头加粗、斑马纹
+  if (b.t === 'table') {
+    const th = (b.headers || []).map((h) => `<th>${md(h)}</th>`).join('');
+    const rows = (b.rows || []).map((r) => `<tr>${r.map((c) => `<td>${md(c)}</td>`).join('')}</tr>`).join('\n        ');
+    return `    <div class="article-table-wrap">\n      <table class="article-table">\n        <thead><tr>${th}</tr></thead>\n        <tbody>\n        ${rows}\n        </tbody>\n      </table>\n    </div>`;
+  }
   if (b.t === 'fig') {
     figNo++;
     const d = DIMS[b.src.replace(/^.*\//, '')] || [];

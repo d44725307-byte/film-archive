@@ -4,6 +4,15 @@
   "updated": "2026-09-06",
   "items": [
     {
+      "id": "j-iso-gaishe-duoshao",
+      "type": "article",
+      "title": "胶卷的 ISO 到底该设多少？设错一次，这一卷就废了",
+      "excerpt": "新手最容易白费一卷的地方，不是构图也不是对焦，是机身那个 ISO 拨盘。这篇把三件事说清：彩负/反转片/黑白的宽容度到底差多少、老相机测光表为什么总骗你、以及一张能直接照着拍的「ISO 对照表」。免费内容，建议收藏。",
+      "date": "2026-09-18",
+      "link": "journal/iso-gaishe-duoshao",
+      "media": "samples/photos/tmax-p3200-4.jpg"
+    },
+    {
       "id": "j-jiaopian-pa-huai-zenmeban",
       "type": "article",
       "title": "底片拍坏了怎么办？漏光、欠曝、划痕、发灰，一篇说清怎么救、怎么防",
