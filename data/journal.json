@@ -4,6 +4,15 @@
   "updated": "2026-09-06",
   "items": [
     {
+      "id": "j-lucky-c400-yige-yue",
+      "type": "news",
+      "title": "乐凯 C400 上市一个月：口碑吵成两派，一半的锅在扫描",
+      "excerpt": "国产彩负乐凯 C400 上市一个多月，首批反馈两极：有人夸感光度不虚标、红色通透，有人整卷偏黄甚至被商家劝退。翻完 200 多条反馈，问题基本能定位——不在卷，在批次和扫描。",
+      "date": "2026-09-19",
+      "link": "journal/lucky-c400-yige-yue",
+      "media": "samples/photos/tmax-400-1.jpg"
+    },
+    {
       "id": "j-iso-gaishe-duoshao",
       "type": "article",
       "title": "胶卷的 ISO 到底该设多少？设错一次，这一卷就废了",
