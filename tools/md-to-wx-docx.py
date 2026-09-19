@@ -102,9 +102,20 @@ def build(md_path, imgdir, outdir):
     lines = open(md_path, encoding='utf-8').read().split('\n')
     title_done = False
     fig_n = 0
+    scqa = []           # 收集 SCQA 段标记，用于结构校验
+    SCQA_RE = re.compile(r'^>?\s*【SCQA\s*[·・]\s*([SCQA])\s*([^】]*)】')
     for raw in lines:
         ln = raw.rstrip()
         if not ln.strip():
+            continue
+        # SCQA 段标记：只用于结构校验，不印进 docx
+        m_scqa = SCQA_RE.match(ln.strip())
+        if m_scqa:
+            scqa.append(m_scqa.group(1))
+            continue
+        # 其它【…】排版提示也跳过
+        st = ln.strip()
+        if st.startswith('【') and st.endswith('】'):
             continue
         # 跳过给作者看的备注
         if ln.startswith('>') or ln.strip() == '---':
@@ -149,7 +160,7 @@ def build(md_path, imgdir, outdir):
     name = os.path.splitext(os.path.basename(md_path))[0] + '.docx'
     out = os.path.join(outdir, name)
     doc.save(out)
-    return out, fig_n
+    return out, fig_n, scqa
 
 
 def main():
@@ -164,9 +175,18 @@ def main():
         imgdir = argv[argv.index('--img') + 1]
     if '--out' in argv:
         outdir = argv[argv.index('--out') + 1]
-    out, fig = build(src, imgdir, outdir)
+    out, fig, scqa = build(src, imgdir, outdir)
     kb = os.path.getsize(out) / 1024
     print(f'✅ {out}  （{kb:.0f} KB，含图 {fig} 张）')
+    # SCQA 结构校验：四段是否齐全（按作者原始要求，SCQA 是主力骨架）
+    if scqa:
+        need = ['S', 'C', 'Q', 'A']
+        miss = [k for k in need if k not in scqa]
+        order_ok = scqa == sorted(scqa, key=lambda x: need.index(x))
+        flag = '✅ 齐全' if not miss else f'⚠️ 缺 {"/".join(miss)}'
+        print(f'   SCQA 段标记：{" → ".join(scqa)}  {flag}' + ('' if order_ok else '（顺序不对）'))
+    else:
+        print('   ⚠️ 未检测到 SCQA 段标记（若本篇应按 SCQA 写，请加 【SCQA · S 情境】等标记）')
 
 
 if __name__ == '__main__':
