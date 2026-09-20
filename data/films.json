@@ -326,6 +326,13 @@
       "brand_cn": "柯达",
       "name_en": "Double-X 5222",
       "name_cn": "Double-X 5222",
+      "samples": [
+        { "src": "samples/photos/double-x-5222-1.jpg", "credit": "© prem007 · Double-X 5222" },
+        { "src": "samples/photos/double-x-5222-2.jpg", "credit": "© prem007 · Double-X 5222" },
+        { "src": "samples/photos/double-x-5222-3.jpg", "credit": "© prem007 · Double-X 5222" },
+        { "src": "samples/photos/double-x-5222-4.jpg", "credit": "" },
+        { "src": "samples/photos/double-x-5222-5.jpg", "credit": "" }
+      ],
       "iso": 250,
       "formats": [
         "35mm"
