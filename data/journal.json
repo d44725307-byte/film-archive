@@ -4,6 +4,15 @@
   "updated": "2026-09-06",
   "items": [
     {
+      "id": "j-aodesai-imax-jiaopian",
+      "type": "news",
+      "title": "《奥德赛》全片 IMAX 胶片：同款电影卷，几十块就能买到",
+      "excerpt": "诺兰的《奥德赛》全片用 IMAX 胶片拍完，影史第一部；全球能放 70mm 的影院只有 41 块。但同款乳剂的胶片，你几十块就能买到——只是有三件事必须先弄清，否则一定踩坑。",
+      "date": "2026-09-20",
+      "link": "journal/aodesai-imax-jiaopian",
+      "media": "samples/photos/double-x-5222-2.jpg"
+    },
+    {
       "id": "j-lucky-c400-yige-yue",
       "type": "news",
       "title": "乐凯 C400 上市一个月：口碑吵成两派，一半的锅在扫描",
