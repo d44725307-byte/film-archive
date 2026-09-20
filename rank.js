@@ -17,6 +17,12 @@
       var v = decodeURIComponent(kv.slice(i + 1));
       if (k in state) state[k] = v;
     });
+    // 防御：URL 里的筛选值可能被手改、或被转发的坏链接带进来（例：#iso=250）。
+    // 未知值一律回落成「全部」——否则下面 fmtTEST/fmtISO 取到 undefined 会直接抛错，
+    // 整个 render() 中断，页面变成白板（只剩「共 — 卷」）。
+    if (state.fmt && !fmtTEST[state.fmt]) state.fmt = '';
+    if (state.iso && !fmtISO[state.iso]) state.iso = '';
+    if (state.max && !(parseFloat(state.max) > 0)) state.max = '';
   }
   function writeHash() {
     var parts = [];
@@ -32,8 +38,8 @@
 
   function filtered() {
     var list = FILMS.filter(function (f) {
-      if (state.fmt && !fmtTEST[state.fmt](f)) return false;
-      if (state.iso && !fmtISO[state.iso](f.iso)) return false;
+      if (state.fmt && fmtTEST[state.fmt] && !fmtTEST[state.fmt](f)) return false;
+      if (state.iso && fmtISO[state.iso] && !fmtISO[state.iso](f.iso)) return false;
       if (state.st !== '' && String(f.st) !== state.st) return false;
       if (state.max) {
         var p = f.p135 === null ? f.p120 : f.p135;
