@@ -390,6 +390,13 @@
       "brand_cn": "富士",
       "name_en": "Neopan 100 Acros II",
       "name_cn": "Acros II",
+      "samples": [
+        { "src": "samples/photos/acros-2-1.jpg", "credit": "© Film Friday · Acros II" },
+        { "src": "samples/photos/acros-2-2.jpg", "credit": "© Zeb Andrews · Acros II" },
+        { "src": "samples/photos/acros-2-3.jpg", "credit": "© Film Friday · Acros II" },
+        { "src": "samples/photos/acros-2-4.jpg", "credit": "© Zeb Andrews · Acros II" },
+        { "src": "samples/photos/acros-2-5.jpg", "credit": "© pepepe · Acros II" }
+      ],
       "iso": 100,
       "formats": [
         "35mm",
