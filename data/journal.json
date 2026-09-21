@@ -4,6 +4,15 @@
   "updated": "2026-09-06",
   "items": [
     {
+      "id": "j-changbao-jiaojuan-buchang",
+      "type": "article",
+      "title": "长曝胶卷要不要补偿？Acros 不用管，HP5 得翻好几倍",
+      "excerpt": "长曝时胶卷会「越拍越暗」，但不同卷差得极远：Acros II 测光 2 分钟内完全不用补偿，而 Ilford 的 HP5+ 测 120 秒得拍到 8.8 分钟。一张官方因子表 + 一个公式，算清你手上那卷。",
+      "date": "2026-09-21",
+      "link": "journal/changbao-jiaojuan-buchang",
+      "media": "samples/photos/acros-2-2.jpg"
+    },
+    {
       "id": "j-aodesai-imax-jiaopian",
       "type": "news",
       "title": "《奥德赛》全片 IMAX 胶片：同款电影卷，几十块就能买到",
