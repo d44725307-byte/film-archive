@@ -4,6 +4,15 @@
   "updated": "2026-09-06",
   "items": [
     {
+      "id": "j-yizhang-jiaopian-duoshao-qian",
+      "type": "news",
+      "title": "拍一张胶片多少钱？最省 1.6 元，最贵 5 元",
+      "excerpt": "今年聊胶片涨价的声音一直没停，但没人算最实际的那个数：拍一张到底多少钱。本站把 37 卷的 135 参考价按 36 张折算，再加上冲扫行情——最省 1.6 元一张，最贵 5 元，差 3 倍。反直觉的是：省卷价比省冲扫更管用。",
+      "date": "2026-09-22",
+      "link": "journal/yizhang-jiaopian-duoshao-qian",
+      "media": "samples/photos/fomapan-100-2.jpg"
+    },
+    {
       "id": "j-changbao-jiaojuan-buchang",
       "type": "article",
       "title": "长曝胶卷要不要补偿？Acros 不用管，HP5 得翻好几倍",
