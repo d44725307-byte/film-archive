@@ -4,6 +4,15 @@
   "updated": "2026-09-06",
   "items": [
     {
+      "id": "j-lucky-yingzhe-100",
+      "type": "news",
+      "title": "乐凯影者100 上市：32 元一卷的国产黑白，和 Kentmere、Fomapan 怎么选",
+      "excerpt": "乐凯新黑白卷「影者100」已上架：135/36 张、ISO 100、约 32 元一卷，比 Kentmere 便宜一档。官方尚未发规格表，120 与 400 卷都查不到。",
+      "date": "2026-09-24",
+      "link": "journal/lucky-yingzhe-100",
+      "media": "samples/photos/neopan-100-1.jpg"
+    },
+    {
       "id": "j-yizhang-jiaopian-duoshao-qian",
       "type": "news",
       "title": "拍一张胶片多少钱？最省 1.6 元，最贵 5 元",
