@@ -456,6 +456,28 @@
       "brand_cn": "富士",
       "name_en": "Neopan 100 (原版)",
       "name_cn": "Neopan 100",
+      "samples": [
+        {
+          "src": "samples/photos/neopan-100-1.jpg",
+          "credit": "© Edgar Kech · Neopan 100"
+        },
+        {
+          "src": "samples/photos/neopan-100-2.jpg",
+          "credit": "© Jeff Fillmore · Neopan 100"
+        },
+        {
+          "src": "samples/photos/neopan-100-3.jpg",
+          "credit": "© Leo Velimir Brancovich · Neopan 100"
+        },
+        {
+          "src": "samples/photos/neopan-100-4.jpg",
+          "credit": "© joeyuli · Neopan 100"
+        },
+        {
+          "src": "samples/photos/neopan-100-5.jpg",
+          "credit": "© t.Shiratori · Neopan 100"
+        }
+      ],
       "iso": 100,
       "formats": [
         "35mm",
