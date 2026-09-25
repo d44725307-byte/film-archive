@@ -513,6 +513,28 @@
       "brand_cn": "富士",
       "name_en": "Neopan 400",
       "name_cn": "Neopan 400",
+      "samples": [
+        {
+          "src": "samples/photos/neopan-400-1.jpg",
+          "credit": "© 動物霊 · Neopan 400"
+        },
+        {
+          "src": "samples/photos/neopan-400-2.jpg",
+          "credit": "© GOJR. · Neopan 400"
+        },
+        {
+          "src": "samples/photos/neopan-400-3.jpg",
+          "credit": "© Ira Alieva · Neopan 400"
+        },
+        {
+          "src": "samples/photos/neopan-400-4.jpg",
+          "credit": "© polyglot · Neopan 400"
+        },
+        {
+          "src": "samples/photos/neopan-400-5.jpg",
+          "credit": "© 動物霊 · Neopan 400"
+        }
+      ],
       "iso": 400,
       "formats": [
         "35mm",
