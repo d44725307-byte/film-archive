@@ -1,0 +1,101 @@
+{
+  "slug": "yijuan-jiaojuan-gei-ershou-xiangji-tijian",
+  "title": "一卷胶卷，给二手胶片机做全面体检｜暗病一次全露出来",
+  "meta": "2026-09-26 · 实用 · 约 1300 字",
+  "date": "2026-09-26",
+  "type": "article",
+  "excerpt": "二手胶片机的暗病当场看不出来：快门拖沓、机身漏光、卷片打滑、测光偏两档，都要等冲出来才知道，而你搭进去的是整整一卷。这篇给一套「一卷体检法」：这卷怎么拍、报告怎么读、哪些毛病能修、哪些必须当场退货。",
+  "hero": "samples/photos/tmax-400-2.jpg",
+  "blocks": [
+    { "t": "lead", "html": "二手胶片机最坑的不是贵，是**暗病当场看不出来**。快门拖沓、机身漏光、卷片齿轮打滑、测光偏两档，全藏在外观底下。你把机身翻来覆去看半小时，**唯一能确定的就是它挺好看**。" },
+
+    { "t": "p", "html": "真正的检验只有一个办法：**用一卷胶卷**。这篇就是那套流程——**照顺序拍，对着表读**。" },
+
+    { "t": "fig", "src": "samples/photos/tmax-400-2.jpg", "caption": "黑白样片 · T-Max 400（摄影 © David Reams）", "alt": "黑白胶卷实拍样片" },
+
+    { "t": "h2", "html": "一、先算账：体检只要 ¥50–70" },
+
+    { "t": "p", "html": "**体检那卷不用好卷**：Fomapan 100 参考价 ¥28–38，配最便宜的冲扫（黑白约 ¥20–30），整次体检 **≈ ¥50–70**。而一台快门拖沓的机身，能让你连废三卷——两三百块外加三个周末。**这笔钱是保险费。**" },
+
+    { "t": "h2", "html": "二、这卷怎么拍：6 项" },
+
+    { "t": "p", "html": "顺序很关键：**先拍机械，别急着创作**。卷只有一卷，景物随时能拍。" },
+
+    { "t": "list", "items": [
+      "**① 快门全档位各一张** —— 同一面墙、同一片光，方便横向比。重点看 **1/500、1/1000 有没有「拖沓」**。",
+      "**② 盖盖空拍整卷** —— 不装镜头按到底，这段底片不看内容，**只看画幅间距匀不匀**。",
+      "**③ 漏光两查** —— 亮光下目视密封条（发粘、粉碎、一抠掉渣＝失效）；再进暗室，**用强光手电扫机背接缝、铰链、快门帘、卡口，从机身内部看透不透光**。",
+      "**④ 测光对一遍手机** —— 同点同 ISO 比读数。**差一档以上要留意，但先别下结论**（原因见第四节）。",
+      "**⑤ 静态 4 项** —— 镜头菌丝雾气、取景器与液晶、**电池仓漏液腐蚀**、机身有没有酸味霉味。",
+      "**⑥ 抄下电池仓标签** —— 看原厂标的是 **1.35 V 还是 1.5 V**，第四节会用上。"
+    ] },
+
+    { "t": "h2", "html": "三、报告怎么读：一张对照表" },
+
+    { "t": "p", "html": "底片出来按现象对表。**单项现象只是线索，定案要看「同一位置是否重复出现」。**" },
+
+    { "t": "table", "headers": ["现象", "指向", "还能用吗"], "rows": [
+      ["某几档偏亮/偏暗", "对应快门档失准", "✅ 能修"],
+      ["1/1000 偏亮", "高速档拖沓（老机常见）", "⚠️ 多数能调"],
+      ["同位置反复出现光斑", "机身漏光（机背或铰链）", "✅ 多是密封条"],
+      ["只在卷首/卷尾漏", "装卸片时曝光", "✅ 非机身问题"],
+      ["彩负漏光发红发橙", "光从片基背面进入", "⚠️ 需结合位置"],
+      ["间距一张比一张窄", "卷片渐进打滑", "❌ 要开机修"],
+      ["随机叠片、压掉半格", "走片或装片没到位", "⚠️ 先排除操作"],
+      ["齿孔边缘被咬坏", "齿轮没咬合", "❌ 硬伤"],
+      ["整卷测光偏暗>1 档", "CdS 老化或电池电压", "✅ 多半换电池"]
+    ] },
+
+    { "t": "fig", "src": "samples/photos/tmax-100-3.jpg", "caption": "黑白样片 · T-Max 100（摄影 © Ramiro Posada）", "alt": "黑白胶卷实拍样片" },
+
+    { "t": "h2", "html": "四、测光偏暗？先别怪测光表" },
+
+    { "t": "p", "html": "最容易误判、也最容易白花钱的一项。**老机测光偏，最常见两个原因都指向欠曝**：一是 **CdS 测光元件老化**，电阻下降、读数偏高，**拍出来偏暗**；二是**电池电压不对**——很多老机原厂是 **1.35 V 水银电池（如 PX625）**，这类电池 **1996 年已在美国停售**，换常见 **1.5 V 碱性电池**会因电压偏高**欠曝一档以上**。" },
+
+    { "t": "p", "html": "量级说法不一：**维修圈经验值是最多约两档，个例到四档**。⚠️ 但留个反面：**部分机型电桥电路自带稳压，换电池完全不受影响**。另外**手机测光 App 只能当相对参考**——有 App 明确要求用户自己做 −2 EV 校准才准。" },
+
+    { "t": "quote", "html": "先花三块钱换对电池，再决定要不要花三百块修测光。" },
+
+    { "t": "h2", "html": "五、能修 vs 直接退" },
+
+    { "t": "table", "headers": ["故障", "依据", "处理"], "rows": [
+      ["密封条失效（漏光）", "同位置重复漏光＋目视粉碎", "✅ 自己换，最便宜"],
+      ["快门档位失准", "某几档实拍明显偏亮/暗", "✅ 常规保养项目"],
+      ["测光偏差", "整卷系统性偏暗", "✅ 先换对电池再判"],
+      ["间距渐进变窄", "间距越来越窄", "⚠️ 先谈价再决定"],
+      ["帘布破洞／齿孔被咬坏", "底片规则痕迹、齿孔损伤", "❌ 别买"],
+      ["镜头菌丝、雾气", "对光看镜片内部", "❌ 别买，会恶化"]
+    ] },
+
+    { "t": "p", "html": "**密封条是整份体检性价比最高的一项**：老机通病——1960 年代起的机背门封与反光镜缓冲垫多为泡棉，会分解成粉尘或焦油状。材料是**自粘海绵，通道通用厚度 1–2 mm**（常见 1 mm，部分机型槽缝与铰链按 1.5 mm 裁）。⚠️ 但**有维修者公开反对无经验就自己拆**，主张送修——没拆过机器的，把它当「可以省」而不是「必须自己上」。" },
+
+    { "t": "h2", "html": "六、这套体检测不出什么" },
+
+    { "t": "p", "html": "**1/1000 秒基本判不了。** 网传「手机慢动作数帧法」（240 fps 录像，数亮帧÷240）有厂商技术来源：慢速段与台式仪器对拍吻合，但**受采样定理限制，上限约 1/120 秒**，**1/500 秒起不可靠**——所以第三节我只写「拖沓」，没给阈值。" },
+
+    { "t": "p", "html": "**判据本身也分级别。** 常被引用的「高速端 ±30%、低速端 ±20%」确有其表，但**来自维修店公布的验收表，不是国际标准**（Compur 原厂手册更严：1/100 及更慢 ±15%）。也就是：**底片只偏一点点，不等于机器坏了**，别拿网传数字去跟卖家吵。" },
+
+    { "t": "h2", "html": "七、一句话版" },
+
+    { "t": "p", "html": "**先花 ¥50 做体检，再决定要不要花 ¥500 修。** 顺序反了，两笔钱都得付一遍。" },
+
+    { "t": "fig", "src": "samples/photos/tmax-p3200-1.jpg", "caption": "黑白样片 · T-Max P3200（摄影 © Gregory Owain）", "alt": "黑白胶卷实拍样片" },
+
+    { "t": "h2", "html": "数据来源" },
+
+    { "t": "p", "html": "快门口径与容差：[Flutot's 快门验收表](https://www.flutotscamerarepair.com/Shutterspeed.htm)、[DIN 19015 整理页](https://howard-parker.com/page/shutter-speed-testing-and-tolerances)、[Photrio 讨论](https://www.photrio.com/forum/threads/acceptable-shutter-speeds.128955)、[Stearman Press 快门自测](https://shop.stearmanpress.com/blogs/news/measure-your-shutter-speed-for-free)、[Kamerastore 测试分级](https://kamerastore.com/en-us/blogs/posts/5-levels-of-shutter-testing-how-accurate-is-your-film-camera)。漏光与叠片：[Photostudio Berlin 漏光成因](https://photostudioberlin.com/blogs/film-knowledge/what-causes-light-leaks-on-film)／[画幅重叠](https://photostudioberlin.com/blogs/film-knowledge/why-are-my-film-frames-overlapping)、[Dutch Thrift 密封条检测](https://dutchthrift.com/blogs/blogs/how-to-test-light-seals-on-vintage-film-cameras-2025)、[Japan Camera Hunter 购机指南](https://www.japancamerahunter.com/2012/02/buying-a-film-camera-a-how-to-guide/)。测光与电池：[CdS 老化欠曝](https://themachineplanet.wordpress.com/2021/03/17/a-brief-note-on-underexposure/)、[水银电池资料](https://camera-wiki.org/wiki/PX13)、[手机测光校准](https://speos-photo.com/en/the-smartphone-as-a-light-meter)。清单与密封条：[购机检查清单](https://filmcamerastore.co.uk/blogs/film-photography-guides-blog/film-camera-buying-checklist)、[iFixit 密封条更换](https://www.ifixit.com/News/48036/fixing-an-old-film-camera-part-3-fixing-the-light-seals-and-shooting)、[High 5 Cameras 指南](https://high5cameras.com/all-articles/camera-repair/guide-to-replacing-light-seals)、[Old Cams by Jens](https://www.oldcamsbyjens.com/blogs/blog/light-seals-explained-and-when-to-replace)、[反对自行更换](https://johnnymartyr.wordpress.com/2025/04/22/quick-tip-stop-the-diy-light-seal-replacement)。" },
+
+    { "t": "p", "html": "⚠️ **口径说明**：快门容差、漏光判读、测光偏差方向、密封条厚度均为**维修店与二手商公布的经验口径，不是厂商标准**；「±30%/±20%」尤其只是单一维修店的验收表。CdS 老化误差量级无厂商规范，个例差异很大。**机身具体表现以你自己的实拍测试为准。**" },
+
+    { "t": "h2", "html": "你收二手胶片机踩过哪个坑？" }
+  ],
+  "linksTitle": "陪你做体检的便宜口粮卷（都有实拍样片）",
+  "links": [
+    { "label": "Fomapan 100（约 ¥28–38）", "href": "film/foma-fomapan-100" },
+    { "label": "Fomapan 400 Action（约 ¥30–40）", "href": "film/foma-fomapan-400" },
+    { "label": "Kentmere 400（约 ¥45–60）", "href": "film/ilford-kentmere-400" },
+    { "label": "Kentmere 100（约 ¥45–60）", "href": "film/ilford-kentmere-100" }
+  ],
+  "featuredFilms": ["foma-fomapan-100", "foma-fomapan-400", "ilford-kentmere-400", "ilford-kentmere-100"],
+  "featuredCount": 4
+}
