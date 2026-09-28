@@ -4,6 +4,15 @@
   "updated": "2026-09-06",
   "items": [
     {
+      "id": "j-jichang-ct-anjian-jiaojuan-tuoyun",
+      "type": "news",
+      "title": "CT 安检机已装进 296 个机场：胶卷别托运——托运行李也照扫",
+      "excerpt": "机场安检正在换装 CT 机：截至 7 月 6 日美国已装 1,162 台、覆盖 296 个机场；中国民航局的口径是截至 2024 年 1 月已有 5 家机场 23 台投入旅客安检。柯达 2026 年的官方口径很直接——任何未冲洗胶卷都别过 CT，而且托运行李也照扫；TSA 那页却还写着胶卷可以托运。两份官方口径打架时该信谁，这篇说清。",
+      "date": "2026-09-28",
+      "link": "journal/jichang-ct-anjian-jiaojuan-tuoyun",
+      "media": "samples/photos/tmax-p3200-2.jpg"
+    },
+    {
       "id": "j-yijuan-jiaojuan-gei-ershou-xiangji-tijian",
       "type": "article",
       "title": "一卷胶卷，给二手胶片机做全面体检｜暗病一次全露出来",
