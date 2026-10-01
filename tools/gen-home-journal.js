@@ -1,22 +1,24 @@
-// 把首页「资讯」的前 2 条静态渲染进 index.html
+// 把首页「资讯」的前 4 条静态渲染进 index.html
 // 好处：① 消除 JS 注入造成的布局偏移(CLS) ② 文章链接直接出现在 HTML 里，SEO 更好 ③ 少一次请求
 // 用法：node tools/gen-home-journal.js   （改完 journal.json 后运行；gen-article.js 会自动调用）
 const fs = require('fs');
+
+const HOME_COUNT = 4; // 首页资讯条数（桌面 .journal-list 是 2 列 → 4 条正好 2×2；≤720px 单列）
 
 const J_TYPE = { news: { cn: '新闻', cls: 'j-news' }, article: { cn: '文章', cls: 'j-article' }, work: { cn: '作品', cls: 'j-work' } };
 const esc = (s) => String(s || '').replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
 
 const journal = JSON.parse(fs.readFileSync('data/journal.json', 'utf8'));
 const dims = JSON.parse(fs.readFileSync('data/photo-thumbs.json', 'utf8'));
-const items = (journal.items || []).slice(0, 2);
+const items = (journal.items || []).slice(0, HOME_COUNT);
 
 const html = items.map((it, idx) => {
   const t = J_TYPE[it.type] || J_TYPE.news;
   const thumb = it.media ? String(it.media).replace('samples/photos/', 'samples/photos/thumbs/') : '';
   const d = thumb ? dims[thumb.split('/').pop()] : null;
   const size = d ? ` width="${d[0]}" height="${d[1]}"` : '';
-  // ⚠️ 前两张都在手机首屏内（单列排版）→ 都 eager。
-  // 第 2 张不给 fetchpriority=high，避免和第 1 张抢带宽（它才是 LCP 候选）。
+  // ⚠️ 只有前两张可能落在手机首屏（≤720px 是单列）→ 都 eager，但不都抢高优先级：
+  // 第 1 张是 LCP 候选给 high；第 2 张给 low 免得跟它抢带宽；**第 3、4 条已在首屏下方 → lazy**。
   const load = idx === 0
     ? 'loading="eager" fetchpriority="high" decoding="async"'
     : (idx === 1 ? 'loading="eager" fetchpriority="low" decoding="async"' : 'loading="lazy" decoding="async"');

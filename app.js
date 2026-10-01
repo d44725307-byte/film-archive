@@ -566,7 +566,7 @@ const PLACEHOLDER = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAAL
       const [res, dimsRes] = await Promise.all([fetch('data/journal.json'), fetch('data/photo-thumbs.json')]);
       const jd = await res.json();
       const THUMB_DIMS = await dimsRes.json().catch(() => ({}));
-      const items = (jd.items || []).slice(0, 2); // 首页只显示近期 2 条，更多进「更多」页
+      const items = (jd.items || []).slice(0, 4); // 首页显示近期 4 条（桌面 2 列 → 2×2），更多进「更多」页
       list.innerHTML = items.map((it, idx) => {
         const t = J_TYPE[it.type] || J_TYPE.news;
         // 卡片封面用缩略图（原图太大）；第一张是首屏 LCP 元素，必须 eager + 高优先级
@@ -574,7 +574,7 @@ const PLACEHOLDER = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAAL
         const thumb = media ? media.replace('samples/photos/', 'samples/photos/thumbs/') : '';
         const d = thumb && THUMB_DIMS[thumb.split('/').pop()];
         const size = d ? ` width="${d[0]}" height="${d[1]}"` : '';
-        // 前两张都在手机首屏内 → 都 eager；第 2 张用 low，别跟前一张抢带宽
+        // 只有前两张可能落在手机首屏（≤720px 单列）→ 都 eager；第 2 张用 low，别跟前一张抢带宽；第 3、4 条 lazy
         const load = idx === 0
           ? 'loading="eager" fetchpriority="high" decoding="async"'
           : (idx === 1 ? 'loading="eager" fetchpriority="low" decoding="async"' : 'loading="lazy" decoding="async"');

@@ -32,10 +32,10 @@ j.items = j.items.filter((x) => {
   seen.add(k);
   return true;
 });
-// 按日期倒序（首页只显示前 2 条，必须是最新的）
+// 按日期倒序（首页只显示前 4 条，必须是最新的）
 j.items.sort((x, y) => String(y.date || '').localeCompare(String(x.date || '')));
 fs.writeFileSync(jp, JSON.stringify(j, null, 2) + '\n');
-console.log('✅ 资讯已收录，共', j.items.length, '条（首页显示前 2 条）');
+console.log('✅ 资讯已收录，共', j.items.length, '条（首页显示前 4 条）');
 
 // 图片路径：文章页在 journal/ 下，需加 ../
 const img = (src) => (src.startsWith('http') ? src : '../' + src);

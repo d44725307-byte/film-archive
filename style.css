@@ -154,9 +154,13 @@ html, body {
 /* 筛选栏已改为构建期静态渲染（tools/gen-home-filters.js），无需再预留高度。
    原来的 min-height:250px 不但没消掉 CLS(0.567)，5 行 chips 实际高度还超过 250 → 仍会顶动下方内容。 */
 .toolbar-filters { margin-top: 10px; }
-/* 资讯区首屏静态渲染，但 journal.html 是 JS 渲染，这里保留预留避免该页跳动 */
-.journal-list { min-height: 360px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 18px; }
-@media (max-width: 720px) { .journal-list { grid-template-columns: 1fr; } }
+/* 资讯区首屏静态渲染（tools/gen-home-journal.js 预渲染前 4 条）→ 容器恒非空，这里只是「JS 异常时」的兜底预留。
+   ⚠️ 预留值必须 ≥ 实测高度，否则一旦为空就会顶动下方内容。2026-10-01 实测（4 条）：
+      · 两列区间峰值 = 视口 721px 时 879px（越窄换行越多，宽屏 1280 只要 723px）→ 桌面取 900
+      · 单列（≤720px）= 1720px
+   ⚠️ 注意 .journal-list 只存在于首页 —— journal.html 用的是另一个容器 #jAll（app.js 里 JS 渲染，即待办 #2 的 CLS 真凶）。 */
+.journal-list { min-height: 900px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 18px; }
+@media (max-width: 720px) { .journal-list { grid-template-columns: 1fr; min-height: 1720px; } }
 .j-item { display: flex; flex-direction: column; gap: 10px; padding: 16px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; color: inherit; transition: all .15s; }
 .j-item:hover { border-color: var(--accent); transform: translateY(-2px); }
 .j-item:hover .j-date { color: var(--accent); }
