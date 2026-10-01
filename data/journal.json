@@ -4,6 +4,15 @@
   "updated": "2026-09-06",
   "items": [
     {
+      "id": "j-kodak-yingguo-jiangjia-ektapan",
+      "type": "news",
+      "title": "柯达的胶卷涨疯了也想多卖：英国先降 12%，T-Max 悄悄改了名",
+      "excerpt": "柯达 2026 年二季报里有一句很直白的官方原话：消费级胶片需求上升，加上制造设备限制和人工短缺，已经导致积压订单增加。同一时间，英国市场上的柯达新胶片却便宜了两成。更麻烦的是改名：T-Max 100 / 400 / P3200 现在叫 Ektapan，Portra 变成了 Ektacolor Pro。这篇把「该信谁、该买哪卷」讲清楚。",
+      "date": "2026-09-30",
+      "link": "journal/kodak-yingguo-jiangjia-ektapan",
+      "media": "samples/photos/tmax-p3200-3.jpg"
+    },
+    {
       "id": "j-jichang-ct-anjian-jiaojuan-tuoyun",
       "type": "news",
       "title": "CT 安检机已装进 296 个机场：胶卷别托运——托运行李也照扫",
