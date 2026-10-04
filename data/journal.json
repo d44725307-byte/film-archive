@@ -4,6 +4,15 @@
   "updated": "2026-09-06",
   "items": [
     {
+      "id": "j-lucky-c400-saomiao-pianse",
+      "type": "news",
+      "title": "乐凯 C400 的片子糊不了：糊的是扫描",
+      "excerpt": "乐凯第二款彩色负片 C400 上市两个月后，从 9 月起海外评测集中反映同一个问题：扫描出来整卷发绿、暗部冒出蓝噪点。同一个毛病在国内社交平台上被说成「品控不稳」。这篇把能核实的摆开：官方公布过什么、测试者到底测出了什么，以及送冲扫时该向店家提哪几句要求。",
+      "date": "2026-10-04",
+      "link": "journal/lucky-c400-saomiao-pianse",
+      "media": "samples/photos/rpx-400-1.jpg"
+    },
+    {
       "id": "j-kodak-yingguo-jiangjia-ektapan",
       "type": "news",
       "title": "柯达的胶卷涨疯了也想多卖：英国先降 12%，T-Max 悄悄改了名",
