@@ -4,6 +4,15 @@
   "updated": "2026-09-06",
   "items": [
     {
+      "id": "j-4x5-yepian-xin-juan-baodian",
+      "type": "news",
+      "title": "4×5 大画幅等来了新页片，柯达这批最便宜的不到 4 美元一张",
+      "excerpt": "9 月 28 日，Harman 把 Kentmere 400 和 Phoenix 2 的 4×5 试验页片寄给摄影师试拍，而官方说法是这两卷「有一个短板，可能永远做不成页片」。同一时间柯达改名后的 EktaPan、EktaColor Pro 已经在北美上架，最便宜的一档每张不到 4 美元。这篇把官方在产的、刚公布的、和只存在于测试里的分清楚，再给你一张按每 100 平方厘米算出来的价格表。",
+      "date": "2026-10-04",
+      "link": "journal/4x5-yepian-xin-juan-baodian",
+      "media": "samples/photos/tmax-100-1.jpg"
+    },
+    {
       "id": "j-lucky-c400-saomiao-pianse",
       "type": "news",
       "title": "乐凯 C400 的片子糊不了：糊的是扫描",

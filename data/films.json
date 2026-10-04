@@ -327,11 +327,26 @@
       "name_en": "Double-X 5222",
       "name_cn": "Double-X 5222",
       "samples": [
-        { "src": "samples/photos/double-x-5222-1.jpg", "credit": "© prem007 · Double-X 5222" },
-        { "src": "samples/photos/double-x-5222-2.jpg", "credit": "© prem007 · Double-X 5222" },
-        { "src": "samples/photos/double-x-5222-3.jpg", "credit": "© prem007 · Double-X 5222" },
-        { "src": "samples/photos/double-x-5222-4.jpg", "credit": "" },
-        { "src": "samples/photos/double-x-5222-5.jpg", "credit": "" }
+        {
+          "src": "samples/photos/double-x-5222-1.jpg",
+          "credit": "© prem007 · Double-X 5222"
+        },
+        {
+          "src": "samples/photos/double-x-5222-2.jpg",
+          "credit": "© prem007 · Double-X 5222"
+        },
+        {
+          "src": "samples/photos/double-x-5222-3.jpg",
+          "credit": "© prem007 · Double-X 5222"
+        },
+        {
+          "src": "samples/photos/double-x-5222-4.jpg",
+          "credit": ""
+        },
+        {
+          "src": "samples/photos/double-x-5222-5.jpg",
+          "credit": ""
+        }
       ],
       "iso": 250,
       "formats": [
@@ -391,11 +406,26 @@
       "name_en": "Neopan 100 Acros II",
       "name_cn": "Acros II",
       "samples": [
-        { "src": "samples/photos/acros-2-1.jpg", "credit": "© Film Friday · Acros II" },
-        { "src": "samples/photos/acros-2-2.jpg", "credit": "© Zeb Andrews · Acros II" },
-        { "src": "samples/photos/acros-2-3.jpg", "credit": "© Film Friday · Acros II" },
-        { "src": "samples/photos/acros-2-4.jpg", "credit": "© Zeb Andrews · Acros II" },
-        { "src": "samples/photos/acros-2-5.jpg", "credit": "© pepepe · Acros II" }
+        {
+          "src": "samples/photos/acros-2-1.jpg",
+          "credit": "© Film Friday · Acros II"
+        },
+        {
+          "src": "samples/photos/acros-2-2.jpg",
+          "credit": "© Zeb Andrews · Acros II"
+        },
+        {
+          "src": "samples/photos/acros-2-3.jpg",
+          "credit": "© Film Friday · Acros II"
+        },
+        {
+          "src": "samples/photos/acros-2-4.jpg",
+          "credit": "© Zeb Andrews · Acros II"
+        },
+        {
+          "src": "samples/photos/acros-2-5.jpg",
+          "credit": "© pepepe · Acros II"
+        }
       ],
       "iso": 100,
       "formats": [
@@ -870,7 +900,9 @@
       "iso": 50,
       "formats": [
         "35mm",
-        "120"
+        "120",
+        "4x5",
+        "8x10"
       ],
       "category": "traditional",
       "type": "panchromatic",
@@ -1105,7 +1137,8 @@
       "iso": 100,
       "formats": [
         "35mm",
-        "120"
+        "120",
+        "4x5"
       ],
       "category": "traditional",
       "type": "panchromatic",
@@ -1163,7 +1196,8 @@
       "iso": 400,
       "formats": [
         "35mm",
-        "120"
+        "120",
+        "4x5"
       ],
       "category": "traditional",
       "type": "panchromatic",
