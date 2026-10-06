@@ -23,6 +23,7 @@ import sys
 
 from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Cm, Pt, RGBColor
 
@@ -59,7 +60,7 @@ def para(doc, align=None, after=8, before=0, line=1.7):
     return p
 
 
-TOKEN = re.compile(r'(\*\*.+?\*\*|\[\[图:[^\]]+\]\])')
+TOKEN = re.compile(r'(\*\*.+?\*\*|\[\[图:[^\]]+\]\]|\[\[双图:[^\]]+\]\])')
 
 
 def add_inline(p, text, size=11, color=DARK):
@@ -84,6 +85,45 @@ def add_figure(doc, path, caption):
         return
     doc.add_picture(path, width=IMG_W)
     doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
+    if caption:
+        c = para(doc, WD_ALIGN_PARAGRAPH.CENTER, after=14, before=4)
+        set_font(c.add_run(caption), 9, color=GREY)
+
+
+# 两图并列（无边框表格）：[[双图:a.jpg|b.jpg|图注]]
+PAIR_W = Cm(7.0)          # 单图宽度，两个 7cm 正好占满 16.6cm 版心
+PAIR_CELL_W = Cm(7.85)    # 单元格宽（含内边距）
+
+
+def _no_borders(table):
+    tblPr = table._tbl.tblPr
+    borders = OxmlElement('w:tblBorders')
+    for edge in ('top', 'left', 'bottom', 'right', 'insideH', 'insideV'):
+        el = OxmlElement(f'w:{edge}')
+        el.set(qn('w:val'), 'none')
+        el.set(qn('w:sz'), '0')
+        el.set(qn('w:space'), '0')
+        borders.append(el)
+    tblPr.append(borders)
+
+
+def add_pair(doc, p1, p2, caption=''):
+    """两张竖图并排一行，下面一条共用图注"""
+    miss = [p for p in (p1, p2) if not os.path.exists(p)]
+    if miss:
+        for p in miss:
+            print(f'   ⚠️ 缺图: {p}')
+        return
+    table = doc.add_table(rows=1, cols=2)
+    table.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    table.autofit = False
+    _no_borders(table)
+    for cell, path in zip(table.rows[0].cells, (p1, p2)):
+        cell.width = PAIR_CELL_W
+        p = cell.paragraphs[0]
+        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p.paragraph_format.space_after = Pt(0)
+        p.add_run().add_picture(path, width=PAIR_W)
     if caption:
         c = para(doc, WD_ALIGN_PARAGRAPH.CENTER, after=14, before=4)
         set_font(c.add_run(caption), 9, color=GREY)
@@ -141,6 +181,13 @@ def build(md_path, imgdir, outdir):
         if m:
             p = para(doc, WD_ALIGN_PARAGRAPH.CENTER, after=14, before=8)
             add_inline(p, m.group(1).strip(), 13)
+            continue
+        # 两图并列
+        m = re.match(r'^\[\[双图:([^|\]]+)\|([^|\]]+)\|?([^\]]*)\]\]$', ln.strip())
+        if m:
+            add_pair(doc, os.path.join(imgdir, m.group(1).strip()),
+                     os.path.join(imgdir, m.group(2).strip()), m.group(3).strip())
+            fig_n += 2
             continue
         # 图片占位
         m = re.match(r'^\[\[图:([^|\]]+)\|?([^\]]*)\]\]$', ln.strip())
