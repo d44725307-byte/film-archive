@@ -108,6 +108,16 @@ for (const p of pages) {
   // ⑫ h1 唯一
   const h1 = (s.match(/<h1\b/g) || []).length;
   if (h1 !== 1) add(h1 === 0 ? 'ERROR' : 'WARN', p, `h1 数量 = ${h1}（应为 1）`);
+  // ⑬ 商业链接必须带标识（口径见 disclaimer「商业内容与广告」）
+  //    命中购物/分佣域名 = 视为商业链接；链接本身要有 rel="sponsored"，页面要有「广告/推广」字样
+  const SHOP = /(?:^|\.)(taobao|tmall|jd|pinduoduo|1688|youzan|xiaohongshu|amazon|ebay|bhphotovideo|adorama|freestylephoto|etsy)\./i;
+  const adLabelled = /(广告|推广|赞助)/.test(s);
+  for (const m of s.matchAll(/<a\b([^>]*?)href="(https?:\/\/[^"]+)"([^>]*)>/g)) {
+    const attrs = m[1] + m[3];
+    if (!SHOP.test(new URL(m[2]).hostname)) continue;
+    if (!/rel="[^"]*sponsored/i.test(attrs)) add('ERROR', p, `商业链接缺 rel="sponsored": ${m[2].slice(0, 60)}`);
+    if (!adLabelled) add('ERROR', p, `含商业链接但页面无「广告/推广」标识: ${m[2].slice(0, 60)}`);
+  }
 }
 
 // ⑬ 引用的本地资源是否都存在
@@ -123,6 +133,19 @@ for (const p of pages) {
       : path.normalize(path.join(path.dirname(p), u));
     if (!fs.existsSync(target)) add('ERROR', p, `引用的文件不存在: ${u}`);
   }
+}
+
+// ⑭ 样片署名（口径见 disclaimer「图像与版权」）
+//    空的 credit 会在卷页上渲染成「一条署名都没有」→ 单独报出来，避免又被当成"都署名了"
+const noCredit = [];
+films.forEach((f) => {
+  (f.samples || []).forEach((s) => {
+    if (!(s.credit || '').trim()) noCredit.push(`${f.id} ${path.basename(s.src || '?')}`);
+  });
+});
+if (noCredit.length) {
+  const filmsHit = [...new Set(noCredit.map((x) => x.split(' ')[0]))];
+  add('WARN', 'data/films.json', `${noCredit.length} 张样片无署名（涉及 ${filmsHit.length} 卷：${filmsHit.join(', ')}）→ 卷页会整卷无署名，见 disclaimer「图像与版权」`);
 }
 
 const errs = issues.filter((i) => i.sev === 'ERROR');
