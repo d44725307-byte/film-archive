@@ -57,6 +57,7 @@ node tools/bust-assets.js     # 给 JS/CSS 引用打内容哈希版本号（防�
 node tools/audit.js           # 全站体检（空 href / 模板残留 / canonical / 重复 id / h1 唯一…）
 node tools/check-links.js     # 断链检查（本地或线上）
 node tools/m390.js [url] [png] # 390px 移动端实测：量 scrollWidth + 逐屏滚动查坏图 + 截图
+node tools/fetch-prices.js    # 海外零售实价采集（4 家 Shopify 店）→ data/prices-real.json
 python3 tools/preview-server.py 8091 .   # 本地预览（支持无扩展名路径，与线上一致）
 ```
 
@@ -67,6 +68,7 @@ python3 tools/preview-server.py 8091 .   # 本地预览（支持无扩展名路�
 - **链接规范**：站内链接统一为「无扩展名」（`/film/xxx`），与 canonical、sitemap 一致
 - **资源版本号**：JS/CSS 引用带内容哈希，避免 CDN 缓存导致改动发不出去
 - **可访问性/SEO**：每页唯一 h1、图片 alt、结构化数据（Product + Review + BreadcrumbList）、OG、sitemap
+- **海外实价（2026-10-19 新增）**：`data/prices-real.json` 记录**可查证**的海外零售价 —— 哪家店、哪天、多少、几卷装、商品链接。卷页「海外实价」表格直接由它渲染。采集口径：单位价 = 挂牌价 ÷ 包装卷数（页片 ÷ 张数）；只取 `available=true`；排除散装大盘／电影卷／620／相纸／药水。⚠️ **必读**：Shopify 的 `products.json` 会按访问地做货币本地化（同一时刻返回 95.00 人民币），**取价用 `/products/<handle>.json` 或先做「目录价/单品价」校准**；澳洲店标价含 20% VAT、美国店不含销售税。
 - **价格口径（2026-10-19 定）**：`films.json` 的价格是**按行业档位整理的估算区间**，不是实采市价；**二手价按全新档位推算（约 85%–100%）**，并非逐条采集；且**没有采集日期字段**。因此卷页与排行页必须带「档位估算 / 非实时市价」声明，`audit.js` 第 ⑮ 条会强制校验（缺失即报错）。要升级成实价，需加 `price_source` + `price_date` 字段并逐条实采。
 
 ## 数据纪律

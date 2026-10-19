@@ -157,6 +157,41 @@ for (const p of PRICE_PAGES) {
   if (!/档位估算/.test(s)) add('ERROR', p, '价格区缺少「档位估算 / 非实时市价」声明（见 disclaimer「参数与价格」）');
 }
 
+
+// ⑯ 海外实价数据完整性（口径见 disclaimer「参数与价格」）
+//    每条实价必须能查证：有采集日期、有商品链接、有原币价、有折算价。
+//    没有这些字段的「实价」等于又造了一个不可查证的估算。
+try {
+  const pr = JSON.parse(fs.readFileSync('data/prices-real.json', 'utf8'));
+  const asOf = pr.as_of;
+  if (!asOf) add('ERROR', 'data/prices-real.json', '缺 as_of（采集日期）');
+  const ageDays = asOf ? Math.round((Date.now() - new Date(asOf + 'T00:00:00Z')) / 86400000) : 0;
+  if (ageDays > 90) add('WARN', 'data/prices-real.json', `实价已 ${ageDays} 天未更新（采集于 ${asOf}）→ 页面会显示旧价，考虑重跑 tools/fetch-prices.js`);
+  let nOffers = 0;
+  for (const [fid, rec] of Object.entries(pr.films || {})) {
+    if (!filmIds.has(fid)) add('ERROR', 'data/prices-real.json', `实价里有未知胶卷 id：${fid}`);
+    if (!rec.offers || !rec.offers.length) add('ERROR', 'data/prices-real.json', `${fid} 的 offers 为空`);
+    for (const o of rec.offers || []) {
+      nOffers++;
+      if (!o.url || !/^https:\/\//.test(o.url)) add('ERROR', 'data/prices-real.json', `${fid}/${o.format} 缺商品链接`);
+      if (!o.currency) add('ERROR', 'data/prices-real.json', `${fid}/${o.format} 缺币种`);
+      if (!(o.unit_cny > 0)) add('ERROR', 'data/prices-real.json', `${fid}/${o.format} 折算价异常`);
+      if (!(o.units_per_pack > 0)) add('ERROR', 'data/prices-real.json', `${fid}/${o.format} 包装份数异常`);
+      if (!o.verified_via) add('WARN', 'data/prices-real.json', `${fid}/${o.format} 缺取数凭证字段`);
+    }
+  }
+  // 页面侧：有实价数据的卷，页面上必须真的渲染出「海外实价」
+  for (const fid of Object.keys(pr.films || {})) {
+    const page = `film/${fid}.html`;
+    if (!pages.includes(page)) continue;
+    // ⚠️ 不能用「海外实价」这个词当判据：下方估算区的说明文字里也会出现它（第一次写就是这么漏检的）
+    if (!/class="rp-table"/.test(fs.readFileSync(page, 'utf8'))) add('ERROR', page, '有实价数据但页面没渲染实价表 .rp-table（是否忘了跑 gen-films.js）');
+  }
+  console.log(`实价：${Object.keys(pr.films || {}).length} 卷 / ${nOffers} 条报价（采集于 ${asOf}）`);
+} catch (e) {
+  if (e.code !== 'ENOENT') add('ERROR', 'data/prices-real.json', '读取失败：' + e.message);
+}
+
 const errs = issues.filter((i) => i.sev === 'ERROR');
 const warns = issues.filter((i) => i.sev === 'WARN');
 console.log(`扫描 ${pages.length} 个页面`);

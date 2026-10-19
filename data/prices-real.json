@@ -1,0 +1,1357 @@
+{
+ "as_of": "2026-10-19",
+ "note": "海外零售实价：单位价 = 标价 ÷ 包装内卷数（页片为 ÷ 张数）。记录本位币原价与折算人民币。英国店标价含 20% VAT，美国店不含销售税。",
+ "currency_rates": {
+  "date": "2026-10-19",
+  "USD_CNY": 6.6807,
+  "GBP_CNY": 8.9057,
+  "source": "frankfurter.app (ECB)"
+ },
+ "stores": [
+  {
+   "key": "aw",
+   "name": "Analogue Wonderland",
+   "host": "analoguewonderland.co.uk",
+   "region": "UK",
+   "currency": "GBP",
+   "price_includes_vat": true
+  },
+  {
+   "key": "fpp",
+   "name": "Film Photography Project",
+   "host": "filmphotographystore.com",
+   "region": "US",
+   "currency": "USD",
+   "price_includes_vat": false
+  },
+  {
+   "key": "fc",
+   "name": "Firstcall Photographic",
+   "host": "firstcall-photographic.co.uk",
+   "region": "UK",
+   "currency": "GBP",
+   "price_includes_vat": true
+  },
+  {
+   "key": "bfc",
+   "name": "Brooklyn Film Camera",
+   "host": "brooklynfilmcamera.com",
+   "region": "US",
+   "currency": "USD",
+   "price_includes_vat": false
+  }
+ ],
+ "price_endpoint": "products/<handle>.json（本位币；products.json 会按 IP 本地化货币，不可用于取价）",
+ "calibration": [
+  {
+   "store": "aw",
+   "currency": "GBP",
+   "ratio": 1,
+   "catalog_is_base_currency": true
+  },
+  {
+   "store": "fpp",
+   "currency": "USD",
+   "ratio": 1,
+   "catalog_is_base_currency": true
+  },
+  {
+   "store": "fc",
+   "currency": "GBP",
+   "ratio": 1,
+   "catalog_is_base_currency": true
+  },
+  {
+   "store": "bfc",
+   "currency": "USD",
+   "ratio": 1,
+   "catalog_is_base_currency": true
+  }
+ ],
+ "films": {
+  "kodak-tri-x-400": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fpp",
+     "store_name": "Film Photography Project",
+     "region": "US",
+     "currency": "USD",
+     "format": "120",
+     "listing_title": "120 BW Film - Kodak Tri-X 400 (Single Roll)",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 8.99,
+     "units_per_pack": 1,
+     "unit_price": 8.99,
+     "unit_cny": 60,
+     "price_includes_vat": false,
+     "url": "https://filmphotographystore.com/products/120-bw-film-kodak-tri-x-400-single-roll",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 USD）"
+    },
+    {
+     "store": "aw",
+     "store_name": "Analogue Wonderland",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "Kodak Tri-X 400 - 35mm Film",
+     "variant": "36",
+     "exposures": 36,
+     "pack_price": 9.49,
+     "units_per_pack": 1,
+     "unit_price": 9.49,
+     "unit_cny": 85,
+     "price_includes_vat": true,
+     "url": "https://analoguewonderland.co.uk/products/kodak-tri-x-35mm-film",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "kodak-tmax-100": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fpp",
+     "store_name": "Film Photography Project",
+     "region": "US",
+     "currency": "USD",
+     "format": "120",
+     "listing_title": "120 BW Film - Kodak T-Max 100 (Single Roll)",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 9.99,
+     "units_per_pack": 1,
+     "unit_price": 9.99,
+     "unit_cny": 67,
+     "price_includes_vat": false,
+     "url": "https://filmphotographystore.com/products/120-bw-film-kodak-t-max-100-single-roll",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 USD）"
+    },
+    {
+     "store": "aw",
+     "store_name": "Analogue Wonderland",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "Kodak T-MAX 100 - 35mm Film",
+     "variant": "36",
+     "exposures": 36,
+     "pack_price": 14,
+     "units_per_pack": 1,
+     "unit_price": 14,
+     "unit_cny": 125,
+     "price_includes_vat": true,
+     "url": "https://analoguewonderland.co.uk/products/kodak-t-max-film-35mm-b-w-iso-100",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    },
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "4x5",
+     "listing_title": "Kodak TMax Pro 100 - 4 x 5in 10 Sheets",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 52.99,
+     "units_per_pack": 10,
+     "unit_price": 5.3,
+     "unit_cny": 47,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/kodak-tmax-pro-4-x-5in-iso-100-10-sheets",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "kodak-tmax-400": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fpp",
+     "store_name": "Film Photography Project",
+     "region": "US",
+     "currency": "USD",
+     "format": "120",
+     "listing_title": "120 BW Film - Kodak T-Max 400 (Single Roll)",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 9.99,
+     "units_per_pack": 1,
+     "unit_price": 9.99,
+     "unit_cny": 67,
+     "price_includes_vat": false,
+     "url": "https://filmphotographystore.com/products/120-bw-film-kodak-t-max-400-single-roll",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 USD）"
+    },
+    {
+     "store": "aw",
+     "store_name": "Analogue Wonderland",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "Kodak T-MAX 400 - 35mm Film",
+     "variant": "36",
+     "exposures": 36,
+     "pack_price": 15,
+     "units_per_pack": 1,
+     "unit_price": 15,
+     "unit_cny": 134,
+     "price_includes_vat": true,
+     "url": "https://analoguewonderland.co.uk/products/kodak-t-max-film-35mm-b-w-iso-400",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    },
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "4x5",
+     "listing_title": "Kodak TMax Pro 400 - 4 x 5in 10 Sheets",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 62.99,
+     "units_per_pack": 10,
+     "unit_price": 6.3,
+     "unit_cny": 56,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/kodak-tmax-pro-4-x-5in-iso-400-10-sheets",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "kodak-tmax-p3200": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fpp",
+     "store_name": "Film Photography Project",
+     "region": "US",
+     "currency": "USD",
+     "format": "135",
+     "listing_title": "35mm BW Film - Kodak T-Max 3200 (p3200 - 1 Roll)",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 13.99,
+     "units_per_pack": 1,
+     "unit_price": 13.99,
+     "unit_cny": 93,
+     "price_includes_vat": false,
+     "url": "https://filmphotographystore.com/products/35mm-bw-film-kodak-tmax-3200-1-roll",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 USD）"
+    }
+   ]
+  },
+  "fuji-acros-2": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "120",
+     "listing_title": "Fujifilm Neopan Acros II 100 - 120",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 14.8,
+     "units_per_pack": 1,
+     "unit_price": 14.8,
+     "unit_cny": 132,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/fujifilm-neopan-acros-ii-120-iso-100",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    },
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "Fujifilm Neopan Acros II 100 - 35mm 36Exp",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 13.99,
+     "units_per_pack": 1,
+     "unit_price": 13.99,
+     "unit_cny": 125,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/fujifilm-neopan-acros-ii-135-36-iso-100",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "ilford-hp5-plus": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fpp",
+     "store_name": "Film Photography Project",
+     "region": "US",
+     "currency": "USD",
+     "format": "120",
+     "listing_title": "120 BW Film Ilford HP5 400 (Single Roll)",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 9.99,
+     "units_per_pack": 1,
+     "unit_price": 9.99,
+     "unit_cny": 67,
+     "price_includes_vat": false,
+     "url": "https://filmphotographystore.com/products/120-bw-film-ilford-hp5-400-single-roll",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 USD）"
+    },
+    {
+     "store": "aw",
+     "store_name": "Analogue Wonderland",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "Ilford HP5 Plus - 35mm Film",
+     "variant": "36 / 10",
+     "exposures": 36,
+     "pack_price": 104.9,
+     "units_per_pack": 10,
+     "unit_price": 10.49,
+     "unit_cny": 93,
+     "price_includes_vat": true,
+     "url": "https://analoguewonderland.co.uk/products/ilford-hp5-plus-35mm-film",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    },
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "8x10",
+     "listing_title": "Ilford HP5 Plus 400 - 8 x 10in 25 Sheets",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 212.71,
+     "units_per_pack": 25,
+     "unit_price": 8.51,
+     "unit_cny": 76,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/ilford-hp5-plus-8-x-10in-iso-400-pack-of-25",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    },
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "4x5",
+     "listing_title": "Ilford HP5 Plus 400 - 4 x 5in 25 Sheets",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 62.66,
+     "units_per_pack": 25,
+     "unit_price": 2.51,
+     "unit_cny": 22,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/ilford-hp5-plus-4-x-5in-iso-400-pack-of-25",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "ilford-fp4-plus": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fpp",
+     "store_name": "Film Photography Project",
+     "region": "US",
+     "currency": "USD",
+     "format": "120",
+     "listing_title": "120 BW Film Ilford FP4 125 (Single Roll)",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 9.99,
+     "units_per_pack": 1,
+     "unit_price": 9.99,
+     "unit_cny": 67,
+     "price_includes_vat": false,
+     "url": "https://filmphotographystore.com/products/120-bw-film-ilford-fp4-125-single-roll",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 USD）"
+    },
+    {
+     "store": "aw",
+     "store_name": "Analogue Wonderland",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "Ilford FP4 Plus - 35mm Film",
+     "variant": "36",
+     "exposures": 36,
+     "pack_price": 11.49,
+     "units_per_pack": 1,
+     "unit_price": 11.49,
+     "unit_cny": 102,
+     "price_includes_vat": true,
+     "url": "https://analoguewonderland.co.uk/products/ilford-fp4-plus-35mm-film",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    },
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "4x5",
+     "listing_title": "Ilford FP4 Plus 125 - 4 x 5in 25 Sheets",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 62.66,
+     "units_per_pack": 25,
+     "unit_price": 2.51,
+     "unit_cny": 22,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/ilford-fp4-plus-4-x-5in-iso-125-pack-of-25",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    },
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "8x10",
+     "listing_title": "Ilford FP4 Plus 125 - 8 x 10in 25 Sheets",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 212.71,
+     "units_per_pack": 25,
+     "unit_price": 8.51,
+     "unit_cny": 76,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/ilford-fp4-plus-8-x-10in-iso-125-pack-of-25",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "ilford-delta-100": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fpp",
+     "store_name": "Film Photography Project",
+     "region": "US",
+     "currency": "USD",
+     "format": "120",
+     "listing_title": "120 BW Film Ilford Delta 100 (Single Roll)",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 9.99,
+     "units_per_pack": 1,
+     "unit_price": 9.99,
+     "unit_cny": 67,
+     "price_includes_vat": false,
+     "url": "https://filmphotographystore.com/products/120-bw-film-ilford-delta-100-single-roll",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 USD）"
+    },
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "Ilford Delta Pro 100 - 35mm 24Exp",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 10.21,
+     "units_per_pack": 1,
+     "unit_price": 10.21,
+     "unit_cny": 91,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/ilford-delta-pro-135-24-iso-100",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    },
+    {
+     "store": "fpp",
+     "store_name": "Film Photography Project",
+     "region": "US",
+     "currency": "USD",
+     "format": "4x5",
+     "listing_title": "4X5 SHEET FILM - ILFORD Delta 100 (25 SHEETS)",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 69.99,
+     "units_per_pack": 25,
+     "unit_price": 2.8,
+     "unit_cny": 19,
+     "price_includes_vat": false,
+     "url": "https://filmphotographystore.com/products/4x5-sheet-film-ilford-delta-100-25-sheets",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 USD）"
+    }
+   ]
+  },
+  "ilford-delta-400": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fpp",
+     "store_name": "Film Photography Project",
+     "region": "US",
+     "currency": "USD",
+     "format": "120",
+     "listing_title": "120 BW Film Ilford Delta 400 (Single Roll)",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 9.99,
+     "units_per_pack": 1,
+     "unit_price": 9.99,
+     "unit_cny": 67,
+     "price_includes_vat": false,
+     "url": "https://filmphotographystore.com/products/120-bw-film-ilford-delta-400-single-roll",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 USD）"
+    },
+    {
+     "store": "fpp",
+     "store_name": "Film Photography Project",
+     "region": "US",
+     "currency": "USD",
+     "format": "135",
+     "listing_title": "35mm BW Film Ilford Delta 400 (1 Roll)",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 12.29,
+     "units_per_pack": 1,
+     "unit_price": 12.29,
+     "unit_cny": 82,
+     "price_includes_vat": false,
+     "url": "https://filmphotographystore.com/products/35mm-bw-film-ilford-delta-400-1-roll",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 USD）"
+    }
+   ]
+  },
+  "ilford-delta-3200": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "120",
+     "listing_title": "Ilford Delta Pro 3200 - 120",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 10.4,
+     "units_per_pack": 1,
+     "unit_price": 10.4,
+     "unit_cny": 93,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/ilford-delta-pro-120-iso-3200",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    },
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "Ilford Delta Pro 3200 - 35mm 36Exp",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 12.9,
+     "units_per_pack": 1,
+     "unit_price": 12.9,
+     "unit_cny": 115,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/ilford-delta-pro-135-36-iso-3200",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "ilford-pan-f-plus": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fpp",
+     "store_name": "Film Photography Project",
+     "region": "US",
+     "currency": "USD",
+     "format": "120",
+     "listing_title": "120 BW Film Ilford Pan F 50 (Single Roll)",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 9.99,
+     "units_per_pack": 1,
+     "unit_price": 9.99,
+     "unit_cny": 67,
+     "price_includes_vat": false,
+     "url": "https://filmphotographystore.com/products/120-bw-film-ilford-pan-f-50-single-roll",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 USD）"
+    },
+    {
+     "store": "fpp",
+     "store_name": "Film Photography Project",
+     "region": "US",
+     "currency": "USD",
+     "format": "135",
+     "listing_title": "35mm BW Film Ilford Pan F 50 Fine Grain (1 Roll)",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 13.99,
+     "units_per_pack": 1,
+     "unit_price": 13.99,
+     "unit_cny": 93,
+     "price_includes_vat": false,
+     "url": "https://filmphotographystore.com/products/35mm-bw-film-ilford-pan-f-50-1-roll",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 USD）"
+    },
+    {
+     "store": "fpp",
+     "store_name": "Film Photography Project",
+     "region": "US",
+     "currency": "USD",
+     "format": "8x10",
+     "listing_title": "8x10 SHEET FILM - ILFORD Pan F + (25 SHEETS)",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 219.99,
+     "units_per_pack": 25,
+     "unit_price": 8.8,
+     "unit_cny": 59,
+     "price_includes_vat": false,
+     "url": "https://filmphotographystore.com/products/8x10-sheet-film-ilford-pan-f-25-sheets",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 USD）"
+    },
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "4x5",
+     "listing_title": "Ilford Pan F Plus 50 - 4 x 5in 25 Sheets",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 65.5,
+     "units_per_pack": 25,
+     "unit_price": 2.62,
+     "unit_cny": 23,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/ilford-pan-f-50-4x5-25-sheet-film",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "ilford-xp2-super": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fpp",
+     "store_name": "Film Photography Project",
+     "region": "US",
+     "currency": "USD",
+     "format": "120",
+     "listing_title": "120 BW Film Ilford Xp2 400 (Single Roll)",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 9.99,
+     "units_per_pack": 1,
+     "unit_price": 9.99,
+     "unit_cny": 67,
+     "price_includes_vat": false,
+     "url": "https://filmphotographystore.com/products/120-bw-film-ilford-xp2-400-single-roll",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 USD）"
+    },
+    {
+     "store": "aw",
+     "store_name": "Analogue Wonderland",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "Ilford XP2 - 35mm Film",
+     "variant": "36",
+     "exposures": 36,
+     "pack_price": 11.95,
+     "units_per_pack": 1,
+     "unit_price": 11.95,
+     "unit_cny": 106,
+     "price_includes_vat": true,
+     "url": "https://analoguewonderland.co.uk/products/ilford-xp2-film-35mm-b-w-iso-400",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "ilford-sfx-200": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "120",
+     "listing_title": "Ilford SFX 200 - 120",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 16.01,
+     "units_per_pack": 1,
+     "unit_price": 16.01,
+     "unit_cny": 143,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/ilford-sfx-120-iso-200",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    },
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "Ilford SFX 200 - 35mm 36Exp",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 14.35,
+     "units_per_pack": 1,
+     "unit_price": 14.35,
+     "unit_cny": 128,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/ilford-sfx-135-36-iso-200",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "ilford-ortho-plus-80": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fpp",
+     "store_name": "Film Photography Project",
+     "region": "US",
+     "currency": "USD",
+     "format": "120",
+     "listing_title": "120 BW Film Ilford Ortho Plus (1 Roll)",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 11.99,
+     "units_per_pack": 1,
+     "unit_price": 11.99,
+     "unit_cny": 80,
+     "price_includes_vat": false,
+     "url": "https://filmphotographystore.com/products/120-bw-film-ilford-ortho-plus-1-roll",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 USD）"
+    },
+    {
+     "store": "fpp",
+     "store_name": "Film Photography Project",
+     "region": "US",
+     "currency": "USD",
+     "format": "135",
+     "listing_title": "35mm BW Film Ilford Ortho Plus (1 Roll)",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 12.99,
+     "units_per_pack": 1,
+     "unit_price": 12.99,
+     "unit_cny": 87,
+     "price_includes_vat": false,
+     "url": "https://filmphotographystore.com/products/35mm-bw-film-ilford-ortho-plus-1-roll",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 USD）"
+    },
+    {
+     "store": "fpp",
+     "store_name": "Film Photography Project",
+     "region": "US",
+     "currency": "USD",
+     "format": "8x10",
+     "listing_title": "8x10 SHEET FILM - ILFORD Ortho+ (25 SHEETS)",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 207.99,
+     "units_per_pack": 25,
+     "unit_price": 8.32,
+     "unit_cny": 56,
+     "price_includes_vat": false,
+     "url": "https://filmphotographystore.com/products/8x10-sheet-film-ilford-delta-100-25-sheets-copy",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 USD）"
+    },
+    {
+     "store": "fpp",
+     "store_name": "Film Photography Project",
+     "region": "US",
+     "currency": "USD",
+     "format": "4x5",
+     "listing_title": "4x5 Sheet Film - Ilford Ortho Plus BW Negative Film (25 Sheets)",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 65.99,
+     "units_per_pack": 25,
+     "unit_price": 2.64,
+     "unit_cny": 18,
+     "price_includes_vat": false,
+     "url": "https://filmphotographystore.com/products/4x5-sheet-film-ilford-ortho-plus-bw-negative-film-25-sheets",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 USD）"
+    }
+   ]
+  },
+  "ilford-kentmere-100": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fpp",
+     "store_name": "Film Photography Project",
+     "region": "US",
+     "currency": "USD",
+     "format": "120",
+     "listing_title": "120 BW Film Kentmere 100 (Single Roll)",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 6.99,
+     "units_per_pack": 1,
+     "unit_price": 6.99,
+     "unit_cny": 47,
+     "price_includes_vat": false,
+     "url": "https://filmphotographystore.com/products/120-bw-film-kentmere-100-single-roll",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 USD）"
+    },
+    {
+     "store": "aw",
+     "store_name": "Analogue Wonderland",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "Kentmere Pan 100 - 35mm Film",
+     "variant": "36",
+     "exposures": 36,
+     "pack_price": 6.95,
+     "units_per_pack": 1,
+     "unit_price": 6.95,
+     "unit_cny": 62,
+     "price_includes_vat": true,
+     "url": "https://analoguewonderland.co.uk/products/kentmere-pan-100-35mm-film",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "ilford-kentmere-400": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fpp",
+     "store_name": "Film Photography Project",
+     "region": "US",
+     "currency": "USD",
+     "format": "120",
+     "listing_title": "120 BW Film Kentmere 400 (Single Roll)",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 6.99,
+     "units_per_pack": 1,
+     "unit_price": 6.99,
+     "unit_cny": 47,
+     "price_includes_vat": false,
+     "url": "https://filmphotographystore.com/products/120-bw-film-kentmere-400-single-roll",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 USD）"
+    },
+    {
+     "store": "aw",
+     "store_name": "Analogue Wonderland",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "Kentmere Pan 400 - 35mm Film",
+     "variant": "36 / 1",
+     "exposures": 36,
+     "pack_price": 6.95,
+     "units_per_pack": 1,
+     "unit_price": 6.95,
+     "unit_cny": 62,
+     "price_includes_vat": true,
+     "url": "https://analoguewonderland.co.uk/products/kentmere-pan-400-35mm-film",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "foma-fomapan-100": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "120",
+     "listing_title": "Foma Fomapan 100 Classic - 120",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 4.99,
+     "units_per_pack": 1,
+     "unit_price": 4.99,
+     "unit_cny": 44,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/foma-fomapan-100-classic-120-iso-100",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    },
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "Foma Fomapan 100 Classic - 35mm 36exp",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 5.99,
+     "units_per_pack": 1,
+     "unit_price": 5.99,
+     "unit_cny": 53,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/foma-fomapan-100-classic-135-36-iso-100",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    },
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "4x5",
+     "listing_title": "Foma Fomapan 100 Classic - 4 x 5in 50 Sheets",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 49.99,
+     "units_per_pack": 50,
+     "unit_price": 1,
+     "unit_cny": 9,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/foma-fomapan-100-classic-4-x-5in-iso-100-50-sheets",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "foma-fomapan-200": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "120",
+     "listing_title": "Foma Fomapan 200 Creative - 120",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 5.99,
+     "units_per_pack": 1,
+     "unit_price": 5.99,
+     "unit_cny": 53,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/foma-fomapan-200-creative-120-iso-200",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    },
+    {
+     "store": "aw",
+     "store_name": "Analogue Wonderland",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "Fomapan Creative 200 - 35mm Film",
+     "variant": "36",
+     "exposures": 36,
+     "pack_price": 7.49,
+     "units_per_pack": 1,
+     "unit_price": 7.49,
+     "unit_cny": 67,
+     "price_includes_vat": true,
+     "url": "https://analoguewonderland.co.uk/products/foma-creative-film-35mm-b-w-iso-200",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    },
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "4x5",
+     "listing_title": "Foma Fomapan 200 Creative - 4 x 5in 50 Sheets",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 55,
+     "units_per_pack": 50,
+     "unit_price": 1.1,
+     "unit_cny": 10,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/foma-fomapan-200-creative-4-x-5in-iso-200-50-sheets",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "foma-fomapan-400": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "120",
+     "listing_title": "Foma Fomapan 400 Action - 120",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 5.99,
+     "units_per_pack": 1,
+     "unit_price": 5.99,
+     "unit_cny": 53,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/foma-fomapan-400-action-120-iso-400",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    },
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "Foma Fomapan 400 Action - 35mm 36Exp",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 5.99,
+     "units_per_pack": 1,
+     "unit_price": 5.99,
+     "unit_cny": 53,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/foma-fomapan-400-action-135-36-iso-400",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    },
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "4x5",
+     "listing_title": "Foma Fomapan 400 Action - 4 x 5in 50 Sheets",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 49,
+     "units_per_pack": 50,
+     "unit_price": 0.98,
+     "unit_cny": 9,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/foma-fomapan-400-action-4-x-5in-iso-400-50-sheets",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "adox-cms-20-ii": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "Adox CMS 20 II - 35mm 36Exp",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 11.99,
+     "units_per_pack": 1,
+     "unit_price": 11.99,
+     "unit_cny": 107,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/adox-cms-20-ii-35mm-iso-20",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "rollei-rpx-100": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "120",
+     "listing_title": "Rollei RPX 100 - 120",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 11.99,
+     "units_per_pack": 1,
+     "unit_price": 11.99,
+     "unit_cny": 107,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/rollei-rpx-100-120",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    },
+    {
+     "store": "aw",
+     "store_name": "Analogue Wonderland",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "Rollei RPX 100 - 35mm Film",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 8.95,
+     "units_per_pack": 1,
+     "unit_price": 8.95,
+     "unit_cny": 80,
+     "price_includes_vat": true,
+     "url": "https://analoguewonderland.co.uk/products/rollei-rpx-film-35mm-b-w-iso-100",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "rollei-rpx-400": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "aw",
+     "store_name": "Analogue Wonderland",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "120",
+     "listing_title": "Rollei RPX 400 - 120 Film",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 9.49,
+     "units_per_pack": 1,
+     "unit_price": 9.49,
+     "unit_cny": 85,
+     "price_includes_vat": true,
+     "url": "https://analoguewonderland.co.uk/products/rollei-rpx-film-120-b-w-iso-400",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    },
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "Rollei RPX 400 - 35mm 36Exp",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 10.99,
+     "units_per_pack": 1,
+     "unit_price": 10.99,
+     "unit_cny": 98,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/rollei-rpx-400-135-36",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "rollei-retro-80s": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "120",
+     "listing_title": "Rollei Retro 80S - 120",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 11.99,
+     "units_per_pack": 1,
+     "unit_price": 11.99,
+     "unit_cny": 107,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/rollei-retro-80s-120-iso-80",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    },
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "Rollei Retro 80S - 35mm 36Exp",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 10.99,
+     "units_per_pack": 1,
+     "unit_price": 10.99,
+     "unit_cny": 98,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/rollei-retro-80s-135-36-iso-80",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "rollei-retro-400s": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "120",
+     "listing_title": "Rollei Retro 400S - 120",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 11.99,
+     "units_per_pack": 1,
+     "unit_price": 11.99,
+     "unit_cny": 107,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/rollei-retro-400s-120-iso-400",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    },
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "Rollei Retro 400S - 35mm 36Exp",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 10.99,
+     "units_per_pack": 1,
+     "unit_price": 10.99,
+     "unit_cny": 98,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/rollei-retro-400s-135-36-iso-400",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "cinestill-bwxx": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "CineStill BWxx 200 - 35mm 36Exp",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 16,
+     "units_per_pack": 1,
+     "unit_price": 16,
+     "unit_cny": 142,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/cinestill-bwxx-iso-200-135-36",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "lomo-earl-grey-100": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "120",
+     "listing_title": "Lomography Earl Grey 100 - 120 Pack of 3",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 17.9,
+     "units_per_pack": 3,
+     "unit_price": 5.97,
+     "unit_cny": 53,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/lomography-earl-grey-iso-100-120-pack-of-3",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    },
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "Lomography Earl Grey 100 - 35mm 36Exp Pack of 3",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 17.9,
+     "units_per_pack": 3,
+     "unit_price": 5.97,
+     "unit_cny": 53,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/lomography-earl-grey-iso-100-135-36-pack-of-3",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "lomo-lady-grey-400": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fpp",
+     "store_name": "Film Photography Project",
+     "region": "US",
+     "currency": "USD",
+     "format": "120",
+     "listing_title": "120 BW Film - Lomography 400 Lady Grey (3-Pak!)",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 20.99,
+     "units_per_pack": 3,
+     "unit_price": 7,
+     "unit_cny": 47,
+     "price_includes_vat": false,
+     "url": "https://filmphotographystore.com/products/120-bw-film-lomography-400-lady-grey-3-pak",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 USD）"
+    },
+    {
+     "store": "bfc",
+     "store_name": "Brooklyn Film Camera",
+     "region": "US",
+     "currency": "USD",
+     "format": "135",
+     "listing_title": "Lomography Lady Grey B&W",
+     "variant": "35mm",
+     "exposures": null,
+     "pack_price": 8,
+     "units_per_pack": 1,
+     "unit_price": 8,
+     "unit_cny": 53,
+     "price_includes_vat": false,
+     "url": "https://brooklynfilmcamera.com/products/lomography-lady-grey-b-w",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 USD）"
+    }
+   ]
+  },
+  "lomo-potsdam-kino-100": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "135",
+     "listing_title": "Lomography Potsdam Kino 100 - 35mm 36Exp",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 6.9,
+     "units_per_pack": 1,
+     "unit_price": 6.9,
+     "unit_cny": 61,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/lomography-potsdam-kino-iso-100-135-36",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  },
+  "bergger-pancro-400": {
+   "as_of": "2026-10-19",
+   "offers": [
+    {
+     "store": "fc",
+     "store_name": "Firstcall Photographic",
+     "region": "UK",
+     "currency": "GBP",
+     "format": "120",
+     "listing_title": "Bergger Pancro 400 - 120",
+     "variant": "Default Title",
+     "exposures": null,
+     "pack_price": 7.75,
+     "units_per_pack": 1,
+     "unit_price": 7.75,
+     "unit_cny": 69,
+     "price_includes_vat": true,
+     "url": "https://firstcall-photographic.co.uk/products/bergger-pancro-400-120-iso-400",
+     "verified_via": "products.json @ 2026-10-19（已校准为本位币 GBP）"
+    }
+   ]
+  }
+ }
+}

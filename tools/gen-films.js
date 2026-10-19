@@ -5,6 +5,10 @@ const BASE = 'https://filmstockhub.com';
 // Cloudflare Web Analytics（注意：属性用单引号包 JSON，否则引号转义会导致解析失败）
 const BEACON = `<!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9ffcedc6e13b4bdb85422d7100bda9c0"}'></script><!-- End Cloudflare Web Analytics -->`;
 const data = JSON.parse(fs.readFileSync('data/films.json', 'utf8'));
+// 海外零售实价（tools/fetch-prices.js 产出）。没有就自动跳过该区块，不影响出页。
+let PRICES_REAL = null;
+try { PRICES_REAL = JSON.parse(fs.readFileSync('data/prices-real.json', 'utf8')); } catch { /* 未采集 */ }
+const FMT_LABEL = { '135': '135', '120': '120', '4x5': '4×5 页片', '8x10': '8×10 页片' };
 const CATEGORY_LABEL = { traditional: '传统颗粒', tabular: 'T颗粒/平面颗粒', fine: '细腻/超微粒', 'high-speed': '高速', cinema: '电影卷', chromogenic: '彩色工艺黑白', ortho: '正色卷', infrared: '红外卷', 'direct-positive': '直接正片' };
 const GRAIN_LABEL = { 'ultra-fine': '超微粒', fine: '细颗粒', medium: '中等颗粒', coarse: '粗颗粒' };
 const TYPE_LABEL = { panchromatic: '全色性', orthochromatic: '正色性', chromogenic: '彩色工艺冲洗' };
@@ -21,6 +25,28 @@ let i = 0;
 function priceLines(pr) {
   const o = (pr && typeof pr === 'object') ? pr : {};
   return ['135', '120'].map((fmt) => `<div class="price-line"><span class="price-fmt">${fmt}</span><span class="price-num">${o[fmt] ? esc(o[fmt]) : '待补'}</span></div>`).join('');
+}
+// 海外实价区块：可查证（哪家店、哪天、多少、几卷装、链接）
+function realPriceBlock(f) {
+  const rec = PRICES_REAL && PRICES_REAL.films && PRICES_REAL.films[f.id];
+  if (!rec || !rec.offers || !rec.offers.length) return '';
+  const ORDER = { '135': 0, '120': 1, '4x5': 2, '8x10': 3 };
+  const rows = [...rec.offers].sort((a, b) => (ORDER[a.format] ?? 9) - (ORDER[b.format] ?? 9)).map((o) => {
+    const isSheet = o.format === '4x5' || o.format === '8x10';
+    const unitTxt = isSheet ? '每张' : '每卷';
+    const packUnit = isSheet ? '张装' : '卷装';
+    const detail = isSheet
+      ? (o.units_per_pack > 1 ? `${o.units_per_pack} ${packUnit}` : unitTxt)
+      : (o.exposures ? `${o.exposures} 张/卷` : (o.units_per_pack > 1 ? `${o.units_per_pack} ${packUnit}` : unitTxt));
+    return `<tr><td>${esc(FMT_LABEL[o.format] || o.format)}</td>`
+      + `<td class="rp-cny">约 ¥${o.unit_cny}</td>`
+      + `<td>${esc(o.currency)}${o.pack_price} <span class="rp-dim">/ ${esc(detail)}</span></td>`
+      + `<td><a href="${esc(o.url)}" target="_blank" rel="noopener nofollow">${esc(o.store_name)}</a></td></tr>`;
+  }).join('');
+  const rate = PRICES_REAL.currency_rates || {};
+  return `<div class="spec-block"><h2>海外实价 · Verified <span class="rp-asof">采集于 ${esc(rec.as_of || PRICES_REAL.as_of)}</span></h2>`
+    + `<div class="rp-wrap"><table class="rp-table"><thead><tr><th>格式</th><th>折算单价</th><th>挂牌价</th><th>来源</th></tr></thead><tbody>${rows}</tbody></table></div>`
+    + `<p class="price-hint">单价为<b>该店当日挂牌价 ÷ 包装内卷数</b>（页片 ÷ 张数），链接可点开核对；折算汇率取 ${esc(rate.date || '')} 欧洲央行中间价（1 USD ≈ ${rate.USD_CNY} / 1 GBP ≈ ${rate.GBP_CNY} CNY）。⚠️ <b>英国店标价含 20% VAT，美国店不含销售税</b>，跨境电商价与国内零售价不能直接等同 —— 这栏是「可查证的外部锚点」，不是国内到手价。</p></div>`;
 }
 function scenesChips(f) { return (f.scenes || []).map((s) => `<span class="scene-chip">${esc(SCENE_LABEL[s] || s)}</span>`).join(' '); }
 
@@ -134,7 +160,8 @@ function page(f) {
     <div class="spec-block"><h2>特性 / 手感 · Character</h2><p class="desc-cn">${esc(f.character)}</p><p class="desc-en">${esc(f.character_en)}</p></div>
     <div class="spec-block"><h2>适用场景 · Best for</h2><div class="card-scenes">${scenesChips(f)}</div></div>
     ${f.notes ? `<div class="spec-block"><h2>使用感受</h2><p class="usage-note">${esc(f.notes)}</p></div>` : ''}
-    <div class="spec-block"><h2>参考价格 · Price</h2><p class="price-hint">价格为<b>档位估算区间</b>，非实时市价，且未标注采集日期 —— 仅供横向比较。二手价按全新档位推算（约全新价的 85%–100%）；停产卷稀缺，常高于原价。下单前请以店家当日报价为准。</p><div class="price-config"><div class="price-cell"><span class="price-label">全新 New</span><div class="price-fmtlist">${priceLines(f.price_new)}</div></div><div class="price-cell"><span class="price-label">二手 Used</span><div class="price-fmtlist">${priceLines(f.price_used)}</div></div></div></div>
+    ${realPriceBlock(f)}
+    <div class="spec-block"><h2>参考价格（档位估算）· Estimated</h2><p class="price-hint">以下为<b>国内档位估算区间</b>（非实时市价、未标注采集日期），仅供横向比较；若上方有「海外实价」，以那一栏为准。二手价按全新档位推算（约全新价的 85%–100%）；停产卷稀缺，常高于原价。下单前请以店家当日报价为准。</p><div class="price-config"><div class="price-cell"><span class="price-label">全新 New</span><div class="price-fmtlist">${priceLines(f.price_new)}</div></div><div class="price-cell"><span class="price-label">二手 Used</span><div class="price-fmtlist">${priceLines(f.price_used)}</div></div></div></div>
     ${f.samples && f.samples.length ? `<div class="spec-block"><h2>实拍样片</h2><div class="sample-grid">${samples}</div>${credit}</div>` : ''}
 
     <div class="spec-block"><h2>分享 / 下载</h2><div class="share-actions"><button class="share-btn" onclick="filmShare('copy')">复制链接</button><button class="share-btn" onclick="filmShare('native')">分享好友</button><button class="share-btn share-btn-primary" onclick="filmShare('poster')">下载卡片</button></div></div>

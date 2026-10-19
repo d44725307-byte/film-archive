@@ -479,3 +479,23 @@ html, body {
   .article-table { font-size: 14px; }
   .article-table th, .article-table td { padding: 9px 11px; }
 }
+
+/* 海外实价（可查证）：2026-10-19 新增 */
+.rp-asof { font-size: 11px; font-weight: 400; color: var(--text-dim); letter-spacing: 0.5px; margin-left: 6px; }
+.rp-wrap { margin: 0 0 10px; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--line); border-radius: 10px; }
+.rp-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 420px; }
+.rp-table th, .rp-table td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.rp-table thead th { background: var(--paper, #F5F1E8); color: var(--text-dim); font-weight: 600; font-size: 11.5px; letter-spacing: 0.5px; }
+.rp-table tbody tr:last-child td { border-bottom: none; }
+.rp-cny { font-weight: 700; color: var(--text); font-family: 'Noto Serif SC', 'Songti SC', serif; }
+.rp-dim { color: var(--text-dim); font-size: 11.5px; }
+.rp-table a { color: var(--accent-strong, #8A640D); text-decoration: underline; text-underline-offset: 2px; }
+
+/* 实价表在窄屏必须让「来源」能换行，否则会被裁掉（390px 实测发现） */
+@media (max-width: 480px) {
+  .rp-table { min-width: 0; font-size: 12px; }
+  .rp-table th, .rp-table td { padding: 7px 7px; white-space: normal; word-break: break-word; }
+  .rp-table td:first-child, .rp-cny { white-space: nowrap; }
+  .rp-table a { font-size: 11.5px; }
+  .rp-table thead th { white-space: nowrap; letter-spacing: 0; }
+}
