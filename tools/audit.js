@@ -148,6 +148,15 @@ if (noCredit.length) {
   add('WARN', 'data/films.json', `${noCredit.length} 张样片无署名（涉及 ${filmsHit.length} 卷：${filmsHit.join(', ')}）→ 卷页会整卷无署名，见 disclaimer「图像与版权」`);
 }
 
+// ⑮ 价格口径声明（口径见 disclaimer「参数与价格」）
+//    卷页与排行页必须写明「档位估算 / 未标注采集日期」——否则价格会被读成实采市价
+//    这条是 2026-10-19 立的规矩：核出「二手价 74/74 条 = 新价下限×0.85（纯推算）」后补的
+const PRICE_PAGES = pages.filter((p) => /^film\/[^/]+\.html$/.test(p) || p === 'rank.html' || /^rank\/[^/]+\.html$/.test(p));
+for (const p of PRICE_PAGES) {
+  const s = fs.readFileSync(p, 'utf8');
+  if (!/档位估算/.test(s)) add('ERROR', p, '价格区缺少「档位估算 / 非实时市价」声明（见 disclaimer「参数与价格」）');
+}
+
 const errs = issues.filter((i) => i.sev === 'ERROR');
 const warns = issues.filter((i) => i.sev === 'WARN');
 console.log(`扫描 ${pages.length} 个页面`);

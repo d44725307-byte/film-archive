@@ -49,7 +49,7 @@ const PRESETS = [
     h1: '最便宜的黑白胶卷',
     desc: `按 135 规格全新价排序：最便宜的一卷约 ¥${byP135[0].price_num.new['135'].mid}，前 5 卷都在 ¥${cheapMax} 以内。`,
     query: '#sort=price&max=60&st=1',
-    note: `本站 ${inProd.length} 卷在产卷里，135 规格全新价中位数约 ¥${statMedian(inProd)}，最低 ¥${byP135[0].price_num.new['135'].mid}。价格为参考价，随市场波动。`,
+    note: `本站 ${inProd.length} 卷在产卷里，135 规格全新价中位数约 ¥${statMedian(inProd)}，最低 ¥${byP135[0].price_num.new['135'].mid}。`,
   },
   {
     slug: 'iso400',
@@ -124,6 +124,7 @@ ${FONTS}
     <h1 class="page-title" style="font-size:30px">${esc(h1 || '排行 / 对比')}</h1>
     <p class="lead" style="font-size:16px;font-weight:400">${esc(desc)}</p>
     ${note ? `<p class="rank-note">${esc(note)}</p>` : ''}
+    <p class="rank-note rank-note-price">榜单价格为<b>档位估算</b>（135 规格 · 全新 · 中位价），非实时市价，也未标注采集日期 —— 仅供横向比较与排序；下单前请以店家当日报价为准。</p>
 
     <div class="rank-presets">
       <span class="rank-presets-label">常用排行：</span>
@@ -192,7 +193,7 @@ fs.writeFileSync('rank.html', pageHTML({
   h1: '排行 / 对比',
   desc: `把本站收录的 ${films.length} 卷黑白胶卷放在一张表里：可按规格、ISO、是否在产、价格筛选与排序，一眼比较。`,
   query: '',
-  note: '价格是本站整理的参考价（135 规格、全新、中位价），随市场波动，仅供比较用。',
+  note: '同一张表里按价格、ISO、规格筛选与排序；筛好的结果可直接分享链接。',
   canonical: BASE + '/rank',
   presetList: PRESETS,
 }));

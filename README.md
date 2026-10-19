@@ -56,6 +56,7 @@ node tools/parse-prices.js    # 价格字符串 → 数值（供筛选排序）
 node tools/bust-assets.js     # 给 JS/CSS 引用打内容哈希版本号（防缓存发不出改动）
 node tools/audit.js           # 全站体检（空 href / 模板残留 / canonical / 重复 id / h1 唯一…）
 node tools/check-links.js     # 断链检查（本地或线上）
+node tools/m390.js [url] [png] # 390px 移动端实测：量 scrollWidth + 逐屏滚动查坏图 + 截图
 python3 tools/preview-server.py 8091 .   # 本地预览（支持无扩展名路径，与线上一致）
 ```
 
@@ -66,6 +67,7 @@ python3 tools/preview-server.py 8091 .   # 本地预览（支持无扩展名路�
 - **链接规范**：站内链接统一为「无扩展名」（`/film/xxx`），与 canonical、sitemap 一致
 - **资源版本号**：JS/CSS 引用带内容哈希，避免 CDN 缓存导致改动发不出去
 - **可访问性/SEO**：每页唯一 h1、图片 alt、结构化数据（Product + Review + BreadcrumbList）、OG、sitemap
+- **价格口径（2026-10-19 定）**：`films.json` 的价格是**按行业档位整理的估算区间**，不是实采市价；**二手价按全新档位推算（约 85%–100%）**，并非逐条采集；且**没有采集日期字段**。因此卷页与排行页必须带「档位估算 / 非实时市价」声明，`audit.js` 第 ⑮ 条会强制校验（缺失即报错）。要升级成实价，需加 `price_source` + `price_date` 字段并逐条实采。
 
 ## 数据纪律
 

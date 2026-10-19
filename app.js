@@ -271,7 +271,7 @@ const PLACEHOLDER = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAAL
       <div class="spec-block"><h4>适用场景 · Best for</h4><div class="card-scenes">${scenesChips(f) || '待补充'}</div></div>
       <div class="spec-block">
         <h4>参考价格 · Price</h4>
-        <p class="price-hint">二手多为未开封 / 临期或分装卷，行情与全新接近（约全新价 85%–100%）；停产卷稀缺，常高于原价 · 均随市场波动，仅供参考</p>
+        <p class="price-hint">价格为<b>档位估算区间</b>，非实时市价，且未标注采集日期 —— 仅供横向比较。二手价按全新档位推算（约全新价的 85%–100%）；停产卷稀缺，常高于原价。下单前请以店家当日报价为准。</p>
         <div class="price-config">
           <div class="price-cell">
             <span class="price-label">全新 New</span>
