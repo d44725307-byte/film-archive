@@ -1,6 +1,6 @@
 {
   "version": "0.1.0",
-  "updated": "2026-09-16",
+  "updated": "2026-10-28",
   "category": "黑白胶卷",
   "note": "参数为可公开核实的规格；特性/场景为初稿，需作者校订；价格为2026年国内(135/120单卷)参考区间，仅供参考、待作者核准。",
   "films": [
@@ -668,7 +668,7 @@
       ],
       "category": "traditional",
       "type": "panchromatic",
-      "grain": "medium",
+      "grain": "fine",
       "status": "in-production",
       "character": "经典中速卷，细腻温和、反差适中、灰阶含蓄，风光和人像都透着一股优雅。",
       "scenes": [
@@ -965,7 +965,7 @@
       ],
       "category": "chromogenic",
       "type": "chromogenic",
-      "grain": "medium",
+      "grain": "fine",
       "status": "in-production",
       "character": "用 C41 彩色工艺冲洗的黑白卷，宽容度巨大、可大胆过/欠曝，扫描/冲印极方便，旅行口粮首选。",
       "scenes": [
@@ -1142,7 +1142,7 @@
       ],
       "category": "traditional",
       "type": "panchromatic",
-      "grain": "medium",
+      "grain": "fine",
       "status": "in-production",
       "character": "伊尔福旗下亲民系列，性价比高、颗粒中性、反差稳定，日常练手/粗用/大量拍摄的好选择。",
       "scenes": [
@@ -1260,7 +1260,7 @@
       ],
       "category": "traditional",
       "type": "panchromatic",
-      "grain": "medium",
+      "grain": "fine",
       "status": "in-production",
       "character": "捷克老牌，复古‘经典’调、颗粒略粗但很有味道，高性价比，怀旧派最爱。",
       "scenes": [
@@ -2001,7 +2001,7 @@
       ],
       "category": "cinema",
       "type": "panchromatic",
-      "grain": "medium",
+      "grain": "fine",
       "status": "in-production",
       "character": "东德经典电影底片，灰色阶电影感、颗粒细腻，老胶片味十足，人像/街头有味道。",
       "scenes": [
@@ -2198,7 +2198,7 @@
       ],
       "category": "traditional",
       "type": "panchromatic",
-      "grain": "medium",
+      "grain": "fine",
       "status": "in-production",
       "character": "复古黑白卷，影调柔和、颗粒细腻，适合慢拍人像/静物的温和质感。",
       "scenes": [
@@ -2336,7 +2336,7 @@
       ],
       "category": "cinema",
       "type": "panchromatic",
-      "grain": "medium",
+      "grain": "fine",
       "status": "in-production",
       "character": "德国电影底片，灰阶丰富、反差优雅，老电影质感，人像/街头有味道。",
       "scenes": [

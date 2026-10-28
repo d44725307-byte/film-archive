@@ -192,6 +192,34 @@ try {
   if (e.code !== 'ENOENT') add('ERROR', 'data/prices-real.json', '读取失败：' + e.message);
 }
 
+// ⑰ 颗粒口径（口径见 disclaimer「参数与价格」的「颗粒的分档依据」）
+//    2026-10-28 审计立的规矩。审计前的病灶是：grain 实际是 category（乳剂代际）的投影，
+//    于是出现「T-Max 400 标细、Fomapan 100 标中等」＝ 400 度比 100 度细的自相矛盾；
+//    同时 25/39（64%）挤在 medium，等于筛选没筛。
+//    改按「绝对颗粒」排序后，用下面几条机械校验把口径锁住，否则下次录入又会滑回按代际排。
+const GRAIN_OK = new Set(['ultra-fine', 'fine', 'medium', 'coarse']);
+{
+  const cnt = {};
+  for (const f of films) {
+    const g = f.grain;
+    cnt[g] = (cnt[g] || 0) + 1;
+    if (!GRAIN_OK.has(g)) {
+      add('ERROR', 'data/films.json', `${f.id} 的 grain 是非法值「${g}」（只允许 ultra-fine / fine / medium / coarse）`);
+      continue;
+    }
+    if (g === 'ultra-fine' && f.iso > 100) add('ERROR', 'data/films.json', `${f.id} 标 ultra-fine 但 ISO ${f.iso} > 100（超微粒只给专用超细乳剂）`);
+    if (g === 'fine' && f.iso > 400) add('ERROR', 'data/films.json', `${f.id} 标 fine 但 ISO ${f.iso} > 400（口径：fine 只给扁平颗粒 / ISO 50-80 / 传统细乳剂）`);
+    if (g === 'medium' && f.iso <= 50) add('ERROR', 'data/films.json', `${f.id} 标 medium 但 ISO ${f.iso} ≤ 50（低速卷不该是中等颗粒）`);
+  }
+  // 分布健康度：任何一档超过 60% 就说明又塌陷了（本轮把 medium 从 64% 修到 46%）
+  for (const [g, n] of Object.entries(cnt)) {
+    if (n > 5 && n / films.length > 0.6) {
+      add('WARN', 'data/films.json', `grain「${g}」占 ${Math.round((n / films.length) * 100)}%（${n}/${films.length}）→ 该档筛选区分度低，考虑重新分配`);
+    }
+  }
+  console.log(`颗粒分布：${Object.entries(cnt).map(([k, v]) => `${k} ${v}`).join(' / ')}`);
+}
+
 const errs = issues.filter((i) => i.sev === 'ERROR');
 const warns = issues.filter((i) => i.sev === 'WARN');
 console.log(`扫描 ${pages.length} 个页面`);
