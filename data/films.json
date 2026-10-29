@@ -1,6 +1,6 @@
 {
   "version": "0.1.0",
-  "updated": "2026-10-28",
+  "updated": "2026-10-29",
   "category": "黑白胶卷",
   "note": "参数为可公开核实的规格；特性/场景为初稿，需作者校订；价格为2026年国内(135/120单卷)参考区间，仅供参考、待作者核准。",
   "films": [
@@ -652,7 +652,29 @@
             "mid": 75
           }
         }
-      }
+      },
+      "samples": [
+        {
+          "src": "samples/photos/hp5-plus-1.jpg",
+          "credit": "© Steven Tryon · HP5 Plus"
+        },
+        {
+          "src": "samples/photos/hp5-plus-2.jpg",
+          "credit": "© Tony Jones · HP5 Plus"
+        },
+        {
+          "src": "samples/photos/hp5-plus-3.jpg",
+          "credit": "© Victor Gnedovets · HP5 Plus"
+        },
+        {
+          "src": "samples/photos/hp5-plus-4.jpg",
+          "credit": "© juliusfrumble · HP5 Plus"
+        },
+        {
+          "src": "samples/photos/hp5-plus-5.jpg",
+          "credit": "© 動物霊 · HP5 Plus"
+        }
+      ]
     },
     {
       "id": "ilford-fp4-plus",
