@@ -4,6 +4,15 @@
   "updated": "2026-09-06",
   "items": [
     {
+      "id": "j-xiangji-weixiu-tingzhi",
+      "type": "news",
+      "title": "修了 15 年的胶片相机师傅不接了：你手上那台坏机器，只剩 3 条路",
+      "excerpt": "上过 BBC《The Repair Shop》的维修师 Pierro Pozella 在 10 月 28 日正式宣布：PPP Cameras 不再接客户送修。他修了 15 年，几个月前就悄悄停了。他没让人无路可走——官方公告里留了一份替代方案。",
+      "date": "2026-11-06",
+      "link": "journal/xiangji-weixiu-tingzhi",
+      "media": "samples/photos/retro-80s-3.jpg"
+    },
+    {
       "id": "j-bange-xiangji-72zhang-chengben",
       "type": "article",
       "title": "付一卷的钱拍 72 张：半格把胶卷成本砍一半，但 39 卷里只有 20 卷颗粒撑得住",
